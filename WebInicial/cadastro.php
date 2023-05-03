@@ -1,3 +1,7 @@
+<?php
+session_start();
+include_once('conexao.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -12,31 +16,32 @@
 <body>
     <div class="caixa__login">
         <h2>Cadastro</h2>
-        <form>
+        <form action="validar_cad_usu.php" method="post">
             <div class="caixa__login-input">
-                <input type="text" required />
+                <input type="text" name="txtnome" required />
                 <label>Nome</label>
             </div>
             <div class="caixa__login-input">
-                <input type="text" required />
+                <input type="text" name="txtsobrenome" required />
                 <label>Sobrenome</label>
             </div>
             <div class="caixa__login-input">
-                <input type="text" required />
+                <input type="text" name="txtemail" required />
                 <label>E-mail</label>
             </div>
             <div class="caixa__login-input">
-                <input type="password" required />
+                <input type="password" name="txtsenha" required />
                 <label>Senha</label>
                 
             </div>
             <div class="caixa__login-input">
-                <input type="password" required />
+                <input type="password" name="txtsenha2" required />
                 <label>Confirmar Senha</label>
                 
             </div>
             
-            <a class="cadastrar" href="login.html">Cadastrar</a>
+            <input class="acessar" type="submit" value="Acessar">
+            <!-- <a class="acessar" href="home.php">Acessar</a>-->
         </form>
     </div>
     
