@@ -16,7 +16,7 @@ include_once('conexao.php');
 <body>
     <div class="caixa__login">
         <h2>Cadastro</h2>
-        <form action="validar_cad_usu.php" method="post">
+        <form action="validar_cadastro.php" method="post">
             <div class="caixa__login-input">
                 <input type="text" name="txtnome" required />
                 <label>Nome</label>
