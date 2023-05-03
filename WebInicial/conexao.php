@@ -1,8 +1,14 @@
 <?php
-try {
-   $conexao = new PDO("mysql:host=localhost;dbname=mei", "root", "");
-   $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   $conexao->exec("set names utf8");
-} catch (PDOException $erro) {
-   echo "erro na conexão: " . $erro->getMessage();
+function novaConexao(){
+    $dns = 'mysql:host=localhost;dbname=jobsearch';
+    $usuario = 'root';
+    $senha = '';
+    try{
+        $conexao = new PDO($dns,$usuario,$senha);
+        return $conexao;
+    }
+    catch(PDOException $e){
+        echo 'Erro: ' . $e->getMessage();
+    }
 }
+?>
