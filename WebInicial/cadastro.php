@@ -35,7 +35,7 @@ include_once('conexao.php');
             </div>
             <div class="caixa__login-input">
                 <input type="text" name="txtlogradouro" required />
-                <label>LOgradouro</label>
+                <label>Logradouro</label>
             </div>
             <div class="caixa__login-input">
                 <input type="number_format" name="numero" required />
@@ -60,6 +60,10 @@ include_once('conexao.php');
             <div class="caixa__login-input">
                 <input type="text" name="txtemail" required />
                 <label>E-mail</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="text" name="txttelefone" required />
+                <label>Telefone</label>
             </div>
             <div class="caixa__login-input">
                 <input type="password" name="txtsenha" required />
