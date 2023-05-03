@@ -26,6 +26,38 @@ include_once('conexao.php');
                 <label>Sobrenome</label>
             </div>
             <div class="caixa__login-input">
+                <input type="text" name="txtcpf" required />
+                <label>CPF</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="date" name="datanas" required />
+                <label>Data de nascimento</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="text" name="txtlogradouro" required />
+                <label>LOgradouro</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="number_format" name="numero" required />
+                <label>Numero</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="text" name="txtcomplemento" required />
+                <label>complemento</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="text" name="txtbairro" required />
+                <label>Bairro</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="text" name="txtcidade" required />
+                <label>Cidade</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="text" name="txtestado" required />
+                <label>Estado</label>
+            </div>
+            <div class="caixa__login-input">
                 <input type="text" name="txtemail" required />
                 <label>E-mail</label>
             </div>
