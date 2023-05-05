@@ -27,7 +27,7 @@
             
         </form>
       <a class="recupera" href="recuperarsenha.html">esqueceu a senha?</a>
-      <p>Não possui uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+      <p>Não possui uma conta? <a href="cadastro.php">Cadastre-se</a></p>
     </div>
     
 </body>
