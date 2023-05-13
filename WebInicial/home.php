@@ -13,7 +13,7 @@ if(!isset($_SESSION['login'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Estilos/estilopadrao.css">
-    <link rel="stylesheet" href="./Estilos/estiloH.css">
+    <link rel="stylesheet" href="./Estilos/estilo3_h.css">
     <title>JobSearch</title>
 </head>
 <body>
@@ -26,6 +26,70 @@ if(!isset($_SESSION['login'])){
     <main>
         <h2>Postagens</h2>
         <div class="quadro">
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lore ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
+            <div class="postagem">
+                <h1>Emprego</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+            </div>
             <div class="postagem">
                 <h1>Emprego</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
@@ -45,7 +109,7 @@ if(!isset($_SESSION['login'])){
         </div>
     </main>
     <footer>
-
+        <h1>Feito pelo LINDO kayky e o saco de vacilo chamdo Ramyres</h1>
     </footer>
 </body>
 </html>

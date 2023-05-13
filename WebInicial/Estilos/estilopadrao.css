@@ -26,3 +26,11 @@ body {
   background: var(--cor2) ;
   background-attachment: fixed;
 }
+footer{
+  margin: 0px;
+  padding: 0px ;
+  background-color: var(--cor3);
+  border-radius: 10px 0px 0px 0px ;
+  text-align: center;
+  color: white;
+}
