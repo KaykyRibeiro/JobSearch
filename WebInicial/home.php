@@ -18,10 +18,11 @@ if(!isset($_SESSION['login'])){
 </head>
 <body>
 <nav>
-        <a href="">Home</a>
-        <a href="">Notificação</a>
-        <a href="">teste</a>
-        <a href="">teste</a>
+        <a class="select" href="chat.php"><img class="icon" src="./imagens/chat.png" alt=""/></a>
+        <a class="selecionado" href=""><img class="icon" src="./imagens/home_azul.png" alt=""></a>
+        <button id="notificacao" class="select">
+            <img class="icon" src="./imagens/sino.png" alt="">
+        </button>
     </nav>
     <main>
         <h2>Postagens</h2>
@@ -111,5 +112,7 @@ if(!isset($_SESSION['login'])){
     <footer>
         <h1>Feito pelo LINDO kayky e o saco de vacilo chamdo Ramyres</h1>
     </footer>
+
+    <script src="./JS/jspadrao.js"></script>
 </body>
 </html>

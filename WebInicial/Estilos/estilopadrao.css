@@ -26,6 +26,39 @@ body {
   background: var(--cor2) ;
   background-attachment: fixed;
 }
+nav{
+  margin: 0px;
+  padding: 30px 0px 5px 0px ;
+  background-color: var(--cor3);
+  border-radius: 0px 0px 10px 10px ;
+  text-align: center;
+}
+nav > a{
+  padding: 1px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  color: var(--cor4);
+
+}
+.select:hover{
+  color: var(--cor6);
+  box-shadow: 0px 1px 0px 0px var(--cor6);
+}
+.selecionado{
+  box-shadow: 0px 1px 0px 0px var(--cor4);
+}
+.icon{
+  width: 30px;
+  height: 30px;
+}
+button{
+  margin-left: 20px;
+  margin-right: 20px;
+  background: none;
+    border: none;
+    cursor: pointer;
+}
 footer{
   margin: 0px;
   padding: 0px ;
