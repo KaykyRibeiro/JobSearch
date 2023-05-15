@@ -2,12 +2,16 @@
 session_start();
 include_once('conexao.php');
 
-if(!isset($_SESSION['login'])){
+if (!isset($_SESSION['login'])) {
     header("location: login.php");
-  }
+}
+
+$anuncio = "SELECT * FROM vagas WHERE vag_id = 1";
+$post = $mysqli->query($anuncio);
 ?>
 <!DOCTYPE html>
 <html lang="pt-bt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,103 +20,44 @@ if(!isset($_SESSION['login'])){
     <link rel="stylesheet" href="./Estilos/estilo3_h.css">
     <title>JobSearch</title>
 </head>
+
 <body>
-<nav>
-        <a class="select" href="chat.php"><img class="icon" src="./imagens/chat.png" alt=""/></a>
+    <nav>
+
         <a class="selecionado" href=""><img class="icon" src="./imagens/home_azul.png" alt=""></a>
+        <a class="select" href="chat.php"><img class="icon" src="./imagens/chat.png" alt="" /></a>
         <button id="notificacao" class="select">
             <img class="icon" src="./imagens/sino.png" alt="">
         </button>
+        <a class="select" href=""><img class="icon" src="./imagens/perfil.png" alt=""></a>
+        <a class="select" id="config" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
     </nav>
     <main>
         <h2>Postagens</h2>
         <div class="quadro">
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lore ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
+            <?php
+            while ($row_produto2 = mysqli_fetch_assoc($resultado_produto2)) {
+                $_SESSION['livroId'] = $row_produto2['livId'];
+            ?>
+                <a href="livros.php?id=<?php echo $row_produto2['livId']; ?>">
+                    <div class="postagem">
+
+                        <img src="<?php echo $row_produto2['livImg'] ?>" class="card-img-top" alt="...">
+
+                        <h1>
+                            <?php echo $row_produto2['livTitulo'] ?>
+                        </h1>
+                        <p>
+                            <?php echo $row_produto2['vagdescricao'] ?>
+                        </p>
+                    <?php }
+                    ?>
+                    </div>
+                </a>
         </div>
     </main>
-    <footer>
-        <h1>Feito pelo LINDO kayky e o saco de vacilo chamdo Ramyres</h1>
-    </footer>
 
     <script src="./JS/jspadrao.js"></script>
 </body>
+
 </html>
