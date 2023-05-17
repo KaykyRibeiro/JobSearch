@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo3_h.css">
-    <link rel="stylesheet" href="./estilos/estilopadrao.css">
+    <link rel="stylesheet" href="./Estilos/estilo3_h.css">
+    <link rel="stylesheet" href="./Estilos/estilopadrao.css">
 
 
     <title>JobSearch</title>
@@ -56,7 +56,7 @@
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
             </div>
         </div>
-        <input type="button" value="Recaregar pagina" onclick="recaregar()">
+        <!-- <input type="button" value="Recaregar pagina" onclick="recaregar()"> -->
     </main>
 
     <script src="./js/jspadrao.js"></script>
