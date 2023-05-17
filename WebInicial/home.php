@@ -24,6 +24,11 @@
         <a class="select" href=""><img class="icon" src="./imagens/perfil.png" alt=""></a>
         <a class="select" id="config" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
     </nav>
+    <header>
+        <div class="notif">
+
+        </div>
+    </header>
     <main>
         <h2>Postagens</h2>
         <div class="quadro">
@@ -52,9 +57,63 @@
                     </div>
                 </a>-->
                 <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div><div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div><div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div><div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div><div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
+                <div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div><div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div><div class="postagem">
+                    <h1>Emprego</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
+                </div>
         </div>
         <!-- <input type="button" value="Recaregar pagina" onclick="recaregar()"> -->
     </main>
