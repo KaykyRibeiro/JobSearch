@@ -18,13 +18,16 @@
     <a class="select" id="logo" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
         <a class="selecionado" href=""><img class="icon" src="./imagens/home_azul.png" alt=""></a>
         <a class="select" href="chat.php"><img class="icon" src="./imagens/chat.png" alt="" /></a>
+        <div class="alert">
         <button id="notificacao" class="select">
             <img class="icon" src="./imagens/sino.png" alt="">
         </button>
+        </div>
         <a class="select" href=""><img class="icon" src="./imagens/perfil.png" alt=""></a>
         <a class="select" id="config" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
     </nav>
     <main>
+
         <h2>Postagens</h2>
         <div class="quadro">
             <!--<?php

@@ -1,7 +1,19 @@
 var notif = window.document.getElementById('notificacao')
-    notif.addEventListener('click', clicar)
+    
+const msg = "teste de alerta !!!"
+const divMessage = document.querySelector(".alert")
+notif = document.querySelector("button")
 
 
-function clicar(){
-    window.alert('click')
+function clicar(msg){
+    const message = document.createElement("div")
+    message.classList.add("message")
+    message.innerText = msg
+    divMessage.appendChild(message)
 }
+
+
+
+notif.addEventListener('click', ()=>{
+    clicar(msg)
+})
