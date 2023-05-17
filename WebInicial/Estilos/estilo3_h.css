@@ -2,19 +2,21 @@
     --cor0: #000000;
     --cor1: #1a1a1ae5;
     --cor2: #1a1a1aee;
-    --cor3: #00000062;
+    --cor3: #000000bc;
     --cor4: #4938ffd7;
     --cor5: #8b80f9;
     --cor6: #fff;
     --cor7: #f5eeee4d;
+    --cor8: #8a80f91c;
   }
 main{
     height: 100%;
-    width: 70%;
-    margin-top: 5%;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 5%; 
+    width: 75%;
+    margin-top: 1%;
+    margin-left: 20%;
+    margin-right: 0%;
+    margin-bottom: 1%; 
+    color: var(--cor6);
 }
 main > h2{
     padding: 5px;
@@ -24,29 +26,40 @@ main > h2{
 }
 main > .quadro{
     padding: 10px;
+    margin-left: 100px;
     border-radius: 3px;
-    background-color: var(--cor6);
+    background-color: var(--cor1);
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
-    box-shadow:  0px 0px 13px 5px var(--cor3);
+    box-shadow:  0px 0px 10px 0.4px var(--cor8);
 }
 .postagem{
     padding: 5px;
-    width: 250px;
+    width: 300px;
     height: 150px;
     margin-left: 10px;
     margin-right: 10px;
-    background-color: var(--cor7);
+    background-color: var(--cor2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0px 0px 10px 1px var(--cor3) ;
+    box-shadow: 0px 0.5px 0px 0px var(--cor4);
 }
 .postagem p{
     max-height: 70px;
     overflow-y: hidden;
     font-size: 14px;
     padding-right: 10px;
+}
+@media screen and(max_width: 660px) {
+  main > h2{
+    text-align: end;
+  }
+  main{
+    width: 75%;
+    margin-left: 20%;
+    margin-right: 0%;
+  }
 }
