@@ -14,23 +14,19 @@
 </head>
 
 <body>
-    <nav>
+<nav>
     <a class="select" id="logo" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
-        <a class="selecionado" href=""><img class="icon" src="./imagens/home_azul.png" alt=""></a>
+        <a class="selecionado" id="home" href=""><img class="imgHome" src="./imagens/home_azul.png" alt=""></a>
         <a class="select" href="chat.php"><img class="icon" src="./imagens/chat.png" alt="" /></a>
         <div class="alert">
         <button id="notificacao" class="select">
-            <img class="icon" src="./imagens/sino.png" alt="">
+            <img class="icon-notif" src="./imagens/sino.png" alt="">
         </button>
         </div>
         <a class="select" href=""><img class="icon" src="./imagens/perfil.png" alt=""></a>
         <a class="select" id="config" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
     </nav>
-    <header>
-        <div class="notif">
-
-        </div>
-    </header>
+    
     <main>
 
         <h2>Postagens</h2>

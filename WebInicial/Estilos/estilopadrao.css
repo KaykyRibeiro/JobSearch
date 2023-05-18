@@ -57,6 +57,14 @@ nav > button{
   width: 30px;
   height: 30px;
 }
+.icon-notif{
+  width: 30px;
+  height: 30px;
+}
+.imgHome{
+  width: 30px;
+  height: 30px;
+}
 #logo{
   position: fixed;
   top: 10px;
