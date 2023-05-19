@@ -72,8 +72,8 @@ main > .quadro{
   width: 400px;
   top: 0%;
   left: 0%;
-  background-color: chocolate;
-  border-radius: 3px;
+  background-color: var(--cor2);
+  box-shadow: 1px 0px 0px 0px var(--cor4);
   color: #fff;
   animation: slidein 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -104,7 +104,7 @@ main > .quadro{
     opacity: 0;
   }
   100%{
-    transform: translateX(19%);
+    transform: translateX(18%);
     opacity: 1;
   }
 }

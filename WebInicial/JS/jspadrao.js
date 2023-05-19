@@ -1,6 +1,6 @@
 var notif = window.document.getElementById('notificacao')
 var imgNotificacao = document.querySelector(".icon-notif")
-const header = document.querySelector("header")
+
 
 var home = document.getElementById('home')
 var imgHome = document.querySelector(".imgHome")

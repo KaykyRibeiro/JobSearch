@@ -58,7 +58,6 @@ include_once('conexao.php');
 
                 <div class="caixa__login-input">
                     <input  type="date" name="datanas" required />
-                    <label>Data de nascimento</label>
                 </div>
 
                 <div class="caixa__login-input">
