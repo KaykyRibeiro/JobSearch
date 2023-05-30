@@ -179,7 +179,7 @@ a{
     top: 100px;
     right: 30px;
     position: absolute;
-    background-image: url("imagens/banner_lupa.png");
+    background-image: url("../imagens/banner_lupa.png");
     background-repeat: no-repeat;
     background-size: cover; 
 }
