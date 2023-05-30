@@ -64,7 +64,7 @@ a{
 }
 
 .cadastro {
-    margin-right: 10px;
+    margin-left: 10px;
     padding: 5px;
     color: #8b80f9;
     text-decoration: none;
@@ -85,7 +85,7 @@ a{
     box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9,0 0 100px #8b80f9;
   }
   .cadativo{
-    margin-right: 5px;
+    margin-left: 5px;
     padding: 5px;
     color: #fff;
     text-decoration: none;
@@ -100,12 +100,12 @@ a{
 .escolhas{
     margin-top: 1px;
     padding: 10px;
-    margin-left: 50%;
+    margin-right: 40%;
     display: flex;
     gap: 10px;
-    justify-content: end;
+    justify-content: left;
     width: auto;
-    
+    height: 30px;
 }
 .escolha {
     margin-right: 5px;
@@ -120,7 +120,7 @@ a{
     background: #1a1a1aee;
     box-shadow:  0px 0px 13px 1px #00000062;
     width: auto;
-    animation: time 3s forwards;
+    animation: time 1s forwards;
   }
   .escolha:hover {
     background: #8b80f9;
@@ -130,7 +130,7 @@ a{
   }
 @keyframes time{
     0%{
-        width: 0%;
+        width: 0px;
     }
     100%{
       width: 150px;
@@ -149,14 +149,14 @@ a{
   }
 .header{
     margin-top: 1px;
-    background-image: url(./imagens/banner_transparente2.png);
+    background-image: url();
     background-repeat: no-repeat;
     background-size: cover; 
-    text-align: end;
-    height: 100%;
+    text-align: left;
+    height: auto;
     width: 100%;
     
-    padding-bottom: 20%;
+    padding-bottom: 2%;
 }
 .header > h1{
     text-transform: uppercase;
@@ -164,14 +164,24 @@ a{
     color: var(--cor6);
     font-size: 38px;
     margin-top: 10%;
-    margin-left: 50%;
-    margin-right: 10px;
+    margin-left: 10px;
+    margin-right: 50%;
     border-radius: 10px;
 }
 .header > p{
-    margin-right: 10px;
-    margin-left: 50%;
+    margin-right: 50%;
+    margin-left: 10px;
     border-radius: 10px;
+}
+.banner{
+    width: 200px;
+    height: 200px;
+    top: 100px;
+    right: 30px;
+    position: absolute;
+    background-image: url("imagens/banner_lupa.png");
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
 .site_sobre{
     background-color: #00000056;
