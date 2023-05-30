@@ -38,8 +38,15 @@ nav{
     position: fixed;
     top: 0;
 }
-a{
+.logo{
+    width: 90px;
+    height: 74px;
+    top: 10px;
+    left: 20px;
+    position: absolute;
     
+}
+a{
     text-decoration: none;
     color: var(--cor6);
 }
@@ -148,7 +155,7 @@ a{
     }
   }
 .header{
-    margin-top: 1px;
+    margin-top: 40px;
     background-image: url();
     background-repeat: no-repeat;
     background-size: cover; 
@@ -163,7 +170,7 @@ a{
     overflow: hidden;
     color: var(--cor6);
     font-size: 38px;
-    margin-top: 10%;
+    margin-top: 150px;
     margin-left: 10px;
     margin-right: 50%;
     border-radius: 10px;
@@ -176,8 +183,8 @@ a{
 .banner{
     width: 200px;
     height: 200px;
-    top: 100px;
-    right: 30px;
+    top: 150px;
+    right: 40px;
     position: absolute;
     background-image: url("../imagens/banner_lupa.png");
     background-repeat: no-repeat;

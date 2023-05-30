@@ -9,7 +9,7 @@ function escolha(){
         div.innerHTML = ''
     }else{
         div.innerHTML += `<input class="escolha" type="button" value="EMPRESA">`
-        div.innerHTML += `<input class="escolha" type="button" value="EMPRESA">`
+        div.innerHTML += `<input class="escolha" type="button" value="CANDIDATO">`
         cadativo.classList.remove("cadastro")
         cadativo.classList.add("cadativo")
     }
