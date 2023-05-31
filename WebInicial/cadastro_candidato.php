@@ -17,7 +17,7 @@ include_once('conexao.php');
 <body>
     <div class="caixa__cadastro">
         <h2>Cadastro Candidato</h2>
-        <form action="validar_cadastro.php" method="post">
+        <form action="validar_cadastroEmpresa.php" method="post">
             <div class="caixa_cadastro_coluna1">
                 <div class="caixa__login-input">
                     <input type="text" name="txtnome" required />
@@ -25,7 +25,7 @@ include_once('conexao.php');
                 </div>
                 <div class="caixa__login-input">
                     <input type="text" name="txtcpf" required />
-                    <label>CPF</label>
+                    <label>CNPJ</label>
                 </div>
                 <div class="caixa__login-input">
                     <input type="text" name="txtlogradouro" required />
@@ -54,10 +54,6 @@ include_once('conexao.php');
                 <div class="caixa__login-input">
                     <input type="text" name="txtsobrenome" required />
                     <label>Sobrenome</label>
-                </div>
-
-                <div class="caixa__login-input">
-                    <input  type="date" name="datanas" required />
                 </div>
 
                 <div class="caixa__login-input">
