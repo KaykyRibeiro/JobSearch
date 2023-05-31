@@ -4,6 +4,7 @@ include_once('conexao.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,21 +12,21 @@ include_once('conexao.php');
     <title>Cadastro</title>
     <link rel="stylesheet" href="./Estilos/estilos.css">
     <link rel="stylesheet" href="./Estilos/estilo2.css">
-    
+
 </head>
 
 <body>
     <div class="caixa__cadastro">
-        <h2>Cadastro</h2>
+        <h2>Cadastro Empresa</h2>
         <form action="validar_cadastro.php" method="post">
             <div class="caixa_cadastro_coluna1">
                 <div class="caixa__login-input">
                     <input type="text" name="txtnome" required />
-                    <label>Nome</label>
+                    <label>Nome Empresa</label>
                 </div>
                 <div class="caixa__login-input">
                     <input type="text" name="txtcpf" required />
-                    <label>CPF</label>
+                    <label>CNPJ</label>
                 </div>
                 <div class="caixa__login-input">
                     <input type="text" name="txtlogradouro" required />
@@ -41,7 +42,7 @@ include_once('conexao.php');
                 </div>
                 <div class="caixa__login-input">
                     <input type="email" name="txtemail" required />
-                    <label>E-mail</label>
+                    <label>E-mail de contato</label>
                 </div>
                 <div class="caixa__login-input">
                     <input type="password" name="txtsenha" required />
@@ -49,7 +50,7 @@ include_once('conexao.php');
 
                 </div>
             </div>
-                
+
             <div class="caixa_cadastro_coluna2">
                 <div class="caixa__login-input">
                     <input type="text" name="txtsobrenome" required />
@@ -57,7 +58,7 @@ include_once('conexao.php');
                 </div>
 
                 <div class="caixa__login-input">
-                    <input  type="date" name="datanas" required />
+                    <input type="date" name="datanas" required />
                 </div>
 
                 <div class="caixa__login-input">
@@ -86,12 +87,12 @@ include_once('conexao.php');
 
                 </div>
             </div>
-            
+
             <p><input type="checkbox" required /> Aceito os <a href="termos.html">Termos de uso</a></p>
             <input class="acessar" type="submit" value="Cadastrar-se">
             <!-- <a class="acessar" href="home.php">Acessar</a>-->
         </form>
-    
+
     </div>
 </body>
 

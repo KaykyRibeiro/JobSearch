@@ -1,13 +1,13 @@
 
 
 const div = document.querySelector("div.escolhas")
-function escolha(){
+function escolha() {
     var cadativo = document.getElementById('btncad')
-    if(cadativo.classList.contains('cadativo')){
+    if (cadativo.classList.contains('cadativo')) {
         cadativo.classList.remove("cadativo")
         cadativo.classList.add("cadastro")
         div.innerHTML = ''
-    }else{
+    } else {
         div.innerHTML += `<input class="escolha" type="button" value="EMPRESA" id="empresa" onclick="msgEmpresa()">`
         div.innerHTML += `<input class="escolha" type="button" value="CANDIDATO" id="candidato" onclick="msgCandidato()">`
         cadativo.classList.remove("cadastro")
@@ -17,49 +17,51 @@ function escolha(){
         const candidato = window.document.getElementById('candidato')
         candidato = document.querySelector("button")
     }
-    
+
 }
-function msgEmpresa(){
+function msgEmpresa() {
     const divMessage = document.querySelector("div.escolhas")
-    if(empresa.classList.contains('empAtivo')){
+    if (empresa.classList.contains('empAtivo')) {
         empresa.classList.remove("empAtivo")
         empresa.classList.add("emp")
         ativNotif = false
         var destroi = document.querySelector("div.msgEmpresa")
         destroi.parentNode.removeChild(destroi)
-        
-        
-    }else{
+
+
+    } else {
         empresa.classList.remove("emp")
         empresa.classList.add("empAtivo")
         const message = document.createElement("div")
         message.classList.add("msgEmpresa")
         message.innerHTML = `<h1>Empresa</h1>
                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestiae, eos praesentium nihil consequatur fuga cumque aliquam aperiam, est odit labore ratione recusandae ducimus architecto dolor explicabo! Tenetur, est molestias?</p>
-                             <input class="cadastro" type="button" value="CADASTRE AGORA!">`
+                             <br>
+                             <a class="cadastro" href="cadastro_empresa.php">CADASTRE AGORA!</a>`
         divMessage.appendChild(message)
         var destroi = document.querySelector("div.msgCandidato")
         destroi.parentNode.removeChild(destroi)
     }
 }
-function msgCandidato(){
+function msgCandidato() {
     const divMessage = document.querySelector("div.escolhas")
-    if(candidato.classList.contains('canAtivo')){
+    if (candidato.classList.contains('canAtivo')) {
         candidato.classList.remove("canAtivo")
         candidato.classList.add("can")
         ativNotif = false
         var destroi = document.querySelector("div.msgCandidato")
         destroi.parentNode.removeChild(destroi)
-        
-        
-    }else{
+
+
+    } else {
         candidato.classList.remove("can")
         candidato.classList.add("canAtivo")
         const message = document.createElement("div")
         message.classList.add("msgCandidato")
         message.innerHTML = `<h1>Candidato</h1>
                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestiae, eos praesentium nihil consequatur fuga cumque aliquam aperiam, est odit labore ratione recusandae ducimus architecto dolor explicabo! Tenetur, est molestias?</p>
-                             <input class="cadastro" type="button" value="CADASTRE AGORA!">`
+                             <br>
+                             <a class="cadastro" href="cadastro_candidato.php">CADASTRE AGORA!</a>`
         divMessage.appendChild(message)
         var destroi = document.querySelector("div.msgEmpresa")
         destroi.parentNode.removeChild(destroi)
