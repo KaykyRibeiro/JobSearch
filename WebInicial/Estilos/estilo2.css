@@ -39,6 +39,10 @@ body {
     box-shadow: 0 15px 25px #2c267236;
     border-radius: 10px;
     padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
 .caixa__cadastro h2 {
     margin: 0 0 30px;
@@ -48,6 +52,9 @@ body {
 }
 .caixa__login-input {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .caixa__cadastro .caixa__login-input input {
     width: 100%;
@@ -115,4 +122,13 @@ form{
 .caixa_cadastro_coluna2{
     padding-left: 50px;
     padding-right: 50px;
+}
+.select{
+  margin-top: 20px;
+  border: 1;
+  border-radius: 5px;
+  padding: 0 30px 0 15px;
+  width: auto;
+  background: var(--cor2);
+  color: #fff;
 }

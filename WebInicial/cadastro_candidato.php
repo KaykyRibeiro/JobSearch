@@ -17,7 +17,7 @@ include_once('conexao.php');
 <body>
     <div class="caixa__cadastro">
         <h2>Cadastro Candidato</h2>
-        <form action="validar_cadastroEmpresa.php" method="post">
+        <form action="validar_cadastro.php" method="post">
             <div class="caixa_cadastro_coluna1">
                 <div class="caixa__login-input">
                     <input type="text" name="txtnome" required />
@@ -25,7 +25,7 @@ include_once('conexao.php');
                 </div>
                 <div class="caixa__login-input">
                     <input type="text" name="txtcpf" required />
-                    <label>CNPJ</label>
+                    <label>CPF</label>
                 </div>
                 <div class="caixa__login-input">
                     <input type="text" name="txtlogradouro" required />
@@ -46,7 +46,14 @@ include_once('conexao.php');
                 <div class="caixa__login-input">
                     <input type="password" name="txtsenha" required />
                     <label>Senha</label>
-
+                </div>
+                <div class="caixa__login-input">
+                    <select class="select">
+                        <option selected disabled>Informe seu sexo biológico</option>
+                        <option value="F">Feminino</option>
+                        <option value="M">Masculino</option>
+                    </select>
+                    
                 </div>
             </div>
                 
@@ -54,6 +61,10 @@ include_once('conexao.php');
                 <div class="caixa__login-input">
                     <input type="text" name="txtsobrenome" required />
                     <label>Sobrenome</label>
+                </div>
+
+                <div class="caixa__login-input">
+                    <input  type="date" name="datanas" required />
                 </div>
 
                 <div class="caixa__login-input">
@@ -80,6 +91,10 @@ include_once('conexao.php');
                     <input type="password" name="txtsenha2" required />
                     <label>Confirmar Senha</label>
 
+                </div>
+                <div class="caixa__login-input">
+                    <input type="text" name="txthab" required />
+                    <label>Habilidades</label>
                 </div>
             </div>
             

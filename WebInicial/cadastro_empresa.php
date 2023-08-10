@@ -44,23 +44,9 @@ include_once('conexao.php');
                     <input type="email" name="txtemail" required />
                     <label>E-mail de contato</label>
                 </div>
-                <div class="caixa__login-input">
-                    <input type="password" name="txtsenha" required />
-                    <label>Senha</label>
-
-                </div>
             </div>
 
             <div class="caixa_cadastro_coluna2">
-                <div class="caixa__login-input">
-                    <input type="text" name="txtsobrenome" required />
-                    <label>Sobrenome</label>
-                </div>
-
-                <div class="caixa__login-input">
-                    <input type="date" name="datanas" required />
-                </div>
-
                 <div class="caixa__login-input">
                     <input type="number_format" name="numero" required />
                     <label>Numero</label>
@@ -79,6 +65,11 @@ include_once('conexao.php');
                 <div class="caixa__login-input">
                     <input type="tel" name="txttelefone" required />
                     <label>Telefone</label>
+                </div>
+                <div class="caixa__login-input">
+                    <input type="password" name="txtsenha" required />
+                    <label>Senha</label>
+
                 </div>
 
                 <div class="caixa__login-input">

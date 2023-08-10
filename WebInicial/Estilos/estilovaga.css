@@ -1,0 +1,50 @@
+:root{
+    --cor0: #000000;
+    --cor1: #1a1a1ae5;
+    --cor2: #1a1a1aee;
+    --cor3: #000000bc;
+    --cor4: #4938ffd7;
+    --cor5: #8b80f9;
+    --cor6: #fff;
+    --cor7: #f5eeee4d;
+    --cor8: #8a80f91c;
+  }
+main{
+    height: 100%;
+    width: 75%;
+    margin-top: 1%;
+    margin-left: 15%;
+    margin-right: 10%;
+    margin-bottom: 1%; 
+    padding: 20px;
+    color: var(--cor0);
+    box-shadow:  0px 0px 10px 4px var(--cor8);
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: left;
+  }
+  .acessar {
+    position: absolute;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #8b80f9;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    margin: 30px 0 10px;
+    letter-spacing: 4px;
+    border-radius: 5px;
+    background: #1a1a1aee;
+    box-shadow:  0px 0px 13px 1px #00000062;
+    bottom: 1%;
+}
+.acessar:hover {
+    background: #8b80f9;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9,0 0 100px #8b80f9;
+}

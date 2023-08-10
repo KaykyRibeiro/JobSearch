@@ -3,7 +3,7 @@
 session_start();
 
  if($_POST){
-    $emp=$_POST['txtnome'];
+    $nomeEmp=$_POST['txtnome'];
     $email=$_POST['txtemail'];
     $senha=$_POST['txtsenha'];
     $senha=$_POST['txtsenha2'];
@@ -21,7 +21,7 @@ session_start();
 
     include "conexao.php";
     $sql = $conexao->prepare("INSERT INTO tbl_empresa (emp_nome,emp_email,emp_senha,emp_telefone,emp_cnpj,emp_logradouro, emp_numRua, emp_complemento, emp_bairro, emp_cep, emp_cidcodigo, emp_ufecodigo)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $sql ->bindParam(1, $emp);
+    $sql ->bindParam(1, $nomeEmp);
     $sql ->bindParam(2, $email);
     $sql ->bindParam(3, $senha);
     $sql ->bindParam(4, $telefone);
