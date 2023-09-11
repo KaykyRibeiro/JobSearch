@@ -25,9 +25,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--cor7);
+  background: linear-gradient(var(--cor4), var(--cor6));
   background-attachment: fixed;
-  color: var(--cor4);
+  color: var(--cor6);
 }
 
 nav {
@@ -184,12 +184,13 @@ a {
 .header > h1 {
   text-transform: uppercase;
   overflow: hidden;
-  color: var(--cor14);
+  color: var(--cor6);
   font-size: 40px;
   margin-top: 150px;
   margin-left: 10px;
   margin-right: 50%;
   border-radius: 10px;
+  text-shadow: 0px 0px 10px var(--cor4);
 }
 
 .header>p {
@@ -407,4 +408,18 @@ button {
     transform: translateX(0%);
     opacity: 1;
   }
+}
+
+main{
+  margin: 10px;
+  padding: 10px;
+  color: #000000;
+  background: #faf8f8;
+  box-shadow: 0px 5px 5px 1px var(--cor5);
+  position: absolute;
+  text-align: justify;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  bottom: 10%;
+  right: 50%;
 }

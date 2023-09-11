@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Estilos/estilo3_h.css">
-    <link rel="stylesheet" href="./Estilos/estilopadrao.css">
+    <link rel="stylesheet" href="estilo3_h.css">
+    <link rel="stylesheet" href="estilopadrao.css">
 
 
     <title>JobSearch</title>
@@ -17,14 +17,14 @@
 <nav>
     <a class="select" id="logo" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
         <a class="selecionado" id="home" href=""><img class="imgHome" src="./imagens/home_azul.png" alt=""></a>
-        <a class="select" href="chat.php"><img class="icon" src="./imagens/chat.png" alt="" /></a>
+        <a class="select" href="chat.php"><img class="icon" src="./imagens/chat_azul.png" alt="" /></a>
         <div class="alert">
         <button id="notificacao" class="select">
-            <img class="icon-notif" src="./imagens/sino.png" alt="">
+            <img class="icon-notif" src="./imagens/sino_azul.png" alt="">
         </button>
         </div>
-        <a class="select" href=""><img class="icon" src="./imagens/perfil.png" alt=""></a>
-        <a class="select" id="config" href=""><img class="icon" src="./imagens/config.png" alt=""></a>
+        <a class="select" href=""><img class="icon" src="./imagens/perfil_azul.png" alt=""></a>
+        <a class="select" id="config" href=""><img class="icon" src="./imagens/config_azul.png" alt=""></a>
     </nav>
     
     <main>
@@ -117,7 +117,7 @@
         <!-- <input type="button" value="Recaregar pagina" onclick="recaregar()"> -->
     </main>
 
-    <script src="./js/jspadrao.js"></script>
+    <script src="jspadrao.js"></script>
 
 
 </body>

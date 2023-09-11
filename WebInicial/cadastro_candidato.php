@@ -24,7 +24,7 @@ include_once('conexao.php');
                     <label>Nome</label>
                 </div>
                 <div class="caixa__login-input">
-                    <input type="text" name="txtcpf" required />
+                <input type="text" name="txtcpf" placeholder="000.000.00-00" data-mask="000.000.000-00" id="CPFInput" maxlength="11" oninput="criaMascara('CPF')" autocomplete="off" required />
                     <label>CPF</label>
                 </div>
                 <div class="caixa__login-input">
@@ -105,5 +105,20 @@ include_once('conexao.php');
     
     </div>
 </body>
+    <script>
+         function criaMascara(mascaraInputCPF) {
+        const maximoInput = document.getElementById(`${mascaraInputCPF}Input`).maxLength;
+        let valorInput = document.getElementById(`${mascaraInputCPF}Input`).value;
+        let valorSemPonto = document.getElementById(`${mascaraInputCPF}Input`).value.replace(/([^0-9])+/g, "");
+        const mascaras = {
+        CPF: valorInput.replace(/[^\d]/g, "").replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
+        };
 
+        valorInput.length === maximoInput ? document.getElementById(`${mascaraInputCPF}Input`).value = mascaras[mascaraInputCPF] : document.getElementById(`${mascaraInputCPF}Input`).value = valorSemPonto;
+        };
+
+
+
+        
+    </script>
 </html>
