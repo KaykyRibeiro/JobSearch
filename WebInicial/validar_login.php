@@ -3,7 +3,7 @@ session_start();
 
 $email=$_POST['txtemail'];
 $senha=$_POST['txtsenha'];
-            include "conexao.php";
+            include ("conexao.php");
             
                 $stmt = $conexao->prepare("SELECT * FROM tbl_usuario where usu_email = ? and usu_senha = ?");
                 $stmt-> bindParam(1,$email);

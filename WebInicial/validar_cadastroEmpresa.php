@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include ('conexao.php');
 
  if($_POST){
     $nomeEmp=$_POST['txtnome'];
@@ -17,9 +18,6 @@ session_start();
     $cidade=$_POST['txtcidade'];
     $estado=$_POST['txtestado'];
 
-   
-
-    include "conexao.php";
     $sql = $conexao->prepare("INSERT INTO tbl_empresa (emp_nome,emp_email,emp_senha,emp_telefone,emp_cnpj,emp_logradouro, emp_numRua, emp_complemento, emp_bairro, emp_cep, emp_cidcodigo, emp_ufecodigo)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
     $sql ->bindParam(1, $nomeEmp);
     $sql ->bindParam(2, $email);
