@@ -16,8 +16,10 @@ include('conexao.php');
     $numero=$_POST['numero'];
     $complemento=$_POST['txtcomplemento'];
     $bairro=$_POST['txtbairro'];
-    $cidade=$_POST['txtcidade'];
-    $estado=$_POST['txtestado'];
+    $cidNome = $_POST['txtcidade'];
+    $cidade="SELECT cidCodigo from tblcidade where cidNome = $cidNome";
+    $estSigla=$_POST['txtestado'];
+    $estado = "SELECT ufeCodigo from tbluf where sigla = $estSigla";
 
    
 
@@ -36,16 +38,7 @@ include('conexao.php');
     $stmt ->bindParam(11, $bairro);
     $stmt ->bindParam(12, $cidade);
     $stmt ->bindParam(13, $estado);
-
- if($stmt->execute()){
-    if($stmt->rowCount()>0){
-        echo"<script>alert('Cadastro realizado com sucesso!)';</script>";
-        header("refresh:1, login.php");
-    }else{
-        echo "Erro nenhuma linha executada";                                                                          
-
-    }
-}
+    $stmt->execute();
 
  }
  ?>

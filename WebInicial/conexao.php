@@ -1,5 +1,5 @@
 <?php
-function novaConexao(){
+
     $dns = 'mysql:host=localhost;dbname=jobsearch';
     $usuario = 'root';
     $senha = '';
@@ -9,6 +9,6 @@ function novaConexao(){
     }
     catch(PDOException $e){
         echo 'Erro: ' . $e->getMessage();
-    }
+     
 }
 ?>

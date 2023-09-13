@@ -28,6 +28,10 @@ include_once('conexao.php');
                     <label>CPF</label>
                 </div>
                 <div class="caixa__login-input">
+                    <input type="text" name="txtcep" data-mask="00000-000" required/>
+                    <label>CEP</label>
+                </div>
+                <div class="caixa__login-input">
                     <input type="text" name="txtlogradouro" required />
                     <label>Logradouro</label>
                 </div>
@@ -48,10 +52,11 @@ include_once('conexao.php');
                     <label>Senha</label>
                 </div>
                 <div class="caixa__login-input">
-                    <select class="select">
+                    <label>Sexo</label>
+                    <select class="select" name="sexo" required/>
                         <option selected disabled>Informe seu sexo biológico</option>
-                        <option value="F">Feminino</option>
-                        <option value="M">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
                     </select>
                     
                 </div>
@@ -78,12 +83,42 @@ include_once('conexao.php');
                 </div>
 
                 <div class="caixa__login-input">
-                    <input type="text" name="txtestado" required />
                     <label>Estado</label>
+                    <select class="select" name="estado" required/>
+                        <option selected disabled>Informe seu Estado</option>
+                        <option value="1">AC</option>
+                        <option value="2">AL</option>
+                        <option value="3">AP</option>
+                        <option value="4">AM</option>
+                        <option value="5">BA</option>
+                        <option value="6">CE</option>
+                        <option value="7">DF</option>
+                        <option value="8">GO</option>
+                        <option value="9">ES</option>
+                        <option value="10">MA</option>
+                        <option value="11">MT</option>
+                        <option value="12">MS</option>
+                        <option value="13">MG</option>
+                        <option value="14">PA</option>
+                        <option value="15">PB</option>
+                        <option value="16">PR</option>
+                        <option value="17">PE</option>
+                        <option value="18">PI</option>
+                        <option value="19">RJ</option>
+                        <option value="20">RN</option>
+                        <option value="21">RS</option>
+                        <option value="22">RO</option>
+                        <option value="23">RR</option>
+                        <option value="24">SP</option>
+                        <option value="25">SC</option>
+                        <option value="26">SE</option>
+                        <option value="27">TO</option>
+                    </select>
+                    
                 </div>
 
                 <div class="caixa__login-input">
-                    <input type="tel" name="txttelefone"  data-mask="(00) 00000-0000" id="TELinput" maxlength="11" oninput="mascara('TEL')" autocomplete="off" required />
+                    <input type="tel" name="txttelefone" maxlength="15" onkeyup="handlePhone(event)" required />
                     <label>Telefone</label>
                 </div>
 
@@ -118,15 +153,17 @@ include_once('conexao.php');
         };
 
 
-        function mascara(mascaraInputTEL) {
-        const maximoInput = document.getElementById(`${mascaraInputTEL}Input`).maxLength;
-        let valorInput = document.getElementById(`${mascaraInputTEL}Input`).value;
-        let valorSemPonto = document.getElementById(`${mascaraInputTEL}Input`).value.replace(/([^0-9])+/g, "");
-        const mascaras = {
-        TEL: valorInput.replace(/[^\d]/g, "").replace(/(\d{2})(\d{6})(\d{4})/, "($1) $2-$3")
-        };
+        const handlePhone = (event) => {
+        let input = event.target
+        input.value = phoneMask(input.value)
+        }
 
-        valorInput.length === maximoInput ? document.getElementById(`${mascaraInputTEL}Input`).value = mascaras[mascaraInputTEL] : document.getElementById(`${mascaraInputTEL}Input`).value = valorSemPonto;
-        };
+        const phoneMask = (value) => {
+        if (!value) return ""
+        value = value.replace(/\D/g,'')
+        value = value.replace(/(\d{2})(\d)/,"($1) $2")
+        value = value.replace(/(\d)(\d{4})$/,"$1-$2")
+        return value
+        }
     </script>
 </html>
