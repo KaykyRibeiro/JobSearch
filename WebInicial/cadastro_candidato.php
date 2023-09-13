@@ -24,7 +24,7 @@ include_once('conexao.php');
                     <label>Nome</label>
                 </div>
                 <div class="caixa__login-input">
-                <input type="text" name="txtcpf" placeholder="000.000.00-00" data-mask="000.000.000-00" id="CPFInput" maxlength="11" oninput="criaMascara('CPF')" autocomplete="off" required />
+                <input type="text" name="txtcpf"  data-mask="000.000.000-00" id="CPFInput" maxlength="11" oninput="criaMascara('CPF')" autocomplete="off" required />
                     <label>CPF</label>
                 </div>
                 <div class="caixa__login-input">
@@ -83,7 +83,7 @@ include_once('conexao.php');
                 </div>
 
                 <div class="caixa__login-input">
-                    <input type="tel" name="txttelefone" required />
+                    <input type="tel" name="txttelefone"  data-mask="(00) 00000-0000" id="TELinput" maxlength="11" oninput="mascara('TEL')" autocomplete="off" required />
                     <label>Telefone</label>
                 </div>
 
@@ -106,7 +106,7 @@ include_once('conexao.php');
     </div>
 </body>
     <script>
-         function criaMascara(mascaraInputCPF) {
+        function criaMascara(mascaraInputCPF) {
         const maximoInput = document.getElementById(`${mascaraInputCPF}Input`).maxLength;
         let valorInput = document.getElementById(`${mascaraInputCPF}Input`).value;
         let valorSemPonto = document.getElementById(`${mascaraInputCPF}Input`).value.replace(/([^0-9])+/g, "");
@@ -118,7 +118,15 @@ include_once('conexao.php');
         };
 
 
+        function mascara(mascaraInputTEL) {
+        const maximoInput = document.getElementById(`${mascaraInputTEL}Input`).maxLength;
+        let valorInput = document.getElementById(`${mascaraInputTEL}Input`).value;
+        let valorSemPonto = document.getElementById(`${mascaraInputTEL}Input`).value.replace(/([^0-9])+/g, "");
+        const mascaras = {
+        TEL: valorInput.replace(/[^\d]/g, "").replace(/(\d{2})(\d{6})(\d{4})/, "($1) $2-$3")
+        };
 
-        
+        valorInput.length === maximoInput ? document.getElementById(`${mascaraInputTEL}Input`).value = mascaras[mascaraInputTEL] : document.getElementById(`${mascaraInputTEL}Input`).value = valorSemPonto;
+        };
     </script>
 </html>

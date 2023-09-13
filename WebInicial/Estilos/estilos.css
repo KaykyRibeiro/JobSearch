@@ -23,7 +23,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Verdana;
-  background: linear-gradient(var(--cor4),var(--cor0) ) ;
+  background: linear-gradient(var(--cor4),var(--cor6) ) ;
   background-attachment: fixed;
 }
 
@@ -34,7 +34,7 @@ body {
   width: 400px;
   padding: 20px;
   transform: translate(-50%, -50%);
-  background: #1a1a1ae5;
+  background: white;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(44, 38, 114, 0.212);
   border-radius: 10px;
@@ -43,7 +43,7 @@ body {
 .caixa__login h2 {
   margin: 0 0 30px;
   padding: 0;
-  color: #fff;
+  color: black;
   text-align: center;
 }
 
@@ -55,11 +55,11 @@ body {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: black;
   margin-bottom: 15px;
   margin-top: 5px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--cor3);
   outline: none;
   background: transparent;
 }
@@ -69,7 +69,7 @@ body {
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: black;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -78,14 +78,14 @@ body {
 .caixa__login .caixa__login-input input:valid ~ label {
   top: -20px;
   left: 20;
-  color: #7368f7d7;
+  color: var(--cor4);
   font-size: 12px;
 }
 
 .caixa__login form .acessar {
   display: inline-block;
   padding: 10px 20px;
-  color: #8b80f9;
+  color: white;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -94,30 +94,31 @@ body {
   margin: 30px 30% 10px;
   letter-spacing: 4px;
   border-radius: 5px;
-  background: #1a1a1aee;
-  box-shadow:  0px 0px 13px 1px #00000062;
+  border: none;
+  background: var(--cor5);
+  box-shadow:  0px 0px 13px 1px var(--cor4);
 }
 
 .caixa__login .acessar:hover {
-  background: #8b80f9;
-  color: #fff;
+  background: white;
+  color: var(--cor4);
   border-radius: 5px;
   box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9,0 0 100px #8b80f9;
 }
 
 .recupera{
-  color: #fcfcfc;
+  color: black;
   text-decoration: none;
   font-size: 10px;
   position: absolute;
-  top: 57%;
+  top: 58%;
   left: 70%;
 }
 .caixa__login .recupera:hover {
   color: #acacf3d7;
 }
 p{
-  color: white;
+  color: black;
   font-size: 10px;
   padding: 5px;
 }
