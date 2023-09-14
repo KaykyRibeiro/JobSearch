@@ -5760,9 +5760,9 @@ insert  into `tbluf`(`ufeCodigo`,`ufeNome`,`sigla`) values
 (21,'Rio Grande do Sul','RS'),
 (22,'Rondônia','RO'),
 (23,'Rorâima','RR'),
-(24,'São Paulo','SP'),
-(25,'Santa Catarina','SC'),
-(26,'Sergipe','SE'),
+(24,'Santa Catarina','SC'),
+(25,'Sergipe','SE'),
+(26,'São Paulo','SP'),
 (27,'Tocantins','TO');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
