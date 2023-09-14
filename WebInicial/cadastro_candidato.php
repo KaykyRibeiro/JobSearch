@@ -84,7 +84,7 @@ include_once('conexao.php');
 
                 <div class="caixa__login-input">
                     <label>Estado</label>
-                    <select class="select" name="estado" required/>
+                    <select class="select" name="estado" id="estado" required/>
                         <option selected disabled>Informe seu Estado</option>
                         <option value="1">AC</option>
                         <option value="2">AL</option>
@@ -109,9 +109,9 @@ include_once('conexao.php');
                         <option value="21">RS</option>
                         <option value="22">RO</option>
                         <option value="23">RR</option>
-                        <option value="24">SP</option>
-                        <option value="25">SC</option>
-                        <option value="26">SE</option>
+                        <option value="24">SC</option>
+                        <option value="25">SE</option>
+                        <option value="26">SP</option>
                         <option value="27">TO</option>
                     </select>
                     
