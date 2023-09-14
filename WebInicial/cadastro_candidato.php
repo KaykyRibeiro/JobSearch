@@ -11,10 +11,11 @@ include_once('conexao.php');
     <title>Cadastro</title>
     <link rel="stylesheet" href="./Estilos/estilos.css">
     <link rel="stylesheet" href="./Estilos/estilo2.css">
-    
+    <script src="./JS/cep.js" defer></script>
 </head>
 
 <body>
+    
     <div class="caixa__cadastro">
         <h2>Cadastro Candidato</h2>
         <form action="validar_cadastro.php" method="post">
@@ -28,11 +29,11 @@ include_once('conexao.php');
                     <label>CPF</label>
                 </div>
                 <div class="caixa__login-input">
-                    <input type="text" name="txtcep" data-mask="00000-000" required/>
+                    <input type="text" name="txtcep" id="cep" data-mask="00000-000" minlength="8" maxlength="8" required/>
                     <label>CEP</label>
                 </div>
                 <div class="caixa__login-input">
-                    <input type="text" name="txtlogradouro" required />
+                    <input type="text" name="txtlogradouro" id="logradouro" required/>
                     <label>Logradouro</label>
                 </div>
                 <div class="caixa__login-input">
@@ -40,7 +41,7 @@ include_once('conexao.php');
                     <label>complemento</label>
                 </div>
                 <div class="caixa__login-input">
-                    <input type="text" name="txtcidade" required />
+                    <input type="text" name="txtcidade" id="cidade" required />
                     <label>Cidade</label>
                 </div>
                 <div class="caixa__login-input">
@@ -48,7 +49,7 @@ include_once('conexao.php');
                     <label>E-mail</label>
                 </div>
                 <div class="caixa__login-input">
-                    <input type="password" name="txtsenha" required />
+                    <input type="password" name="txtsenha" minlength="8" required />
                     <label>Senha</label>
                 </div>
                 <div class="caixa__login-input">
@@ -78,7 +79,7 @@ include_once('conexao.php');
                 </div>
 
                 <div class="caixa__login-input">
-                    <input type="text" name="txtbairro" required />
+                    <input type="text" name="txtbairro" id="bairro" required />
                     <label>Bairro</label>
                 </div>
 
@@ -123,7 +124,7 @@ include_once('conexao.php');
                 </div>
 
                 <div class="caixa__login-input">
-                    <input type="password" name="txtsenha2" required />
+                    <input type="password" name="txtsenha2" minlength="8" required />
                     <label>Confirmar Senha</label>
 
                 </div>
@@ -137,8 +138,12 @@ include_once('conexao.php');
             <input class="acessar" type="submit" value="Cadastrar-se">
             <!-- <a class="acessar" href="home.php">Acessar</a>-->
         </form>
-    
+        <div class="" id="message">
+         <p id="txtmsg"></p>
+        
     </div>
+    </div>
+    
 </body>
     <script>
         function criaMascara(mascaraInputCPF) {
