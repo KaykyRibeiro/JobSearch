@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
-:root{
+:root {
   --cor0: #000000;
   --cor1: #1a1a1ae5;
   --cor2: #1a1a1aee;
@@ -10,6 +10,7 @@
   --cor6: #fff;
   --cor7: #f5eeee4d;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -22,13 +23,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--cor6) ;
+  background: var(--cor6);
   background-attachment: fixed;
   display: flex;
 }
-nav{
+
+nav {
   height: 100%;
-  padding: 100px 20px 560px 20px ;
+  padding: 100px 20px 560px 20px;
   background-color: #edededcd;
   text-align: center;
   box-shadow: 1px 0px 10px 0px var(--cor5);
@@ -37,8 +39,9 @@ nav{
   top: 0;
   margin-right: 100px;
 }
-nav > a,
-nav > button{
+
+nav>a,
+nav>button {
   padding: 1px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -46,40 +49,56 @@ nav > button{
   color: var(--cor4);
 
 }
-.select:hover{
+
+.select:hover {
   color: var(--cor6);
   box-shadow: 0px 1px 0px 0px var(--cor4);
 }
-.selecionado{
+
+.selecionado {
   box-shadow: 0px 1px 0px 0px var(--cor4);
 }
-.icon{
+
+.icon {
   width: 30px;
   height: 30px;
 }
-.icon-notif{
+
+.icon-notif {
   width: 30px;
   height: 30px;
 }
-.imgHome{
+
+.imgHome {
   width: 30px;
   height: 30px;
 }
-#logo{
+
+#logo {
   position: fixed;
   top: 10px;
 }
-#config{
-    position: fixed;
-    top: 90%;
+
+#config {
+  position: fixed;
+  top: 90%;
 }
-button{
-    background: none;
-    border: none;
-    cursor: pointer;
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-.quadro > a{
+
+.quadro>a {
   text-decoration: none;
   color: var(--cor6);
 }
 
+.logo {
+  position: fixed;
+  top: 1%;
+  left: 13px;
+  width: 45px;
+  height: 40px;
+}
