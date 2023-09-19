@@ -48,10 +48,16 @@ if ($_POST) {
       exit; // Saia do script
    }
 
-   // Inserir dados na tabela tbl_usuario
+   // Inserir dados na tabela tbl_usuario[]
+   try{
    $sqlInserir = "INSERT INTO tbl_usuario (usu_nome, usu_sobrenome, usu_email, usu_senha, usu_telefone, usu_cpf, usu_dataNasc, usu_logradouro, usu_numRua, usu_complemento, usu_bairro, usu_cidCodigo, usu_ufeCodigo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
    $stmtInserir = $conexao->prepare($sqlInserir);
    $stmtInserir->execute([$usu, $sobrenome, $email, $senha, $telefone, $cpf, $datanas, $logradouro, $numero, $complemento, $bairro, $codigoCidade, $codigoEstado]);
+   header('Location: login.php');
+   }
+   catch(PDOException $e){
+      die("Erro ao Inserir os Dados Fornecidos: " . $e->getMessage());
+   }
 
 }
 ?>
