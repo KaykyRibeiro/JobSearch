@@ -138,10 +138,9 @@ include_once('conexao.php');
             <input class="acessar" type="submit" value="Cadastrar-se">
             <!-- <a class="acessar" href="home.php">Acessar</a>-->
         </form>
-        <div class="" id="message">
-         <p id="txtmsg"></p>
         
     </div>
+    <div class="mensagem">
     </div>
     
 </body>

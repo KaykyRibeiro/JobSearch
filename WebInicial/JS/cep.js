@@ -5,6 +5,9 @@ const cidade = document.querySelector("#cidade")
 const bairro = document.querySelector("#bairro")
 const estado = document.querySelector("#estado")
 
+const divMessage = document.querySelector(".mensagem")
+
+
 cepInput.addEventListener("keypress", (e) =>{
     const numeros = /[0-9]/;
     const key = String.fromCharCode(e.keyCode);
@@ -29,22 +32,24 @@ const getEnderesso = async (cep) =>{
     const apiUrl = `https://viacep.com.br/ws/${cep}/json/`;
     const reposta = await fetch(apiUrl);
     const dados = await reposta.json();
+    console.log(dados)
 
-    if(dados.erro== "true"){
-        cepInput.reset();
+    if(dados.erro == "true"){
+        message("ERRO! CEP INVÁLIDO.");
         return;
     }
 };
-
-const message = (msg) =>{
-    const messageElement = document.querySelector("#message");
-    const msgText = document.querySelector("#txtmsg")
-
-    messageElement.classList.add("msg")
-    messageElement.innerHTML = `<h3>ERRO</h3>`
-    msgText.innerText = msg
-    messageElement.innerHTML = `<button onclick="close()" class="close">
-                                Fechar
-                                </button>`
-
+function message(msg){
+    console.log("teste")
+    const message = document.createElement("div")
+    message.classList.add("msg")
+    message.innerText = msg
+    
+    divMessage.innerHTML += `<button  class="btn" id="btn">Fechar</button>` 
+    divMessage.appendChild(message)
+    
 }
+
+
+    
+    
