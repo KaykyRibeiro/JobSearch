@@ -34,9 +34,9 @@ if ($_POST) {
    }
 
    // Obter o código do estado com base no código do estado
-   $sqlEstado = "SELECT ufeCodigo FROM tbluf WHERE ufeCodigo = :estCod";
+   $sqlEstado = "SELECT ufeCodigo FROM tbluf WHERE sigla = :sigla";
    $stmtEstado = $conexao->prepare($sqlEstado);
-   $stmtEstado->bindParam(':estCod', $estCod, PDO::PARAM_STR);
+   $stmtEstado->bindParam(':sigla', $estCod, PDO::PARAM_STR);
    $stmtEstado->execute();
 
    $rowEstado = $stmtEstado->fetch(PDO::FETCH_ASSOC);

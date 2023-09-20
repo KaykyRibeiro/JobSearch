@@ -18,7 +18,7 @@ include_once('conexao.php');
     
     <div class="caixa__cadastro">
         <h2>Cadastro Candidato</h2>
-        <form action="validar_cadastro.php" method="post">
+        <form action="validar_cadastro.php" method="post" id="formes">
             <div class="caixa_cadastro_coluna1">
                 <div class="caixa__login-input">
                     <input type="text" name="txtnome" required />
@@ -33,8 +33,8 @@ include_once('conexao.php');
                     <label>CEP</label>
                 </div>
                 <div class="caixa__login-input">
-                    <input type="text" name="txtlogradouro" id="logradouro" required/>
-                    <label>Logradouro</label>
+                    <input type="text" name="txtlogradouro" id="logradouro" data-input required/>
+                    <label>Rua</label>
                 </div>
                 <div class="caixa__login-input">
                     <input type="text" name="txtcomplemento" required />
@@ -49,7 +49,7 @@ include_once('conexao.php');
                     <label>E-mail</label>
                 </div>
                 <div class="caixa__login-input">
-                    <input type="password" name="txtsenha" minlength="8" required />
+                    <input type="password" name="txtsenha" id="senha1" minlength="8" required />
                     <label>Senha</label>
                 </div>
                 <div class="caixa__login-input">
@@ -87,33 +87,33 @@ include_once('conexao.php');
                     <label>Estado</label>
                     <select class="select" name="estado" id="estado" required/>
                         <option selected disabled>Informe seu Estado</option>
-                        <option value="1">AC</option>
-                        <option value="2">AL</option>
-                        <option value="3">AP</option>
-                        <option value="4">AM</option>
-                        <option value="5">BA</option>
-                        <option value="6">CE</option>
-                        <option value="7">DF</option>
-                        <option value="8">GO</option>
-                        <option value="9">ES</option>
-                        <option value="10">MA</option>
-                        <option value="11">MT</option>
-                        <option value="12">MS</option>
-                        <option value="13">MG</option>
-                        <option value="14">PA</option>
-                        <option value="15">PB</option>
-                        <option value="16">PR</option>
-                        <option value="17">PE</option>
-                        <option value="18">PI</option>
-                        <option value="19">RJ</option>
-                        <option value="20">RN</option>
-                        <option value="21">RS</option>
-                        <option value="22">RO</option>
-                        <option value="23">RR</option>
-                        <option value="24">SC</option>
-                        <option value="25">SE</option>
-                        <option value="26">SP</option>
-                        <option value="27">TO</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="GO">GO</option>
+                        <option value="ES">ES</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="TO">TO</option>
                     </select>
                     
                 </div>
@@ -124,7 +124,7 @@ include_once('conexao.php');
                 </div>
 
                 <div class="caixa__login-input">
-                    <input type="password" name="txtsenha2" minlength="8" required />
+                    <input type="password" name="txtsenha2" id="senha2" minlength="8" required />
                     <label>Confirmar Senha</label>
 
                 </div>
@@ -135,7 +135,7 @@ include_once('conexao.php');
             </div>
             
             <p><input type="checkbox" required /> Aceito os <a href="termos.html">Termos de uso</a></p>
-            <input class="acessar" type="submit" value="Cadastrar-se">
+            <input class="acessar" type="submit" onclick="validarSenha()" value="Cadastrar-se">
             <!-- <a class="acessar" href="home.php">Acessar</a>-->
         </form>
         
@@ -168,6 +168,18 @@ include_once('conexao.php');
         value = value.replace(/(\d{2})(\d)/,"($1) $2")
         value = value.replace(/(\d)(\d{4})$/,"$1-$2")
         return value
+        }
+
+        function validarSenha(){
+        senha1 = document.getElementById('senha1').value;
+        senha2 = document.getElementById('senha2').value;
+        if (senha1 != senha2) {
+            alert("SENHAS DIFERENTES! DIGITAR SENHAS IGUAIS"); 
+            document.getElementById('senha1').value = "";
+            document.getElementById('senha2').value = "";
+        }else{
+            document.formes.submit();
+        }
         }
     </script>
 </html>
