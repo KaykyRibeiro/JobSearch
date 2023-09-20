@@ -13,14 +13,9 @@
     <!--<div class="banner"></div>-->
     <nav>
         <img class="logo" src="imagens/logo.png" alt="">
-        <a class="barlink" href="sobre.html">SOBRE NÓS</a>
-        <!-- <a class="cadastrar" href="escolha_cadastro.php">CADASTRAR</a> -->
-        <a class="login" href="login.php">LOGIN</a>
     </nav>
     <header>
         <div class="header">
-            <div class="image">
-            </div>
             <h1>Econtre sua primeira vaga aqui!</h1>
             <br>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestiae, eos praesentium nihil
@@ -36,10 +31,94 @@
         </div>
 
     </header>
+    <div class="elemento">
+    </div>
+    <div class="elemento2">
+    </div>
+    <div class="elemento3">
+    </div>
+    <div class="elemento4">
+    </div>
+    <div class="elemento5">
+    </div>
+    <div class="caixa__login">
+        <h2>Login</h2>
+        <form action="validar_login.php" method="post" id="formes">
+            <div class="caixa__login-input">
+                <input type="text" name="CPJ" id="cpj" maxlength="18" required />
+                <label>Informe o CPF ou CNPJ</label>
+            </div>
+            <div class="caixa__login-input">
+                <input type="password" name="txtsenha" required />
+                <label>Senha</label>
+
+            </div>
+            <input class="acessar" type="submit" value="Acessar">
+            <!-- <a class="acessar" href="home.php">Acessar</a>-->
+
+        </form>
+        <a class="recupera" href="recuperarsenha.html">esqueceu a senha?</a>
+    </div>
 
 
 
     <script src="./JS/cadescolha.js"></script>
 </body>
+<script>
+    const formes = document.querySelector("#formes")
+    const cpj = document.querySelector("#cpj") 
+    cpj.addEventListener("keypress", (e) => {
+    const numeros = /[0-9]/;
+    const key = String.fromCharCode(e.keyCode);
+        
+    if (!numeros.test(key)) {
+        e.preventDefault();
+        return;
+    };
+    });
+    
+   /* function mascara(){
+        
+        
+        console.log(valor)
+        console.log(element)
+            if(element == 14){
+                valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1 $2 $3")
+                valor = valor.replace(/^(\d)(\d{4})$/,"$1-$2")
+                valor = valor.replace(/(\d{4})(\d)/, "$1-$2")
+                return valor
+            }
+            
+            if(element == 11){
+                 valor = valor.replace(/\D/g,'')
+                valor = valor.replace(/[^\d]/g, "").replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")
+                return valor 
+            }
+            if (!valor) return "Erro"
+    }*/
 
+    
+    document.getElementById('cpj').addEventListener('input', function (e) {
+    let valor = document.querySelector("#cpj").value;
+    var element = valor.length
+    console.log(valor)
+    console.log(element)
+   
+    if(element <= 12){
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})/);
+        e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '-' + x[4] + (x[5] ? '-' + x[5] : '');
+    }
+    if(element >= 15){
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+      e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
+    }  
+    });
+    
+        
+        
+       
+        
+        
+           
+</script>
 </html>
