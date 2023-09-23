@@ -140,28 +140,28 @@ form{
   box-shadow: #000000 1px 1px 1px 1px;
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
   padding: 10px;
-  width: 500px;
-  height: 200px;
+  width: 400px;
+  height: 100px;
 }
 .msg > p{
     font-size: 16px;
     position: relative;
-    text-align: center;
     top: 10px;
 }
-.msg > button{
+button{
   position: relative;
-  top: 10px;
+  top: 52px;
+  text-align: left;
   margin: 0px 1px 1px;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   border: none;
   background: var(--cor5);
   box-shadow:  0px 0px 13px 1px var(--cor4);
 }
-.msg > button:hover{
+button:hover{
   background: white;
   color: var(--cor4);
   border-radius: 5px;

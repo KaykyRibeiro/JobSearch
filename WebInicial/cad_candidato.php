@@ -1,73 +1,41 @@
-<?php
-session_start();
-include_once('conexao.php');
-?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-bt">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="./Estilos/estilos.css">
-    <link rel="stylesheet" href="./Estilos/estilo2.css">
+    <link rel="stylesheet" href="./Estilos/cadEstilo.css">
+    <script src="./JS/cadScript.js"></script>
     <script src="./JS/cep.js" defer></script>
+    <title>Cadastro</title>
 </head>
 
 <body>
-
-    <div class="caixa__cadastro">
-        <h2>Cadastro Candidato</h2>
-        <form action="validar_cadastro.php" method="post" id="formes">
-            <div class="form-step form-step=active">
-                <div class="caixa__login-input">
+    <form action="validar_cadastro.php" method="post" class="form" id="formes">
+        <h1>Cadastro Candidato</h1>
+        <div class="progressbar">
+            <div class="progress-step progress-step-active" data-title="Dados"></div>
+            <div class="progress-step" data-title="Endereço"></div>
+            <div class="progress-step" data-title="Contato"></div>
+        </div>
+        <div class="form-step form-step-active">
+            <div class="coluna">
+                <div class="input-group">
                     <input type="text" name="txtnome" required />
                     <label>Nome</label>
                 </div>
-                <div class="caixa__login-input">
+                <div class="input-group">
                     <input type="text" name="txtsobrenome" required />
                     <label>Sobrenome</label>
                 </div>
-                <div class="caixa__login-input">
-                    <input type="date" name="datanas" required />
+                <div class="input-group">
+                    <input type="date" class="data" name="datanas" required />
                 </div>
-                <div class="caixa__login-input">
+                <div class="input-group">
                     <input type="text" name="txtcpf" data-mask="000.000.000-00" id="CPFInput" maxlength="11" oninput="criaMascara('CPF')" autocomplete="off" required />
                     <label>CPF</label>
                 </div>
-                <div class="">
-                    <a href="#" class="acessar btn btn-next">Proximo</a>
-                </div>
-            </div>
-            <!-- <div class="caixa_cadastro_coluna1">
-
-
-                <div class="caixa__login-input">
-                    <input type="text" name="txtcep" id="cep" data-mask="00000-000" minlength="8" maxlength="8" required />
-                    <label>CEP</label>
-                </div>
-                <div class="caixa__login-input">
-                    <input type="text" name="txtlogradouro" id="logradouro" data-input required />
-                    <label>Rua</label>
-                </div>
-                <div class="caixa__login-input">
-                    <input type="text" name="txtcomplemento" required />
-                    <label>complemento</label>
-                </div>
-                <div class="caixa__login-input">
-                    <input type="text" name="txtcidade" id="cidade" required />
-                    <label>Cidade</label>
-                </div>
-                <div class="caixa__login-input">
-                    <input type="email" name="txtemail" required />
-                    <label>E-mail</label>
-                </div>
-                <div class="caixa__login-input">
-                    <input type="password" name="txtsenha" id="senha1" minlength="8" required />
-                    <label>Senha</label>
-                </div>
-                <div class="caixa__login-input">
+                <div class="input-group">
                     <label>Sexo</label>
                     <select class="select" name="sexo" required />
                     <option selected disabled>Informe seu sexo biológico</option>
@@ -76,25 +44,41 @@ include_once('conexao.php');
                     </select>
 
                 </div>
-            </div> -->
-
-            <!-- <div class="caixa_cadastro_coluna2">
-
-
-
-
-                <div class="caixa__login-input">
+            </div>
+            <div class="">
+                <a href="#" class="acessar btn">Proximo</a>
+            </div>
+        </div>
+        <div class="form-step">
+            <div class="coluna">
+                <div class="input-group">
+                    <input type="text" name="txtcep" id="cep" data-mask="00000-000" minlength="8" maxlength="8" required />
+                    <label>CEP</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="txtlogradouro" id="logradouro" data-input required />
+                    <label>Rua</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="txtcomplemento" required />
+                    <label>complemento</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="txtcidade" id="cidade" required />
+                    <label>Cidade</label>
+                </div>
+                <div class="input-group">
                     <input type="number_format" name="numero" required />
                     <label>Numero</label>
                 </div>
 
-                <div class="caixa__login-input">
+                <div class="input-group">
                     <input type="text" name="txtbairro" id="bairro" required />
                     <label>Bairro</label>
                 </div>
 
-                <div class="caixa__login-input">
-                    <label>Estado</label>
+                <div class="input-group">
+                    <label class="estado">Estado</label>
                     <select class="select" name="estado" id="estado" required />
                     <option selected disabled>Informe seu Estado</option>
                     <option value="AC">AC</option>
@@ -125,34 +109,40 @@ include_once('conexao.php');
                     <option value="SP">SP</option>
                     <option value="TO">TO</option>
                     </select>
-
                 </div>
+            </div>
 
-                <div class="caixa__login-input">
+            <div class="btns-groups">
+                <a href="#" class="acessar btns btn-prev">Voltar</a>
+                <a href="#" class="acessar btns btn-next">Proximo</a>
+            </div>
+        </div>
+        <div class="form-step">
+            <div class="coluna">
+                <div class="input-group">
+                    <input type="email" name="txtemail" required />
+                    <label>E-mail</label>
+                </div>
+                <div class="input-group">
                     <input type="tel" name="txttelefone" maxlength="15" onkeyup="handlePhone(event)" required />
                     <label>Telefone</label>
                 </div>
-
-                <div class="caixa__login-input">
+                <div class="input-group">
+                    <input type="password" name="txtsenha" id="senha1" minlength="8" required />
+                    <label>Senha</label>
+                </div>
+                <div class="input-group">
                     <input type="password" name="txtsenha2" id="senha2" minlength="8" required />
                     <label>Confirmar Senha</label>
 
                 </div>
-                <div class="caixa__login-input">
-                    <input type="text" name="txthab" required />
-                    <label>Habilidades</label>
-                </div>
             </div>
-
-            <p><input type="checkbox" required /> Aceito os <a href="termos.html">Termos de uso</a></p>
-            <input class="acessar" type="submit" onclick="validarSenha()" value="Cadastrar-se"> -->
-            <!-- <a class="acessar" href="home.php">Acessar</a>-->
-        </form>
-
-    </div>
-    <div class="mensagem">
-    </div>
-
+            <div class="btns-groups">
+                <a href="#" class="acessar btns btn-prev">Voltar</a>
+                <input class="acessar btn_input" type="submit" value="Cadastrar">
+            </div>
+        </div>
+    </form>
 </body>
 <script>
     function criaMascara(mascaraInputCPF) {
@@ -192,5 +182,4 @@ include_once('conexao.php');
         }
     }
 </script>
-
 </html>

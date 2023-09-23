@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+:root {
+    --cor0: #000000;
+    --cor1: #1a1a1ae5;
+    --cor2: #1a1a1aee;
+    --cor3: #00000062;
+    --cor4: #4938ffd7;
+    --cor5: #8b80f9;
+    --cor6: #fff;
+}
+*,
+*#before,
+*#after{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(var(--cor4), var(--cor6));
+    background-attachment: fixed;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+.input-group{
+    padding: 0px 0px 0px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.input-group > input{
+    
+    padding: 10px 0;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+}
+label{
+    position: absolute;
+        top: 0;
+        left: 10px;
+        padding: 10px 0;
+        font-size: 16px;
+        color: black;
+        pointer-events: none;
+        transition: 0.5s;
+}
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: -20px;
+    left: 20;
+    color: #7368f7d7;
+    font-size: 12px;
+}
+.data{
+    position: relative;
+    top: -3px;
+    width: 200px;
+}
+.progressbar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+}
+.progressbar::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    
+}
+.progress-step{
+    width: 35px;
+    height: 35px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: +1;
+}
+.progress-step::before{
+    counter-increment: step;
+    content: counter(step);
+    
+}
+.progress-step::after{
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #666;
+}
+.progress-step-active{
+    background-color: var(--cor5);
+    color: white;
+}
+.form{
+    background-color: white;
+    width: 500px;
+    margin:  0 auto;
+    box-shadow: 0 15px 25px #2c267236;
+    border-radius: 10px;
+    padding: 20px;
+}
+.form-step{
+    display: none;
+}
+.form-step-active{
+    display: block;
+}
+
+.acessar {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    border-radius: 5px;
+    border: none;
+    background: var(--cor5);
+    box-shadow: 0px 0px 13px 1px var(--cor4);
+    bottom: 1%;
+
+    
+}
+.btn{
+    left: 66%;
+}
+.btn_input{
+    left: 30%;
+    top: -13px;
+}
+.btns{
+    margin-top: 20px;
+}
+.btn-next{
+    left: 37%;
+}
+.btns-group{
+    position: absolute;
+    top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1%);
+    gap: 30px;
+}
+
+.acessar:hover {
+    background: white;
+    color: var(--cor4);
+    border-radius: 5px;
+    box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9, 0 0 100px #8b80f9;
+}
+h1{
+    position: relative;
+    font-size: 22px;
+    text-align: center;
+}
+.coluna{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: first baseline;
+}
+.estado{
+    top: -20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.select {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border: 10px 0px 0px 0xp;
+    border-radius: 5px;
+    padding: 0 30px 0 15px;
+    width: auto;
+    background: var(--cor6);
+    color: black;
+}
+
+.msg {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: #000000 1px 1px 1px 1px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    width: 400px;
+    height: 100px;
+}
+
+.msg>p {
+    font-size: 16px;
+    position: relative;
+    top: 10px;
+}
+
+button {
+    position: relative;
+    top: 52px;
+    text-align: left;
+    margin: 0px 1px 1px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background: var(--cor5);
+    box-shadow: 0px 0px 13px 1px var(--cor4);
+}
+
+button:hover {
+    background: white;
+    color: var(--cor4);
+    border-radius: 5px;
+    box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9, 0 0 100px #8b80f9;
+}

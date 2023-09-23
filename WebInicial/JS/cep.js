@@ -1,10 +1,10 @@
 /*const enderesso = document.querySelector("")*/
 const cepInput = document.querySelector("#cep")
-const logradouro = document.querySelector("#logradouro")
-const cidade = document.querySelector("#cidade")
-const bairro = document.querySelector("#bairro")
-const estado = document.querySelector("#estado")
-
+const ruaInput = document.querySelector("#logradouro")
+const cidadeInput = document.querySelector("#cidade")
+const bairroInput = document.querySelector("#bairro")
+const estadoInput = document.querySelector("#estado")
+/*const senha2 = document.querySelector("#senha2")*/
 const divMessage = document.querySelector(".mensagem")
 
 
@@ -38,6 +38,12 @@ const getEnderesso = async (cep) =>{
         message("ERRO! CEP INVÁLIDO.");
         return;
     }
+
+    ruaInput.value = dados.logradouro
+    cidadeInput.value = dados.localidade
+    bairroInput.value = dados.bairro
+    estadoInput.value = dados.uf
+
 };
 function message(msg){
     console.log("teste")
@@ -45,10 +51,29 @@ function message(msg){
     message.classList.add("msg")
     message.innerText = msg
     
-    divMessage.innerHTML += `<button  class="btn" id="btn">Fechar</button>` 
+    message.innerHTML += `<button  class="btn" id="btn">Fechar</button>` 
     divMessage.appendChild(message)
     
+
+    const btn = document.querySelector("button")
+    btn.addEventListener("click", () => {
+        msg = ""
+        message.classList.remove("msg")
+        message.innerHTML = ``
+    })
 }
+
+
+/*senha2.addEventListener("keyup", (e) =>{
+    const senha2Input = e.target.value
+    const senha1Input = document.getElementById("#senha1").value
+    console.log(senha1Input)
+    console.log(senha2Input)
+    if(senha1Input != senha2Input){
+    message("SENHAS INVÁLIDAS.");
+    return;
+}
+});*/
 
 
     
