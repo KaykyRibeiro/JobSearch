@@ -9,7 +9,11 @@ function escolha() {
         div.innerHTML = ''
     } else {
         div.innerHTML += ` <a href="cadastro_empresa.php"><input class="escolha" type="button" value="EMPRESA" id="empresa" onmouseenter="msgEmpresa()" onmouseout="msgEmpresaSair()"></a>`
+<<<<<<< HEAD
         div.innerHTML += `<a href="cad_candidato.php"><input class="escolha" type="button" value="CANDIDATO" id="candidato" onmouseenter="msgCandidato()" onmouseout="msgCandidatoSair()"></a>`
+=======
+        div.innerHTML += `<a href="cadastro_candidato.php"><input class="escolha" type="button" value="CANDIDATO" id="candidato" onmouseenter="msgCandidato()" onmouseout="msgCandidatoSair()"></a>`
+>>>>>>> 93a4da719010124345e27421a8cd9274d348e63e
         cadativo.classList.remove("cadastro")
         cadativo.classList.add("cadativo")
         const empresa = window.document.getElementById('empresa')

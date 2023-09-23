@@ -20,7 +20,11 @@ include_once('conexao.php');
     <div class="caixa__cadastro">
         <h2>Cadastro Candidato</h2>
         <form action="validar_cadastro.php" method="post" id="formes">
+<<<<<<< HEAD
             <div class="form-step form-step=active">
+=======
+            <div class="caixa_cadastro_coluna1">
+>>>>>>> 93a4da719010124345e27421a8cd9274d348e63e
                 <div class="caixa__login-input">
                     <input type="text" name="txtnome" required />
                     <label>Nome</label>
@@ -48,7 +52,11 @@ include_once('conexao.php');
                     <label>CEP</label>
                 </div>
                 <div class="caixa__login-input">
+<<<<<<< HEAD
                     <input type="text" name="txtlogradouro" id="logradouro" data-input required />
+=======
+                    <input type="text" name="txtlogradouro" id="logradouro" data-input required/>
+>>>>>>> 93a4da719010124345e27421a8cd9274d348e63e
                     <label>Rua</label>
                 </div>
                 <div class="caixa__login-input">
@@ -95,6 +103,7 @@ include_once('conexao.php');
 
                 <div class="caixa__login-input">
                     <label>Estado</label>
+<<<<<<< HEAD
                     <select class="select" name="estado" id="estado" required />
                     <option selected disabled>Informe seu Estado</option>
                     <option value="AC">AC</option>
@@ -124,6 +133,37 @@ include_once('conexao.php');
                     <option value="SE">SE</option>
                     <option value="SP">SP</option>
                     <option value="TO">TO</option>
+=======
+                    <select class="select" name="estado" id="estado" required/>
+                        <option selected disabled>Informe seu Estado</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="GO">GO</option>
+                        <option value="ES">ES</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="TO">TO</option>
+>>>>>>> 93a4da719010124345e27421a8cd9274d348e63e
                     </select>
 
                 </div>
@@ -145,7 +185,11 @@ include_once('conexao.php');
             </div>
 
             <p><input type="checkbox" required /> Aceito os <a href="termos.html">Termos de uso</a></p>
+<<<<<<< HEAD
             <input class="acessar" type="submit" onclick="validarSenha()" value="Cadastrar-se"> -->
+=======
+            <input class="acessar" type="submit" onclick="validarSenha()" value="Cadastrar-se">
+>>>>>>> 93a4da719010124345e27421a8cd9274d348e63e
             <!-- <a class="acessar" href="home.php">Acessar</a>-->
         </form>
 
@@ -190,7 +234,23 @@ include_once('conexao.php');
         } else {
             document.formes.submit();
         }
+<<<<<<< HEAD
     }
 </script>
 
+=======
+
+        function validarSenha(){
+        senha1 = document.getElementById('senha1').value;
+        senha2 = document.getElementById('senha2').value;
+        if (senha1 != senha2) {
+            alert("SENHAS DIFERENTES! DIGITAR SENHAS IGUAIS"); 
+            document.getElementById('senha1').value = "";
+            document.getElementById('senha2').value = "";
+        }else{
+            document.formes.submit();
+        }
+        }
+    </script>
+>>>>>>> 93a4da719010124345e27421a8cd9274d348e63e
 </html>
