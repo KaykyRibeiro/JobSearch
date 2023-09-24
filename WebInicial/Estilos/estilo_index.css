@@ -23,11 +23,10 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(var(--cor4), var(--cor6));
   background-attachment: fixed;
-  color: var(--cor6);
+  color: var(--cor4);
 }
 
 nav {
@@ -38,14 +37,12 @@ nav {
   text-align: end;
   position: fixed;
   top: 0;
-  background-color: white;
-  box-shadow: white 1px 0px 10px 1px;
 }
 
 .logo {
-  width: 40px;
-  height: 34px;
-  top: 1px;
+  width: 90px;
+  height: 84px;
+  top: 4px;
   left: 20px;
   position: absolute;
 
@@ -81,7 +78,7 @@ a {
 }
 
 .cadastro {
-  margin-left: 10px;
+  margin-left: 96px;
   padding: 5px;
   color: #8b80f9;
   text-decoration: none;
@@ -104,7 +101,7 @@ a {
 }
 
 .cadativo {
-  margin-left: 5px;
+  margin-left: 98px;
   padding: 5px;
   color: #fff;
   text-decoration: none;
@@ -114,14 +111,15 @@ a {
   letter-spacing: 4px;
   border-radius: 5px;
   border: none;
-  background: var(--cor8);
+  background: var(--cor5);
   box-shadow: 0 0 5px var(--cor6), 0 0 25px var(--cor6), 0 0 50px var(--cor6), 0 0 100px var(--cor6);
 }
 
 .escolhas {
-  margin-top: 1px;
+  margin-top: 0px;
   padding: 10px;
   margin-right: 50%;
+  margin-left: 96px;
   display: flex;
   gap: 10px;
   justify-content: left;
@@ -150,7 +148,7 @@ a {
   border-radius: 5px;
   color: #fff;
   border: none;
-  background: var(--cor8);
+  background: var(--cor5);
   box-shadow: 0 0 5px var(--cor6), 0 0 25px var(--cor6), 0 0 50px var(--cor6), 0 0 100px var(--cor6);
 }
 
@@ -191,19 +189,20 @@ a {
 .header > h1 {
   text-transform: uppercase;
   overflow: hidden;
-  color: var(--cor6);
+  color: var(--cor4);
   font-size: 40px;
   margin-top: 150px;
   margin-left: 10px;
-  margin-right: 50%;
+  margin-right: 40%;
   border-radius: 10px;
-  text-shadow: 0px 0px 10px var(--cor4);
+  margin-left: 100px
 }
 
 .header>p {
   margin-right: 50%;
   margin-left: 10px;
   border-radius: 10px;
+  margin-left: 100px
 }
 
 .banner {
@@ -348,14 +347,14 @@ button {
 }
 
 .msgEmpresa {
-  padding: 19px 60px;
+  padding: 50px;
   position: fixed;
-  height: 100%;
-  width: 400px;
-  top: 0%;
-  right: 1px;
-  background-color: var(--cor7);
-  box-shadow: 1px 0px 0px 0px var(--cor4);
+  height: 400px;
+  width: 250px;
+  top: 420px;
+  left: 10px;
+  background-color: var(--cor6);
+  box-shadow: 0px 1px 1px 1px var(--cor4);
   color: var(--cor0);
   animation: slidein 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -372,14 +371,14 @@ button {
 }
 
 .msgCandidato {
-  padding: 19px 60px;
+  padding: 50px;
   position: fixed;
-  height: 100%;
-  width: 400px;
-  top: 0%;
-  right: 1px;
-  background-color: var(--cor7);
-  box-shadow: 1px 0px 0px 0px var(--cor4);
+  height: 400px;
+  width: 250px;
+  top: 420px;
+  left: 10px;
+  background-color: var(--cor6);
+  box-shadow: 0px 1px 1px 1px var(--cor4);
   color: var(--cor0);
   animation: slidein 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -391,7 +390,7 @@ button {
   bottom: 0;
   width: 0px;
   height: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000000;
   animation: time 3s forwards;
 }
 
@@ -417,16 +416,187 @@ button {
   }
 }
 
-main{
-  margin: 10px;
-  padding: 10px;
-  color: #000000;
-  background: #faf8f8;
-  box-shadow: 0px 5px 5px 1px var(--cor5);
+
+.elemento{
+  position: fixed;
+    top: 291px;
+    right: 250px;
+    background-color: #4132E6;
+    width: 250px;
+    height: 319px
+}
+.elemento2{
+  position: fixed;
+  top: 150px;
+  right: -300px;
+  background-color: #4132E6;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+}
+.elemento3{
+  position: fixed;
+  top: 10px;
+  right: -300px;
+  background-color: #4132E6;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+}
+.elemento4{
+  position: fixed;
+  top: 200px;
+  right: -300px;
+  background-color: #4132E6;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+}
+.elemento5{
+  position: fixed;
+  top: -100px;
+  right: -300px;
+  background-color: #4132E6;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+}
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+.caixa__login {
   position: absolute;
-  text-align: justify;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  bottom: 10%;
-  right: 50%;
+  top: 433px;
+  right: -140px;
+  width: 400px;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(44, 38, 114, 0.212);
+  border-radius: 10px;
+}
+.caixa__login h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: black;
+  text-align: center;
+}
+
+.caixa__login .caixa__login-input {
+  position: relative;
+}
+
+.caixa__login .caixa__login-input input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 1px solid var(--cor3);
+  outline: none;
+  background: transparent;
+}
+.caixa__login .caixa__login-input label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: black;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.caixa__login .caixa__login-input input:focus ~ label,
+.caixa__login .caixa__login-input input:valid ~ label {
+  top: -20px;
+  left: 20;
+  color: var(--cor4);
+  font-size: 12px;
+}
+
+.caixa__login form .acessar {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 30px 30% 10px;
+  letter-spacing: 4px;
+  border-radius: 5px;
+  border: none;
+  background: var(--cor5);
+  box-shadow:  0px 0px 13px 1px var(--cor4);
+}
+
+.caixa__login .acessar:hover {
+  background: white;
+  color: var(--cor4);
+  border-radius: 5px;
+  box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9,0 0 100px #8b80f9;
+}
+
+.recupera{
+  color: black;
+  text-decoration: none;
+  font-size: 10px;
+  position: absolute;
+  top: 58%;
+  left: 70%;
+}
+.caixa__login .recupera:hover {
+  color: #acacf3d7;
+}
+.caixa__login > p{
+  color: black;
+  font-size: 10px;
+  padding: 5px;
+}
+.caixa__login > p > a{
+  color: rgb(128, 128, 255);
+  text-decoration: none;
+}
+
+.caixa__login form .cadastrar {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #8b80f9;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 30px 25% 10px;
+  letter-spacing: 4px;
+  border-radius: 5px;
+  background: #1a1a1aee;
+  box-shadow:  0px 0px 13px 1px var(--cor3);
+}
+
+.caixa__login .cadastrar:hover {
+  background: #8b80f9;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9,0 0 100px #8b80f9;
+}
+.texto{
+  position: absolute;
+  top: 20%;
+
+}
+.erro{
+  display: none;
+  padding: 19px;
+    position: absolute;
+    top: 236px;
+    right: 60px;
+    width: 362px;
+    border-radius: 5px;
+    background-color: #d83636;
+    color: white;
 }

@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+:root {
+    --cor0: #000000;
+    --cor1: #1a1a1ae5;
+    --cor2: #1a1a1aee;
+    --cor3: #00000062;
+    --cor4: #4938ffd7;
+    --cor5: #8b80f9;
+    --cor6: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+    margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+  }
+.form {
+    background-color: white;
+      width: 90%;
+      margin:  0 auto;
+      box-shadow: 0 15px 25px #2c267236;
+      border-radius: 10px;
+      padding: 20px;
+  }
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+textarea{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+select{
+    padding: 5px;
+}
+.btn{
+    margin-top: 15px;
+    padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border-radius: 5px;
+  border: none;
+  background: var(--cor5);
+  box-shadow: 0px 0px 13px 1px var(--cor4);
+}
+h2{
+    text-align: center;
+}
+.back{
+    position: fixed;
+    top: 5px;
+    left: 10px;
+    width: 50px;
+    height: 45px;
+}

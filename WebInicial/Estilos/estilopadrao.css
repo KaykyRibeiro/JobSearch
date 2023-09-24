@@ -60,18 +60,18 @@ nav>button {
 }
 
 .icon {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 
 .icon-notif {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 
 .imgHome {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 
 #logo {
@@ -99,6 +99,6 @@ button {
   position: fixed;
   top: 1%;
   left: 13px;
-  width: 45px;
-  height: 40px;
+  width: 55px;
+  height: 50px;
 }
