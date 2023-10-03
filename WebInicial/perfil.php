@@ -55,11 +55,11 @@ try {
         <a class="selecionado" href="perfil.php"><img class="icon" src="./imagens/perfil_azul.png" alt=""></a>
         <a class="select" id="config" href="config.php"><img class="icon" src="./imagens/config_azul.png" alt=""></a>
     </nav>
-    <h2>Perfil de <?php echo $user['username']; ?></h2>
+    <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
     
     <!-- Exibir informações do usuário -->
-    <p>ID do usuário: <?php echo $user['id']; ?></p>
-    <p>Nome de usuário: <?php echo $user['username']; ?></p>
+    <p>ID do usuário: <?php echo $_SESSION['user_id']; ?></p>
+    <p>Nome de usuário: <?php echo $_SESSION['login']; ?></p>
 
     <!-- Adicione mais informações do usuário aqui, se necessário -->
 

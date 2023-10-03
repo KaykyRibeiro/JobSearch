@@ -38,7 +38,7 @@ include_once('conexao.php');
                     <label>Nome Empresa</label>
                 </div>
                 <div class="input-group">
-                    <input type="text" name="txtcpf" maxlength="18" onkeyup="handleCNPJ(event)" required />
+                    <input type="text" name="txtcnpj" maxlength="18" onkeyup="handleCNPJ(event)" required />
                     <label>CNPJ</label>
                 </div>
             </div>

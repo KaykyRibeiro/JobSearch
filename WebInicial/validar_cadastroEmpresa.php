@@ -1,47 +1,59 @@
 <?php
 
 session_start();
-include ('conexao.php');
+include('conexao.php');
 
- if($_POST){
-    $nomeEmp=$_POST['txtnome'];
-    $email=$_POST['txtemail'];
-    $senha=$_POST['txtsenha'];
-    $senha=$_POST['txtsenha2'];
-    $telefone=$_POST['txttelefone'];
-    $cnpj=$_POST['txtcnpj'];
-    $logradouro=$_POST['txtlogradouro'];
-    $numero=$_POST['numero'];
-    $complemento=$_POST['txtcomplemento'];
-    $bairro=$_POST['txtbairro'];
-    $cep=$_POST['txtcep'];
-    $cidade=$_POST['txtcidade'];
-    $estado=$_POST['txtestado'];
+if ($_POST) {
+    $nomeEmp = $_POST['txtnome'];
+    $email = $_POST['txtemail'];
+    $senha = $_POST['txtsenha'];
+    $senha = $_POST['txtsenha2'];
+    $telefone = $_POST['txttelefone'];
+    $cnpj = $_POST['txtcnpj'];
+    $logradouro = $_POST['txtlogradouro'];
+    $numero = $_POST['numero'];
+    $complemento = $_POST['txtcomplemento'];
+    $bairro = $_POST['txtbairro'];
+    $cep = $_POST['txtcep'];
+    $cidNome = $_POST['txtcidade'];
+    $estCod = $_POST['estado'];
+    $sqlCidade = "SELECT cidCodigo FROM tblcidade WHERE cidNome = :cidNome";
+    $stmtCidade = $conexao->prepare($sqlCidade);
+    $stmtCidade->bindParam(':cidNome', $cidNome, PDO::PARAM_STR);
+    $stmtCidade->execute();
 
-    $sql = $conexao->prepare("INSERT INTO tbl_empresa (emp_nome,emp_email,emp_senha,emp_telefone,emp_cnpj,emp_logradouro, emp_numRua, emp_complemento, emp_bairro, emp_cep, emp_cidcodigo, emp_ufecodigo)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $sql ->bindParam(1, $nomeEmp);
-    $sql ->bindParam(2, $email);
-    $sql ->bindParam(3, $senha);
-    $sql ->bindParam(4, $telefone);
-    $sql ->bindParam(5, $cpf);
-    $sql ->bindParam(6, $datanas);
-    $sql ->bindParam(7, $logradouro);
-    $sql ->bindParam(8, $numero);
-    $sql ->bindParam(9, $complemento);
-    $sql ->bindParam(10, $bairro);
-    $sql ->bindParam(11, $cep);
-    $sql ->bindParam(12, $cidade);
-    $sql ->bindParam(13, $estado);
+    $rowCidade = $stmtCidade->fetch(PDO::FETCH_ASSOC);
 
- if($st->execute()){
-    if($st->rowCount()>0){
-        echo"<script>alert('Cadastro realizado com sucesso!)';</script>";
-        header("refresh:1, login.php");
-    }else{
-        echo "Erro nenhuma linha executada";                                                                          
+    if ($rowCidade) {
+        $codigoCidade = $rowCidade['cidCodigo'];
+    } else {
+        echo "Cidade não encontrada.";
+        exit; // Saia do script
+    }
 
+    // Obter o código do estado com base no código do estado
+    $sqlEstado = "SELECT ufeCodigo FROM tbluf WHERE sigla = :sigla";
+    $stmtEstado = $conexao->prepare($sqlEstado);
+    $stmtEstado->bindParam(':sigla', $estCod, PDO::PARAM_STR);
+    $stmtEstado->execute();
+
+    $rowEstado = $stmtEstado->fetch(PDO::FETCH_ASSOC);
+
+    if ($rowEstado) {
+        $codigoEstado = $rowEstado['ufeCodigo'];
+    } else {
+        echo "Estado não encontrado.";
+        exit; // Saia do script
+    }
+
+    // Inserir dados na tabela tbl_usuario[]
+    try {
+        $sqlInserir = "INSERT INTO tbl_empresa (emp_nome, emp_email, emp_senha, emp_telefone, emp_cnpj, emp_logradouro, emp_num, emp_complemento, emp_bairro, emp_cidCodigo, emp_ufeCodigo, emp_cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmtInserir = $conexao->prepare($sqlInserir);
+        $stmtInserir->execute([$nomeEmp, $email, $senha, $telefone, $cnpj, $logradouro, $numero, $complemento, $bairro, $codigoCidade, $codigoEstado, $cep]);
+        header('Location: login.php');
+    } catch (PDOException $e) {
+        die("Erro ao Inserir os Dados Fornecidos: " . $e->getMessage());
     }
 }
-
- }
- ?>
+?>
