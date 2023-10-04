@@ -54,10 +54,13 @@
     <main>
     <h2>Vagas Existentes</h2>
         <div class="lista">
-            <div class="bloco">
+            <a href="detalhe_vaga.php">
+                <div class="bloco">
                 <h3>teste</h3>                
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis enim at non consequuntur atque, nobis rem nihil fuga officia eum voluptas dolore facilis laudantium aperiam vitae rerum necessitatibus. Voluptate, excepturi.</p>
             </div>
+            </a>
+            
             <div class="bloco">
                 <h3>teste</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis enim at non consequuntur atque, nobis rem nihil fuga officia eum voluptas dolore facilis laudantium aperiam vitae rerum necessitatibus. Voluptate, excepturi.</p>
