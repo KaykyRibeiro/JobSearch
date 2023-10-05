@@ -1,7 +1,7 @@
 <?php
 // Iniciar a sessão (se ainda não estiver iniciada)
 session_start();
-include('conexao.php');
+include('../conexao.php');
 
 // Verificar se o usuário está logado, redirecionar para a página de login se não estiver
 if (!isset($_SESSION['user_id'])) {
@@ -40,6 +40,7 @@ try {
 
 
     <title>JobSearch</title>
+    
 </head>
 
 <body>
@@ -55,15 +56,17 @@ try {
         <a class="selecionado" href="perfil.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
         <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
-    <h2>Perfil de <?php echo $user['username']; ?></h2>
+    <main class="teste">
+    <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
     
     <!-- Exibir informações do usuário -->
-    <p>ID do usuário: <?php echo $user['id']; ?></p>
-    <p>Nome de usuário: <?php echo $user['username']; ?></p>
+    <p>ID do usuário: <?php echo $_SESSION['user_id']; ?></p>
+    <p>Nome de usuário: <?php echo $_SESSION['login'] . " " . $_SESSION['sobrenome']; ?></p>
 
     <!-- Adicione mais informações do usuário aqui, se necessário -->
 
     <p><a href="logout.php">Sair</a></p>
+    </main>
 </body>
 <script src="../JS/jspadrao.js"></script>
 </html>

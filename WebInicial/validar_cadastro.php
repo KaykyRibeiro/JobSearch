@@ -19,6 +19,7 @@ if ($_POST) {
    $bairro = $_POST['txtbairro'];
    $cidNome = $_POST['txtcidade'];
    $estCod = $_POST['estado'];
+   $cep = $_POST['txtcep'];
    $sqlCidade = "SELECT cidCodigo FROM tblcidade WHERE cidNome = :cidNome";
    $stmtCidade = $conexao->prepare($sqlCidade);
    $stmtCidade->bindParam(':cidNome', $cidNome, PDO::PARAM_STR);

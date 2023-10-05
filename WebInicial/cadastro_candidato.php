@@ -10,7 +10,7 @@
     <title>Registraion Form</title>
   </head>
   <body>
-    <form action="validar_cadastroEmpresa.php" method="post" class="form">
+    <form action="validar_cadastro.php" method="post" class="form">
       <h1 class="text-center">Cadastro Candidato</h1>
       <!-- Progress bar -->
       <div class="progressbar">

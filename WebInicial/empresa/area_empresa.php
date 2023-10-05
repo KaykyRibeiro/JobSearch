@@ -1,3 +1,13 @@
+<?php
+session_start();
+include('../conexao.php');
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit();
+}
+// Recuperar informações do usuário da sessão
+$user_id = $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -54,7 +64,25 @@
     <main>
     <h2>Vagas Existentes</h2>
         <div class="lista">
-            <a href="detalhe_vaga.php">
+            <?php
+            $query = "SELECT vag_id, vag_titulo, vag_descricao FROM tbl_vagas WHERE vag_emp_id = :user_id";
+            $stmt = $conexao->prepare($query);
+            $stmt->execute();
+
+            // Inicie o loop para criar os cartões de emprego
+            while ($row_produto2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+            <a href="detalhe_vaga.php?id=<?php echo $row_produto2['vag_id']; ?>">
+            <div class="bloco">
+            <h3><?php echo $row_produto2['vag_titulo']; ?></h3>
+            <p><?php echo $row_produto2['vag_descricao']; ?></p>
+            </div>
+        </a>
+        <?php
+        }
+        // Encerre o loop
+        ?>
+            <!-- <a href="detalhe_vaga.php">
                 <div class="bloco">
                 <h3>teste</h3>                
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis enim at non consequuntur atque, nobis rem nihil fuga officia eum voluptas dolore facilis laudantium aperiam vitae rerum necessitatibus. Voluptate, excepturi.</p>
@@ -64,7 +92,7 @@
             <div class="bloco">
                 <h3>teste</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis enim at non consequuntur atque, nobis rem nihil fuga officia eum voluptas dolore facilis laudantium aperiam vitae rerum necessitatibus. Voluptate, excepturi.</p>
-            </div>
+            </div> -->
         </div>
            <a class="border" href="cadastroVaga.php"><img class="create" src="../imagens/file-add-svgrepo-com.svg" alt=""></a> 
     </main>

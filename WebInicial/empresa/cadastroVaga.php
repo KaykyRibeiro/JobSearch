@@ -1,6 +1,13 @@
 <?php
 session_start();
-include('conexao.php');
+include('../conexao.php');
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit();
+}
+// Recuperar informações do usuário da sessão
+$user_id = $_SESSION['user_id'];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar dados do formulário
     $titulo = $_POST['titulo'];
@@ -12,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $localizacao = $_POST['local'];
 
     // Consulta SQL para inserir a vaga no banco de dados
-    $query = "INSERT INTO tbl_vagas (vag_titulo, vag_modo, vag_descricao, vag_reqbasicos, vag_reqdesejados, vag_salario, vag_local) VALUES (:titulo, :modo, :descricao, :reqbasicos, :reqdesejados, :salario, :local)";
+    $empresa = "INSERT INTO tbl_vagas (vag_titulo, vag_modo, vag_descricao, vag_reqbasicos, vag_reqdesejados, vag_salario, vag_local, vag_emp_id) VALUES (:titulo, :modo, :descricao, :reqbasicos, :reqdesejados, :salario, :local, :user_id)";
 
     try {
-        $stmt = $pdo->prepare($query);
+        $stmt = $conexao->prepare($empresa);
         $stmt->bindParam(':titulo', $titulo, PDO::PARAM_STR);
         $stmt->bindParam(':modo', $modo, PDO::PARAM_STR);
         $stmt->bindParam(':descricao', $descricao, PDO::PARAM_STR);
@@ -23,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':reqdesejados', $reqdesejados, PDO::PARAM_STR);
         $stmt->bindParam(':salario', $salario, PDO::PARAM_STR);
         $stmt->bindParam(':local', $localizacao, PDO::PARAM_STR);
+        $stmt->bindParam(':usur_id',$user_id,PDO::PARAM_STR);
         $stmt->execute();
 
         // Vaga cadastrada com sucesso, redirecionar para uma página de sucesso ou lista de vagas

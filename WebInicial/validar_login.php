@@ -18,15 +18,16 @@ if ($elementos == 14) {
   if ($result) {
     $_SESSION['user_id'] = $result['usu_id'];
     $_SESSION['login'] = $result['usu_nome'];
+    $_SESSION['sobrenome'] = $result['usu_sobrenome'];
     $_SESSION['categoria'] = "candidato";
-    header("Location: home.php");
+    header("Location: ./candidato/home.php");
     exit;
   } else {
     echo "Usuário não encontrado.";
     echo $senha;
   }
 } else if ($elementos == 18) {
-  $sqlEmpresa = "SELECT * FROM tbl_empresa where emp_cnpj = :cpj and emp_senha = :senha";
+  $sqlEmpresa = "SELECT * FROM tbl_empresa WHERE emp_cnpj = :cpj and emp_senha = :senha";
   $stmtEmpresa = $conexao->prepare($sqlEmpresa);
   $stmtEmpresa->bindParam(':cpj', $cpj, PDO::PARAM_STR);
   $stmtEmpresa->bindParam(':senha', $senha);
@@ -35,9 +36,10 @@ if ($elementos == 14) {
 
   $result = $stmtEmpresa->fetch(PDO::FETCH_ASSOC);
   if ($result) {
+    $_SESSION['user_id'] = $result['emp_id'];
     $_SESSION['login'] = $result['emp_nome'];
     $_SESSION['categoria'] = "empresa";
-    header("Location: home.php");
+    header("Location: ./empresa/home_empresa.php");
     exit;
   } else {
     echo "Usuário não encontrado.";
