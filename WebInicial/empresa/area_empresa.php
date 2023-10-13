@@ -65,7 +65,7 @@ $user_id = $_SESSION['user_id'];
     <h2>Vagas Existentes</h2>
         <div class="lista">
             <?php
-            $query = "SELECT vag_id, vag_titulo, vag_descricao FROM tbl_vagas WHERE vag_emp_id = :user_id";
+            $query = "SELECT vag_id, vag_titulo, vag_descricao FROM tbl_vagas WHERE vag_emp_id = $user_id";
             $stmt = $conexao->prepare($query);
             $stmt->execute();
 

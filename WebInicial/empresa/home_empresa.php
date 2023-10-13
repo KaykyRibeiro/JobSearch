@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // Consulta SQL para obter informações do usuário
-$query = "SELECT * FROM tbl_usuario WHERE emp_id = :user_id";
+$query = "SELECT * FROM tbl_empresa WHERE emp_id = :user_id";
 
 try {
     $stmt = $conexao->prepare($query);

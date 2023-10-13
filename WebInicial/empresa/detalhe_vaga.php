@@ -20,8 +20,23 @@
             <div class="bloco">
                 <div class="candidato" id="candidato">
                     <?php
-                    while ($row_produto = mysqli_fetch_assoc($resultado_produto)) {
-                    $_SESSION['usu_id'] = $row_produto['usuId'];
+                    try {
+                        $query = "SELECT usu_nome and usu_idade and usu_cpf FROM tbl_usuario WHERE ";
+                        $stmt = $conexao->prepare($query);
+                        // Execute a consulta com a condição apropriada
+                        $stmt->execute();
+                    
+                        // Recupere os resultados como um array associativo
+                        $row_produto = $stmt->fetch(PDO::FETCH_ASSOC);
+                    
+                        while ($row_produto) {
+                            $_SESSION['usu_id'] = $row_produto['usuId'];
+                        }
+
+                    } catch (PDOException $e) {
+                        echo "Erro ao recuperar o usuId: " . $e->getMessage();
+                    }
+                   
                     ?>
                     <div>
                         <img src="../imagens/logo.png" alt="" class="foto_perfil">
@@ -53,7 +68,7 @@
 
 </body>
 <script>
-    var teste = "<?php echo $teste; ?>"
+    var teste = "<?php echo $teste;?>"
 </script>
 
 </html>

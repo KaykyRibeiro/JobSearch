@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // Consulta SQL para obter informações do usuário
-$query = "SELECT * FROM tbl_usuario WHERE usu_id = :user_id";
+$query = "SELECT * FROM tbl_empresa WHERE emp_id = :user_id";
 
 try {
     $stmt = $conexao->prepare($query);
@@ -55,11 +55,11 @@ try {
         <a class="selecionado" href="perfil.php"><img class="icon" src="./imagens/group-svgrepo-com.svg" alt=""></a>
         <a class="select" id="config" href="logout.php"><img class="icon" src="./imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
-    <h2>Perfil de <?php echo $user['username']; ?></h2>
+    <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
     
     <!-- Exibir informações do usuário -->
-    <p>ID do usuário: <?php echo $user['id']; ?></p>
-    <p>Nome de usuário: <?php echo $user['username']; ?></p>
+    <p>ID do usuário: <?php echo $_SESSION['user_id']; ?></p>
+    <p>Nome da Empresa: <?php echo $_SESSION['login']; ?></p>
 
     <!-- Adicione mais informações do usuário aqui, se necessário -->
 

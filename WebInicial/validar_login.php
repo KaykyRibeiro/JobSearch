@@ -42,7 +42,7 @@ if ($elementos == 14) {
     header("Location: ./empresa/home_empresa.php");
     exit;
   } else {
-    echo "Usuário não encontrado.";
+    echo "Empresa não encontrada.";
   }
 } else {
   echo "Erro: CPJ inválido";
