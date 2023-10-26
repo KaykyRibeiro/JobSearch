@@ -1,7 +1,7 @@
 <?php
 // Iniciar a sessão (se ainda não estiver iniciada)
 session_start();
-include('conexao.php');
+include('../conexao.php');
 
 // Verificar se o usuário está logado, redirecionar para a página de login se não estiver
 if (!isset($_SESSION['user_id'])) {
@@ -35,8 +35,8 @@ try {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Estilos/estilo3_h.css">
-    <link rel="stylesheet" href="./Estilos/estilopadrao.css">
+    <link rel="stylesheet" href="../Estilos/estilo3_h.css">
+    <link rel="stylesheet" href="../Estilos/estilopadrao.css">
 
 
     <title>JobSearch</title>
@@ -44,27 +44,29 @@ try {
 
 <body>
     <nav>
-        <a class="select" id="logo" href="home.php"><img class="logo" src="./imagens/logo.png" alt=""></a>
-        <a class="select" id="home" href="home.php"><img class="imgHome" src="./imagens/home-page-svgrepo-com.svg" alt=""></a>
-        <a class="select" href="area_candidato.php"><img class="icon" src="./imagens/notebook-svgrepo-com.svg" alt="" /></a>
+    <a class="select" id="logo" href="home_empresa.php"><img class="logo" src="../imagens/logo.png" alt=""></a>
+        <a class="select" id="home" href="home_empresa.php"><img class="imgHome" src="../imagens/home-page-svgrepo-com.svg" alt=""></a>
+        <a class="select" href="area_empresa.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg" alt="" /></a>
         <div class="alert">
             <button id="notificacao" class="select">
-                <img class="icon-notif" src="./imagens/remind-svgrepo-com.svg" alt="">
+                <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
             </button>
         </div>
-        <a class="selecionado" href="perfil.php"><img class="icon" src="./imagens/group-svgrepo-com.svg" alt=""></a>
-        <a class="select" id="config" href="logout.php"><img class="icon" src="./imagens/quit-svgrepo-com.svg" alt=""></a>
+        <a class="selecionado" href="perfil_empresa.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
+        <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
+    <main class="teste">
     <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
     
     <!-- Exibir informações do usuário -->
     <p>ID do usuário: <?php echo $_SESSION['user_id']; ?></p>
-    <p>Nome da Empresa: <?php echo $_SESSION['login']; ?></p>
+    <p>Nome de usuário: <?php echo $_SESSION['login']; ?></p>
 
     <!-- Adicione mais informações do usuário aqui, se necessário -->
 
     <p><a href="logout.php">Sair</a></p>
+    </main>
 </body>
-<script src="./JS/jspadrao.js"></script>
+<script src="../JS/jspadrao.js"></script>
 </html>
 
