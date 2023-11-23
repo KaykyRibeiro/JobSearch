@@ -116,29 +116,8 @@ $data = date("Y");
                         } catch (PDOException $e) {
                             echo "Erro ao recuperar o usuId: " . $e->getMessage();
                         }?>
-            <dialog class="pupup" open>
-                <div class="painel-popup">
-                        <div class="profile">
-                            <img class="foto-perfil" src="../imagens/logo.png" alt="">
-                        </div>
-                        <div class="informaçao">
-                            <h2><?php echo $row_vag['vag_titulo']; ?></h2>
-                            <p><span>Idade: </span><?php echo $row_vag['vag_descricao']; ?></p>
-                            <p><span>Sobre: </span><?php echo $row_vag['vag_modo']; ?></p>
-                            <p><span>Habilidade: </span><?php echo $row_vag['vag_requisitos']; ?></p>
-                            <select name="" id="">
-                                <option value="entrevista">Liberar contato</option>
-                                <option value="Rejeitar">Rejeitar Candidato</option>
-                            </select>
-                            <dialog class="info-aceito">
-                                <p>Ao selecionar está opção você ira librar o e-mail de contato do candidato e juntamente irá informar o candidato de sua escolha.</p>
-                            </dialog>
-                            <dialog class="info-rejeitado">
-                                <p>Ao selecionar está opção você irá reseitar o candidato, ele não receberá notificação</p>
-                            </dialog>
-                            <button type="button">Finalizar</button>
-                        </div>
-                </div>
+            <dialog >
+                teste
             </dialog>
 
 
