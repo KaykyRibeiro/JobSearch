@@ -37,6 +37,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Estilos/estilo3_h.css">
     <link rel="stylesheet" href="../Estilos/estilopadrao.css">
+    <link rel="stylesheet" href="../Estilo/perfil.css">
 
 
     <title>JobSearch</title>
@@ -57,14 +58,15 @@ try {
         <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
     <main class="teste">
-    <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
-    
-    <!-- Exibir informações do usuário -->
-    <p>ID do usuário: <?php echo $_SESSION['user_id']; ?></p>
-    <p>Nome de usuário: <?php echo $_SESSION['login'] . " " . $_SESSION['sobrenome']; ?></p>
-
-    <!-- Adicione mais informações do usuário aqui, se necessário -->
-
+        <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
+        <div class="bloco">
+            <div class="foto">
+                <img src="../imagens/user-svgrepo-com.svg">
+            </div>
+            <div class="nome">
+                <h3><?php echo $_SESSION['login'] . " " . $_SESSION['sobrenome']; ?></h3>
+            </div>
+        </div>
     <p><a href="logout.php">Sair</a></p>
     </main>
 </body>

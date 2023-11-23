@@ -28,7 +28,7 @@ function msgEmpresa() {
         const message = document.createElement("div")
         message.classList.add("msgEmpresa")
         message.innerHTML = `<h1>Empresa</h1>
-                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestiae, eos praesentium nihil consequatur fuga cumque aliquam aperiam, est odit labore ratione recusandae ducimus architecto dolor explicabo! Tenetur, est molestias?</p>
+                             <p>Cadastre sua empresa e comece hoje a oferecer oportunidades para os jovens iniciarem suas carreiras profissionais.</p>
                              <br>`
         divMessage.appendChild(message)
         var destroi = document.querySelector("div.msgCandidato")
@@ -49,7 +49,7 @@ function msgCandidato() {
         const message = document.createElement("div")
         message.classList.add("msgCandidato")
         message.innerHTML = `<h1>Candidato</h1>
-                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum molestiae, eos praesentium nihil consequatur fuga cumque aliquam aperiam, est odit labore ratione recusandae ducimus architecto dolor explicabo! Tenetur, est molestias?</p>
+                             <p>Cadastre-se e encontre a sua primeira oportunidade de emprego que se adeque às suas características.</p>
                              <br>`
         divMessage.appendChild(message)
         var destroi = document.querySelector("div.msgEmpresa")

@@ -1,3 +1,32 @@
+<?php
+// Iniciar a sessão (se ainda não estiver iniciada)
+session_start();
+include('../conexao.php');
+
+// Verificar se o usuário está logado, redirecionar para a página de login se não estiver
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit();
+}
+
+
+
+// Recuperar informações do usuário da sessão
+$user_id = $_SESSION['user_id'];
+
+// Consulta SQL para obter informações do usuário
+$query = "SELECT * FROM tbl_usuario WHERE usu_id = :user_id";
+
+try {
+    $stmt = $conexao->prepare($query);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erro ao recuperar informações do usuário: " . $e->getMessage());
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-bt">
 
@@ -30,24 +59,25 @@
 
         <h2>Postagens</h2>
         <div class="quadro">
-            <!-- $query = "SELECT vag_id, vag_titulo, vag_descricao, vag_salario, vag_requisitos, vag_datPub, vag_emp_id FROM tbl_vagas";
+            <?php
+            $query = "SELECT * FROM tbl_vagas";
             $stmt = $conexao->prepare($query);
             $stmt->execute();
 
             // Inicie o loop para criar os cartões de emprego
-            while ($row_produto2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            while ($row_produto= $stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
-            <a href="vagas.php?id=<?php echo $row_produto2['vag_id']; ?>">
+            <a href="vagas.php?id=<?php echo $row_produto['vag_id']; ?>">
             <div class="postagem">
-            <h1><?php echo $row_produto2['vag_titulo']; ?></h1>
-            <p><?php echo $row_produto2['vagdescricao']; ?></p>
+            <h1><?php echo $row_produto['vag_titulo']; ?></h1>
+            <p><?php echo $row_produto['vag_descricao']; ?></p>
             </div>
         </a>
         <?php
-       // }
+        }
         // Encerre o loop
-        ?> -->
-            <div class="postagem">
+        ?>
+            <!-- <div class="postagem">
                 <h1>Emprego</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
             </div>
@@ -110,7 +140,7 @@
             <div class="postagem">
                 <h1>Emprego</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
+            </div> -->
         </div>
         <!-- <input type="button" value="Recaregar pagina" onclick="recaregar()"> -->
     </main>

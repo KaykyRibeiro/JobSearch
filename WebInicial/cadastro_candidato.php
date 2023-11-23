@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-bt">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./Estilos/style.css" />
     <script src="./JS/script.js" defer></script>
     <script src="./JS/cep.js" defer></script>
+    <script src="./JS/select.js"></script>
     <title>Registraion Form</title>
   </head>
   <body>
@@ -21,6 +22,7 @@
           data-title="Dados"
         ></div>
         <div class="progress-step" data-title="Endereço"></div>
+        <div class="progress-step" data-title="Sobre você"></div>
         <div class="progress-step" data-title="Contato"></div>
       </div>
 
@@ -43,8 +45,8 @@
                     <label>CPF</label>
                 </div>
                 <div class="input-group">
-                    <label>Sexo</label>
-                    <select class="select" name="sexo" required />
+                    <label class="estado">Sexo</label>
+                    <select class="select" name="sexo" required>
                     <option selected disabled>Informe seu sexo biológico</option>
                     <option value="Feminino">Feminino</option>
                     <option value="Masculino">Masculino</option>
@@ -126,6 +128,60 @@
         </div>
       </div>
 
+      <div class="form-step">
+      <div class="coluna">
+                <div class="input-group txtarea">
+                    <textarea  name="sobre" required></textarea>
+                    <label class="sobre">Fale um pouco sobre você</label>
+                </div>
+                <div class="input-group">
+                    <!-- <label class="estado">Habilidades</label> -->
+                    <div class="custom-select open">
+                        <div class="select-box">
+                            <input type="text" class="rags_input" name="tags" hidden>
+                            <div class="selected-options">
+                                <span class="tag">1<span class="remove-tag">&times;</span></span>
+                                <span class="tag">2<span class="remove-tag">&times;</span></span>
+                                <span class="tag">3<span class="remove-tag">&times;</span></span>
+                                <span class="tag">4<span class="remove-tag">&times;</span></span>
+                                <span class="tag">+5</span>
+                            </div>
+                            <div class="arrow">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div class="options">
+                            <div class="option-search-tags">
+                                <input type="text" class="search-tags" placeholder="search tags..">
+                                <button type="button" class="clear"><i class="fa fa-close">X</i></button>
+                            </div>
+                            <div class="option all-tags" data-value="All">
+                                Select All
+                            </div>
+                            <div class="option active" data-value="1">1</div>
+                            <div class="option active" data-value="2">2</div>
+                            <div class="option" data-value="3">3</div>
+                            <div class="option" data-value="4">4</div>
+                            <div class="option" data-value="5">5</div>
+                            <div class="no-result-message" data-value="0">0</div>
+                        </div>
+                        <span class="tag_error_msg error">This field is required</span>
+                    </div>
+                    <!-- <select class="select" name="estado" id="estado" required  />
+                        <option selected disabled>Selecione suas habilidades</option>
+                        <option value="1">Afghanistan</option>
+                        <option value="2">Australia</option>
+                        <option value="3">Germany</option>
+                        <option value="4">Canada</option>
+                        <option value="5">Russia</option>
+                    </select> -->
+                </div>
+            </div>
+        <div class="btns-group">
+          <a href="#" class="acessar btn btn-prev">Voltar</a>
+          <a href="#" class="acessar btn btn-next">Proximo</a>
+        </div>
+      </div>
      
       <div class="form-step">
       <div class="coluna">
@@ -153,6 +209,7 @@
         </div>
       </div>
     </form>
+    
   </body>
   <script>
     function criaMascara(mascaraInputCPF) {
