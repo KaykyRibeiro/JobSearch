@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./Estilos/style.css" />
     <script src="./JS/script.js" defer></script>
     <script src="./JS/cep.js" defer></script>
@@ -131,50 +132,54 @@
       <div class="form-step">
       <div class="coluna">
                 <div class="input-group txtarea">
-                    <textarea  name="sobre" required></textarea>
+                    <textarea  name="txtsobre" required></textarea>
                     <label class="sobre">Fale um pouco sobre você</label>
                 </div>
-                <div class="input-group">
-                    <!-- <label class="estado">Habilidades</label> -->
-                    <div class="custom-select open">
-                        <div class="select-box">
-                            <input type="text" class="rags_input" name="tags" hidden>
-                            <div class="selected-options">
-                                <span class="tag">1<span class="remove-tag">&times;</span></span>
-                                <span class="tag">2<span class="remove-tag">&times;</span></span>
-                                <span class="tag">3<span class="remove-tag">&times;</span></span>
-                                <span class="tag">4<span class="remove-tag">&times;</span></span>
-                                <span class="tag">+5</span>
+                <div class="input-group group-select">
+                    <label class="hab">Habilidades</label> 
+
+                    <div class="container">
+                        <div class="custom-select">
+                            <div class="select-box">
+                                <input type="text" class="tags_input" name="tags" hidden>
+                                <div class="selected-options">
+                                </div>
+                                <div class="arrow">
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
                             </div>
-                            <div class="arrow">
-                                <i class="fa fa-angle-down"></i>
+                            <div class="options">
+                                <div class="option-search-tags">
+                                    <input type="text" class="search-tags" placeholder="Seleciona habilidades...">
+                                    <button type="button" class="clear"><i class="fa fa-close"></i></button>
+                                </div>
+                                <div class="option all-tags" data-value="All">
+                                    Select All
+                                </div>
+                                <div class="option" data-value="adaptabilidade">Adaptabilidade</div>
+                                <div class="option" data-value="alinhamento cultural">Alinhamento cultural</div>
+                                <div class="option" data-value="aprendizado contínuo">Aprendizado contínuo</div>
+                                <div class="option" data-value="autonomia">Autonomia</div>
+                                <div class="option" data-value="criatividade">Criatividade</div>
+                                <div class="option" data-value="comunicação">Comunicação</div>
+
+                                <div class="option" data-value="flexibilidade">Flexibilidade</div>
+                                <div class="option" data-value="inteligência emocional">Inteligência emocional</div>
+                                <div class="option" data-value="liderança">Liderança</div>
+                                <div class="option" data-value="pensamento crítico">Pensamento crítico</div>
+                                <div class="option" data-value="perfil analítico">Perfil analítico</div>
+
+                                <div class="option" data-value="relacionamento interpessoal">Relacionamento interpessoal</div>
+                                <div class="option" data-value="resiliência">Resiliência</div>
+                                <div class="option" data-value="liderança">Liderança</div>
+                                <div class="option" data-value="visão estratégica">Visão estratégica</div>
+                                <div class="option" data-value="visão do negócio">Visão do negócio</div>
+                                <div class="no-result-message" style="display: none;" data-value="0">0</div>
                             </div>
+                            <span class="tag_error_msg error"></span>
                         </div>
-                        <div class="options">
-                            <div class="option-search-tags">
-                                <input type="text" class="search-tags" placeholder="search tags..">
-                                <button type="button" class="clear"><i class="fa fa-close">X</i></button>
-                            </div>
-                            <div class="option all-tags" data-value="All">
-                                Select All
-                            </div>
-                            <div class="option active" data-value="1">1</div>
-                            <div class="option active" data-value="2">2</div>
-                            <div class="option" data-value="3">3</div>
-                            <div class="option" data-value="4">4</div>
-                            <div class="option" data-value="5">5</div>
-                            <div class="no-result-message" data-value="0">0</div>
-                        </div>
-                        <span class="tag_error_msg error">This field is required</span>
                     </div>
-                    <!-- <select class="select" name="estado" id="estado" required  />
-                        <option selected disabled>Selecione suas habilidades</option>
-                        <option value="1">Afghanistan</option>
-                        <option value="2">Australia</option>
-                        <option value="3">Germany</option>
-                        <option value="4">Canada</option>
-                        <option value="5">Russia</option>
-                    </select> -->
+
                 </div>
             </div>
         <div class="btns-group">

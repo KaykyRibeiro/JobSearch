@@ -291,13 +291,14 @@ textarea{
 }
 .select-box{
   background-color: white;
-  border: 1px solid #ced4da;
+  border: 1px solid #4f8cc8;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 56px;
   padding: 0 10px;
   cursor: pointer;
+  border-radius:  5px 5px 0px 0px;
 }
 .selected-options{
   display: flex;
@@ -309,11 +310,88 @@ textarea{
   color: black;
   border-radius: 5px;
   margin-right: 5px;
-  padding: 6px 14px;
+  padding: 3px 7px;
   display: flex;
   align-items: center;
 }
 .remove-tag{
   margin-left: 6px;
   cursor: pointer;
+}
+.arrow{
+  margin: 0 10px;
+}
+.fa-angle-down{
+  color: #404040;
+  font-size: 30px;
+}
+.options{
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #4f8cc8;
+  border-top: none;
+  border-radius: 0px 0px 5px 5px;
+  max-height: 225px;
+  overflow-y: auto;
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgb(0, 0, 0, 0, 1);
+}
+.open .options{
+  display: block;
+}
+.option-search-tags{
+  background-color: white;
+  border-bottom: 1px solid #4f8cc8;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 0px;
+}
+.search-tags{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+}
+.clear{
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  color: #000000;
+  top: 18px;
+  left: auto;
+  right: 15px;
+}
+.option{
+  padding: 12px;
+  cursor: pointer;
+}
+.option.active{
+  color: #000000;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #eaeaee;
+}
+.tag:hover,
+.option:hover{
+  background-color: #eaeaee;
+}
+.no-result-message{
+  padding: 0px 0px 12px 12px;
+}
+.error{
+  color: #ff1a2a;
+  margin-top: 8px;
+}
+
+.group-select{
+  margin-bottom: 30px;
+}
+.hab{
+  top: -30px;
 }
