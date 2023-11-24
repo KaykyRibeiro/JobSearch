@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $reqbasicos = $_POST['reqbasicos'];
     $salario = $_POST['salario'];
     $localizacao = $_POST['local'];
-    $dtPub = $_POST['datetime'];
+    $dtPub = date("Y/m/d");
     $reqdesejaveis = $_POST['reqdesejaveis'];
 
     // Consulta SQL para inserir a vaga no banco de dados
@@ -105,10 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="input_group">
                 <label for="local">Localização da vaga</label>
                 <input type="text" name="local" required>
-            </div>
-            <div class="input_group">
-                <label for="dtPub">Data De Publicação</label>
-                <input type="date" name="datetime" required>
             </div>
         </div>
         <input class="btn" type="submit" value="Publicar">

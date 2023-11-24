@@ -46,6 +46,15 @@ if ($_POST) {
         exit; // Saia do script
     }
 
+    $consulta = "SELECT emp_cnpj FROM tbl_empresa";
+    $stmtConsulta = $conexao->prepare($consulta);
+    $stmtConsulta->execute();
+    $rowConsulta = $stmtConsulta->fetch(PDO::FETCH_ASSOC);
+    if ($rowConsulta['emp_cnpj'] = $cnpj) {
+        echo "CNPJ já cadastrado.";
+    }
+    else{
+
     // Inserir dados na tabela tbl_usuario[]
     try {
         $sqlInserir = "INSERT INTO tbl_empresa (emp_nome, emp_email, emp_senha, emp_telefone, emp_cnpj, emp_logradouro, emp_num, emp_complemento, emp_bairro, emp_cidCodigo, emp_ufeCodigo, emp_cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -56,4 +65,4 @@ if ($_POST) {
         die("Erro ao Inserir os Dados Fornecidos: " . $e->getMessage());
     }
 }
-?>
+}

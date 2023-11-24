@@ -58,14 +58,14 @@ $user_id = $_SESSION['user_id'];
                 <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
             </button>
         </div>
-        <a class="select" href="perfil.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
+        <a class="select" href="perfil_empresa.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
         <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
     <main>
     <h2>Vagas Existentes</h2>
         <div class="lista">
             <?php
-            $query = "SELECT vag_id, vag_titulo, vag_descricao FROM tbl_vagas WHERE vag_emp_id = $user_id";
+            $query = "SELECT * FROM tbl_vagas WHERE vag_emp_id = $user_id";
             $stmt = $conexao->prepare($query);
             $stmt->execute();
 
