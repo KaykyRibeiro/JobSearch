@@ -46,13 +46,15 @@ if ($_POST) {
         exit; // Saia do script
     }
 
-    $consulta = "SELECT emp_cnpj FROM tbl_empresa";
+    $consulta = "SELECT * FROM tbl_empresa WHERE emp_cnpj = :cnpj";
     $stmtConsulta = $conexao->prepare($consulta);
+    $stmtConsulta->bindParam(':cnpj', $cnpj);
     $stmtConsulta->execute();
     $rowConsulta = $stmtConsulta->fetch(PDO::FETCH_ASSOC);
-    if ($rowConsulta['emp_cnpj'] = $cnpj) {
+    if ($rowConsulta) {
         echo "CNPJ já cadastrado.";
     }
+    
     else{
 
     // Inserir dados na tabela tbl_usuario[]

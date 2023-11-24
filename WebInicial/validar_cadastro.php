@@ -21,8 +21,6 @@ if ($_POST) {
    $estCod = $_POST['estado'];
    $cep = $_POST['txtcep'];
    $sexo = $_POST['sexo'];
-   $sobre - $_POST['txtsobre'];
-   $habilidades = $_POST['tags'];
    $sqlCidade = "SELECT cidCodigo FROM tblcidade WHERE cidNome = :cidNome";
    $stmtCidade = $conexao->prepare($sqlCidade);
    $stmtCidade->bindParam(':cidNome', $cidNome, PDO::PARAM_STR);
@@ -57,22 +55,25 @@ if ($_POST) {
    $stmtConsulta->bindParam(':cpf', $cpf); // Vinculando o valor de $cpf ao parâmetro da consulta
    $stmtConsulta->execute();
    $rowConsulta = $stmtConsulta->fetch(PDO::FETCH_ASSOC);
-   if($rowConsulta['usu_cpf'] = $cpf){
-       echo "CPF já cadastrado.";
+   
+   if($rowConsulta){
+      echo "CPF já cadastrado.";
    }
    else{
 
    // Inserir dados na tabela tbl_usuario[]
    try{
-   $sqlInserir = "INSERT INTO tbl_usuario (usu_nome, usu_sobrenome, usu_email, usu_senha, usu_telefone, usu_cpf, usu_dataNasc, usu_logradouro, usu_numRua, usu_complemento, usu_bairro, usu_cidCodigo, usu_ufeCodigo, usu_cep, usu_sexo, usu_sobre, usu_habilidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+   $sqlInserir = "INSERT INTO tbl_usuario (usu_nome, usu_sobrenome, usu_email, usu_senha, usu_telefone, usu_cpf, usu_dataNasc, usu_logradouro, usu_numRua, usu_complemento, usu_bairro, usu_cidCodigo, usu_ufeCodigo, usu_cep, usu_sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
    $stmtInserir = $conexao->prepare($sqlInserir);
-   $stmtInserir->execute([$usu, $sobrenome, $email, $senha, $telefone, $cpf, $datanas, $logradouro, $numero, $complemento, $bairro, $codigoCidade, $codigoEstado,$cep, $sexo, $sobre, $habilidades]);
+   $stmtInserir->execute([$usu, $sobrenome, $email, $senha, $telefone, $cpf, $datanas, $logradouro, $numero, $complemento, $bairro, $codigoCidade, $codigoEstado,$cep, $sexo]);
    header('Location: login.php');
    }
    catch(PDOException $e){
       die("Erro ao Inserir os Dados Fornecidos: " . $e->getMessage());
    }
+   exit;
 
 }
+
 }
 ?>
