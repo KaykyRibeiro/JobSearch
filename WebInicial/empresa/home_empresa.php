@@ -59,25 +59,25 @@ try {
 
         <h2>Postagens</h2>
         <div class="quadro">
-            <!-- $query = "SELECT vag_id, vag_titulo, vag_descricao, vag_salario, vag_requisitos, vag_datPub, vag_emp_id FROM tbl_vagas";
+            <?php
+            $query = "SELECT * FROM tbl_vagas";
             $stmt = $conexao->prepare($query);
             $stmt->execute();
 
             // Inicie o loop para criar os cartões de emprego
-            while ($row_produto2 = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            while ($row_produto= $stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
-            <a href="vagas.php?id=<?php echo $row_produto2['livId']; ?>">
+            <a href="vagas.php?id=<?php echo $row_produto['vag_id']; ?>">
             <div class="postagem">
-            <img src="<?php echo $row_produto2['livImg']; ?>" class="card-img-top" alt="...">
-            <h1><?php echo $row_produto2['livTitulo']; ?></h1>
-            <p><?php echo $row_produto2['vagdescricao']; ?></p>
+            <h1><?php echo $row_produto['vag_titulo']; ?></h1>
+            <p><?php echo $row_produto['vag_descricao']; ?></p>
             </div>
         </a>
         <?php
-       // }
+        }
         // Encerre o loop
-        ?> -->
-            <div class="postagem">
+        ?>
+            <!-- <div class="postagem">
                 <h1>Emprego</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
             </div>
@@ -140,7 +140,7 @@ try {
             <div class="postagem">
                 <h1>Emprego</h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
+            </div> -->
         </div>
         <!-- <input type="button" value="Recaregar pagina" onclick="recaregar()"> -->
     </main>
