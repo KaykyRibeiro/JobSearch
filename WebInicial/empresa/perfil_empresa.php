@@ -61,7 +61,7 @@ try {
             <div class="coluna-img">
                 <div class="perfil">
                     <img class="foto" src="../imagens/group-svgrepo-com.svg" alt="">
-                    <a class="btn-editi" href="">Alterar imagem</a>
+                    <button class="btn-editi" id="btn-editi-img">Alterar imagem</button>
                 </div>
                 <div class="option-config">
                     <button class="btn-option btn-ativo" id="btn-1" >Perfil</button>
@@ -97,7 +97,6 @@ try {
             </div>
         </div>
     </main>
-<<<<<<< Updated upstream
     <div class="edita-img" id="div-edit-img">
             <form class="form-upload" action="" enctype="multipart/form-data">
                 <div class="img-expo">
@@ -110,10 +109,8 @@ try {
                 </div>
             </form>
     </div>
-=======
->>>>>>> Stashed changes
 </body>
 <script src="../JS/jspadrao.js"></script>
-<script src="../JS/perfil.js"></script>
+<script src="../JS/perfil-empresa.js"></script>
 </html>
 
