@@ -97,6 +97,18 @@ try {
             </div>
         </div>
     </main>
+    <div class="edita-img" id="div-edit-img">
+            <form class="form-upload" action="" enctype="multipart/form-data">
+                <div class="img-expo">
+                    <img class="img-previl" src="../imagens/group-svgrepo-com.svg" alt="">
+                    <input type="file" class="arquivo" id="arquivo" name="arquivo" accept=".png, .jpg, .jpeg">
+                </div>
+                <div class="buttons">
+                    <button class="btn-salvar" id="btn-salvar">Salvar</button>
+                    <a class="btn-cancelar" id="btn-cancelar">Cancelar</a>
+                </div>
+            </form>
+    </div>
 </body>
 <script src="../JS/jspadrao.js"></script>
 <script src="../JS/perfil.js"></script>
