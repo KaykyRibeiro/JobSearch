@@ -57,7 +57,7 @@ if ($_POST) {
    $stmtConsulta->bindParam(':cpf', $cpf); // Vinculando o valor de $cpf ao parâmetro da consulta
    $stmtConsulta->execute();
    $rowConsulta = $stmtConsulta->fetch(PDO::FETCH_ASSOC);
-   if($rowConsulta['usu_cpf'] = $cpf){
+   if($rowConsulta){
        echo "CPF já cadastrado.";
    }
    else{
