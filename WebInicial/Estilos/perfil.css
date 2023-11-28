@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+:root{
+  --cor0: #000000;
+  --cor1: #1a1a1ae5;
+  --cor2: #1a1a1aee;
+  --cor3: #00000062;
+  --cor4: #4938ffd7;
+  --cor5: #8b80f9;
+  --cor6: #fff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.bloco{
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: var(--cor6);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    box-shadow: 0px 0px 10px 4px var(--cor8);
+    height: auto;
+}
+span{
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgb(158, 157, 157);
+}
+.coluna-info{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+}
+.separa{
+    display: none;
+}
+.ativo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.coluna-img,
+.perfil,
+.option-config{
+    display: flex;
+    flex-direction: column;
+}
+.coluna-img{
+    width: 230px;
+    padding: 5px;
+    box-shadow: 1px 0px 0px 0px rgb(182, 182, 182)
+}
+.perfil{
+    margin: 10px;
+    text-align: center;
+}
+.option-config{
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+}
+.btn-option{
+    color: var(--cor4);
+    margin-bottom: 2px;
+    box-shadow: 0px 1px 3px -2px black;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+}
+.btn-option:hover{
+    box-shadow: 0px 1px 3px -1px var(--cor4);
+}
+.btn-ativo,
+.btn-ativo:hover{
+    background-color: var(--cor5);
+    color: white;
+    box-shadow: 0px 1px 3px 1px var(--cor4);
+}
+.btn-editi{
+    color: #000000;
+    box-shadow: 0px 1px 3px -2px black;
+    font-size: 14px;
+}
+.btn-editi:hover{
+    color: gray;
+    box-shadow: 0px 1px 5px -1px var(--cor4);
+}
+.foto{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.btn-editar{
+    position: relative;
+    bottom: 0px;
+    color: var(--cor4);
+    margin-bottom: 0px;
+    box-shadow: 0px 1px 4px -2px black;
+    text-align: center;
+    padding: 5px 15px;
+    height: 30px;
+    width: 80px;
+}
+.btn-editar:hover{
+    background-color: var(--cor5);
+    color: white;
+    box-shadow: 0px 1px 3px 1px var(--cor4);
+}
+.coluna-info > p{
+    width: 45%;
+    font-size: 16px;
+}
+
+.edita-img{
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 1px 10px 1px black;
+    height: 35%;
+    width: 40%;
+    text-align: center;
+    top: 28%;
+    left: 30%;
+    border-radius: 5px;
+}
+.img-expo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img-previl{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+input > .arquivo{
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px 1px black;
+}
+.form-upload{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.btn-salvar{
+    border: none;
+    background-color: var(--cor4);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px 1px var(--cor5);
+    width: 100px;
+    margin: 5px;
+}
+.btn-salvar:hover{
+    background-color: var(--cor6);
+    color: var(--cor4);
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px 1px #ebebeb;
+}
+.btn-cancelar{
+    border: none;
+    background-color: rgb(245, 245, 245);
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 13px -5px black;
+    width: 100px;
+    margin: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.btn-cancelar:hover{
+    background-color: var(--cor6);
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px 1px #ebebeb;
+}
+.buttons{
+    position: relative;
+    bottom: -30px;
+    display: flex;
+}
+.active{
+    display: block;
+}

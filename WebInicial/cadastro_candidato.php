@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-bt">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./Estilos/style.css" />
     <script src="./JS/script.js" defer></script>
     <script src="./JS/cep.js" defer></script>
+    
     <title>Registraion Form</title>
   </head>
   <body>
@@ -21,6 +23,7 @@
           data-title="Dados"
         ></div>
         <div class="progress-step" data-title="Endereço"></div>
+        <div class="progress-step" data-title="Sobre você"></div>
         <div class="progress-step" data-title="Contato"></div>
       </div>
 
@@ -43,8 +46,8 @@
                     <label>CPF</label>
                 </div>
                 <div class="input-group">
-                    <label>Sexo</label>
-                    <select class="select" name="sexo" required />
+                    <label class="estado">Sexo</label>
+                    <select class="select" name="sexo" required>
                     <option selected disabled>Informe seu sexo biológico</option>
                     <option value="Feminino">Feminino</option>
                     <option value="Masculino">Masculino</option>
@@ -126,6 +129,64 @@
         </div>
       </div>
 
+      <div class="form-step">
+      <div class="coluna">
+                <div class="input-group txtarea">
+                    <textarea  name="txtsobre" required></textarea>
+                    <label class="sobre">Fale um pouco sobre você</label>
+                </div>
+                <div class="input-group group-select">
+                    <label class="hab">Habilidades</label> 
+
+                    <div class="container">
+                        <div class="custom-select">
+                            <div class="select-box">
+                                <input type="text" class="tags_input" name="tags" hidden>
+                                <div class="selected-options">
+                                </div>
+                                <div class="arrow">
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
+                            </div>
+                            <div class="options">
+                                <div class="option-search-tags">
+                                    <input type="text" class="search-tags" placeholder="Seleciona habilidades...">
+                                    <button type="button" class="clear"><i class="fa fa-close"></i></button>
+                                </div>
+                                <div class="option all-tags" data-value="All">
+                                    Select All
+                                </div>
+                                <div class="option" data-value="adaptabilidade">Adaptabilidade</div>
+                                <div class="option" data-value="alinhamento cultural">Alinhamento cultural</div>
+                                <div class="option" data-value="aprendizado contínuo">Aprendizado contínuo</div>
+                                <div class="option" data-value="autonomia">Autonomia</div>
+                                <div class="option" data-value="criatividade">Criatividade</div>
+                                <div class="option" data-value="comunicação">Comunicação</div>
+
+                                <div class="option" data-value="flexibilidade">Flexibilidade</div>
+                                <div class="option" data-value="inteligência emocional">Inteligência emocional</div>
+                                <div class="option" data-value="liderança">Liderança</div>
+                                <div class="option" data-value="pensamento crítico">Pensamento crítico</div>
+                                <div class="option" data-value="perfil analítico">Perfil analítico</div>
+
+                                <div class="option" data-value="relacionamento interpessoal">Relacionamento interpessoal</div>
+                                <div class="option" data-value="resiliência">Resiliência</div>
+                                <div class="option" data-value="liderança">Liderança</div>
+                                <div class="option" data-value="visão estratégica">Visão estratégica</div>
+                                <div class="option" data-value="visão do negócio">Visão do negócio</div>
+                                <div class="no-result-message" style="display: none;" data-value="0">Não encontrado</div>
+                            </div>
+                            <span class="tag_error_msg error"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <div class="btns-group">
+          <a href="#" class="acessar btn btn-prev">Voltar</a>
+          <a href="#" class="acessar btn btn-next">Proximo</a>
+        </div>
+      </div>
      
       <div class="form-step">
       <div class="coluna">
@@ -153,6 +214,7 @@
         </div>
       </div>
     </form>
+    <script src="./JS/select.js"></script>
   </body>
   <script>
     function criaMascara(mascaraInputCPF) {

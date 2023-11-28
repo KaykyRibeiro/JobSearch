@@ -14,13 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $modo = $_POST['modtrabalho'];
     $descricao = $_POST['descricao'];
     $reqbasicos = $_POST['reqbasicos'];
+    $reqdesejaveis = $_POST['reqdesejaveis'];
     $salario = $_POST['salario'];
     $localizacao = $_POST['local'];
-    $dtPub = $_POST['datetime'];
+    $dtPub = date("Y/m/d");
     $reqdesejaveis = $_POST['reqdesejaveis'];
 
     // Consulta SQL para inserir a vaga no banco de dados
-    $empresa = "INSERT INTO tbl_vagas (vag_titulo, vag_modo, vag_descricao, vag_dataPub, vag_requisitos, vag_salario, vag_local, vag_emp_id) VALUES (:titulo, :modo, :descricao, :dtPub, :reqbasicos, :salario, :localizacao, :user_id)";
+    $empresa = "INSERT INTO tbl_vagas (vag_titulo, vag_modo, vag_descricao, vag_dataPub, vag_requisitos, vag_reqdesejaveis, vag_salario, vag_local, vag_emp_id) VALUES (:titulo, :modo, :descricao, :dtPub, :reqbasicos, :reqdesejaveis, :salario, :localizacao, :user_id)";
 
     try {
         $stmt = $conexao->prepare($empresa);
@@ -29,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindValue(':descricao', $descricao, PDO::PARAM_STR);
         $stmt->bindValue(':dtPub', $dtPub);
         $stmt->bindValue(':reqbasicos', $reqbasicos, PDO::PARAM_STR);
+        $stmt->bindValue(':reqdesejaveis', $reqdesejaveis, PDO::PARAM_STR);
         //$stmt->bindValue(':reqdesejaveis', $reqdesejaveis, PDO::PARAM_STR);
         $stmt->bindValue(':salario', $salario);
         $stmt->bindValue(':localizacao', $localizacao, PDO::PARAM_STR);
@@ -58,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 
 <head>
     <title>Cadastrar Vaga de Emprego</title>
@@ -105,10 +107,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="input_group">
                 <label for="local">Localização da vaga</label>
                 <input type="text" name="local" required>
-            </div>
-            <div class="input_group">
-                <label for="dtPub">Data De Publicação</label>
-                <input type="date" name="datetime" required>
             </div>
         </div>
         <input class="btn" type="submit" value="Publicar">

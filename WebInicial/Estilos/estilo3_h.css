@@ -37,33 +37,43 @@ main > .quadro{
   box-shadow:  0px 0px 10px 4px var(--cor8);
 }
 .postagem{
-  padding: 5px;
-  width: 300px;
-  height: 150px;
+  padding: 15px;
+  width: 350px;
+  height: 200px;
   margin-left: 10px;
   margin-right: 10px;
   background-color: var(--cor6);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 2px 2px 5px 0px var(--cor4);
+  box-shadow: 1px 1px 3px 0px var(--cor4);
 }
 .postagem p{
   max-height: 70px;
   overflow-y: hidden;
-  font-size: 14px;
+  font-size: 18px;
   padding-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
-@media screen and(max_width: 660px) {
-main > h2{
-  text-align: end;
+.postagem h1{
+  font-size: 16px;
+  text-align: justify;
+  margin-left: 4px;
+  color: #323232;
 }
-main{
-  width: 80%;
-  margin-left: 20%;
-  margin-right: 0%;
+.postagem h2{
+  font-size: 18px;
+  text-align: justify;
+  margin: 2px;
+  text-transform: uppercase;
 }
-} 
+.data{
+  position: relative;
+  top: -165px;
+  left: 63px;
+  color: #616161;
+  font-size: 14px;
+}
+ 
 
 .message{
 padding: 19px 60px; 
@@ -108,3 +118,13 @@ animation: time 3s forwards;
   opacity: 1;
 }
 }
+.nome-empresa{
+  display: flex;
+}
+
+.img-perfil{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+

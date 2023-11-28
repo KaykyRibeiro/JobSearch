@@ -28,9 +28,7 @@ CREATE TABLE `tbl_candidatura` (
   `can_usu_id` int(11) NOT NULL,
   PRIMARY KEY (`can_id`),
   KEY `can_vagId` (`can_vagId`),
-  KEY `can_usu_id` (`can_usu_id`),
-  CONSTRAINT `tbl_candidatura_ibfk_1` FOREIGN KEY (`can_vagId`) REFERENCES `tbl_vagas` (`vag_id`),
-  CONSTRAINT `tbl_candidatura_ibfk_2` FOREIGN KEY (`can_usu_id`) REFERENCES `tbl_usuario` (`usu_id`)
+  KEY `can_usu_id` (`can_usu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_candidatura` */
@@ -55,9 +53,7 @@ CREATE TABLE `tbl_empresa` (
   `emp_cep` varchar(9) NOT NULL,
   PRIMARY KEY (`emp_id`),
   KEY `emp_cidCodigo` (`emp_cidCodigo`),
-  KEY `emp_ufeCodigo` (`emp_ufeCodigo`),
-  CONSTRAINT `tbl_empresa_ibfk_1` FOREIGN KEY (`emp_cidCodigo`) REFERENCES `tblcidade` (`cidCodigo`),
-  CONSTRAINT `tbl_empresa_ibfk_2` FOREIGN KEY (`emp_ufeCodigo`) REFERENCES `tbluf` (`ufeCodigo`)
+  KEY `emp_ufeCodigo` (`emp_ufeCodigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_empresa` */
@@ -84,9 +80,7 @@ CREATE TABLE `tbl_habusu` (
   `habUsu_hab_id` int(11) NOT NULL,
   PRIMARY KEY (`habUsu_id`),
   KEY `habUsu_usu_id` (`habUsu_usu_id`),
-  KEY `habUsu_hab_id` (`habUsu_hab_id`),
-  CONSTRAINT `tbl_habusu_ibfk_1` FOREIGN KEY (`habUsu_usu_id`) REFERENCES `tbl_usuario` (`usu_id`),
-  CONSTRAINT `tbl_habusu_ibfk_2` FOREIGN KEY (`habUsu_hab_id`) REFERENCES `tbl_habilidade` (`hab_id`)
+  KEY `habUsu_hab_id` (`habUsu_hab_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_habusu` */
@@ -114,9 +108,7 @@ CREATE TABLE `tbl_usuario` (
   `usu_ufeCodigo` int(11) NOT NULL,
   PRIMARY KEY (`usu_id`),
   KEY `usu_cidCodigo` (`usu_cidCodigo`),
-  KEY `usu_ufeCodigo` (`usu_ufeCodigo`),
-  CONSTRAINT `tbl_usuario_ibfk_1` FOREIGN KEY (`usu_cidCodigo`) REFERENCES `tblcidade` (`cidCodigo`),
-  CONSTRAINT `tbl_usuario_ibfk_2` FOREIGN KEY (`usu_ufeCodigo`) REFERENCES `tbluf` (`ufeCodigo`)
+  KEY `usu_ufeCodigo` (`usu_ufeCodigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_usuario` */
@@ -135,9 +127,7 @@ CREATE TABLE `tbl_vagas` (
   `vag_dataPub` datetime NOT NULL,
   `vag_dataExp` datetime NOT NULL,
   `vag_emp_id` int(11) NOT NULL,
-  PRIMARY KEY (`vag_id`),
-  KEY `vag_emp_id` (`vag_emp_id`),
-  CONSTRAINT `tbl_vagas_ibfk_1` FOREIGN KEY (`vag_emp_id`) REFERENCES `tbl_empresa` (`emp_id`)
+  PRIMARY KEY (`vag_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_vagas` */
@@ -151,8 +141,7 @@ CREATE TABLE `tblcidade` (
   `ufeCodigo` int(11) NOT NULL,
   `cidNome` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`cidCodigo`),
-  KEY `ufeCodigo` (`ufeCodigo`),
-  CONSTRAINT `tblcidade_ibfk_1` FOREIGN KEY (`ufeCodigo`) REFERENCES `tbluf` (`ufeCodigo`)
+  KEY `ufeCodigo` (`ufeCodigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tblcidade` */
