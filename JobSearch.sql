@@ -1,4 +1,4 @@
-/*
+﻿/*
 SQLyog Community v13.2.0 (64 bit)
 MySQL - 10.4.24-MariaDB : Database - jobsearch
 *********************************************************************
@@ -104,6 +104,8 @@ CREATE TABLE `tbl_usuario` (
   `usu_complemento` varchar(10) NOT NULL,
   `usu_bairro` varchar(50) NOT NULL,
   `usu_cep` char(9) NOT NULL,
+  `usu_sobre` VARCHAR(500) NOT NULL ,
+  `usu_habilidade` VARCHAR(500) NOT NULL,
   `usu_cidCodigo` int(11) NOT NULL,
   `usu_ufeCodigo` int(11) NOT NULL,
   PRIMARY KEY (`usu_id`),

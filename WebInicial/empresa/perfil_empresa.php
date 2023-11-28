@@ -97,6 +97,7 @@ try {
             </div>
         </div>
     </main>
+<<<<<<< Updated upstream
     <div class="edita-img" id="div-edit-img">
             <form class="form-upload" action="" enctype="multipart/form-data">
                 <div class="img-expo">
@@ -109,6 +110,8 @@ try {
                 </div>
             </form>
     </div>
+=======
+>>>>>>> Stashed changes
 </body>
 <script src="../JS/jspadrao.js"></script>
 <script src="../JS/perfil.js"></script>
