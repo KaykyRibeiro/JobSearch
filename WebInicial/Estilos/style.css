@@ -291,7 +291,7 @@ textarea{
 }
 .select-box{
   background-color: white;
-  border: 1px solid #4f8cc8;
+  border: 1px solid var(--cor4);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -306,8 +306,8 @@ textarea{
   margin-top: 0;
 }
 .tag{
-  background-color: #f2f2f2;
-  color: black;
+  background-color: #9799f5;
+  color: white;
   border-radius: 5px;
   margin-right: 5px;
   padding: 3px 7px;
@@ -374,7 +374,7 @@ textarea{
 }
 .option.active{
   color: #000000;
-  background-color: #f2f2f2;
+  background-color: #67baff;
   border-bottom: 1px solid #eaeaee;
 }
 .tag:hover,

@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){
         })
     })
 
-    document,this.addEventListener("click", function(event){
+    document.addEventListener("click", function(event){
         const removeTag = event.target.closest(".remove-tag")
         if(removeTag){
             const customSelect = removeTag.closest("custom-select")

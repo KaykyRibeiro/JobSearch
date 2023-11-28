@@ -37,7 +37,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Estilos/estilo3_h.css">
     <link rel="stylesheet" href="../Estilos/estilopadrao.css">
-
+    <link rel="stylesheet" href="../Estilos/perfil.css">
 
     <title>JobSearch</title>
 </head>
@@ -55,18 +55,50 @@ try {
         <a class="selecionado" href="perfil_empresa.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
         <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
-    <main class="teste">
+    <main>
     <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
-    
-    <!-- Exibir informações do usuário -->
-    <p>ID do usuário: <?php echo $_SESSION['user_id']; ?></p>
-    <p>Nome de usuário: <?php echo $_SESSION['login']; ?></p>
-
-    <!-- Adicione mais informações do usuário aqui, se necessário -->
-
-    <p><a href="logout.php">Sair</a></p>
+        <div class="bloco">
+            <div class="coluna-img">
+                <div class="perfil">
+                    <img class="foto" src="../imagens/group-svgrepo-com.svg" alt="">
+                    <a class="btn-editi" href="">Alterar imagem</a>
+                </div>
+                <div class="option-config">
+                    <button class="btn-option btn-ativo" id="btn-1" >Perfil</button>
+                    <button class="btn-option" id="btn-2">Conta</button>
+                    <button class="btn-option" id="btn-3">Endereço</button>
+                </div>
+            </div>
+            <div class="separa ativo" id="div-1">
+                <div class="coluna-info " >
+                    <p><span>NOME: </span><?php echo $_SESSION['login']; ?></p>
+                    <p><span>TELEFONE: </span></p>
+                </div>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+            </div>
+            <div class="separa" id="div-2">
+                <div class="coluna-info" >
+                    <p><span>E-MAIL: </span></p>
+                    <p><span>Senha: </span></p>
+                </div>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+            </div>
+            <div class="separa" id="div-3">
+                <div class="coluna-info" >
+                    <p><span>COMPLEMENTO: </span></p>
+                    <p><span>CEP: </span></p>
+                    <p><span>RUA: </span></p>
+                    <p><span>NÚMERO: </span></p>
+                    <p><span>BAIRRO: </span></p>
+                    <p><span>CIDADE: </span></p>
+                    <p><span>ESTADO: </span></p>
+                </div>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+            </div>
+        </div>
     </main>
 </body>
 <script src="../JS/jspadrao.js"></script>
+<script src="../JS/perfil.js"></script>
 </html>
 

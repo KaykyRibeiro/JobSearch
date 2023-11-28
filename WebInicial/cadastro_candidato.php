@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./Estilos/style.css" />
     <script src="./JS/script.js" defer></script>
     <script src="./JS/cep.js" defer></script>
-    <script src="./JS/select.js"></script>
+    
     <title>Registraion Form</title>
   </head>
   <body>
@@ -174,7 +174,7 @@
                                 <div class="option" data-value="liderança">Liderança</div>
                                 <div class="option" data-value="visão estratégica">Visão estratégica</div>
                                 <div class="option" data-value="visão do negócio">Visão do negócio</div>
-                                <div class="no-result-message" style="display: none;" data-value="0">0</div>
+                                <div class="no-result-message" style="display: none;" data-value="0">Não encontrado</div>
                             </div>
                             <span class="tag_error_msg error"></span>
                         </div>
@@ -214,7 +214,7 @@
         </div>
       </div>
     </form>
-    
+    <script src="./JS/select.js"></script>
   </body>
   <script>
     function criaMascara(mascaraInputCPF) {

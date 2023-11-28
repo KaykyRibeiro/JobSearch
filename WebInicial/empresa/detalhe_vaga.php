@@ -17,6 +17,7 @@ $data = date("Y");
     <link rel="stylesheet" href="../Estilos/estilopadrao.css">
     <link rel="stylesheet" href="../Estilos/cadVaga.css">
     <link rel="stylesheet" href="../Estilos/detalhe_vaga.css">
+    
 
     <style>
         .fundo > h2{
@@ -58,10 +59,10 @@ $data = date("Y");
                             <p><span>Descrição: </span><?php echo $row_vag['vag_descricao']; ?></p>
                             <p><span>Modo de Trabalho: </span><?php echo $row_vag['vag_modo']; ?></p>
                             <p><span>Requisitos Básicos: </span><?php echo $row_vag['vag_requisitos']; ?></p>
-                            <p><span>Requisitos diferenciais: </span><?php echo $row_vag['vag_reqDesejaveis']; ?></p>
+                            <p><span>Requisitos diferenciais: </span><?php echo $row_vag['vag_reqdesejaveis']; ?></p>
                             <p><span>Local: </span><?php echo $row_vag['vag_local']; ?></p>
                             <p><span>Salário: </span><?php echo "R$ " . $row_vag['vag_salario']; ?></p>
-                            <p><span>Datat de publicação: </span><?php echo $row_vag['vag_dataPub']; ?></p>
+                            <p><span>Data de publicação: </span><?php echo $row_vag['vag_dataPub']; ?></p>
                         </div>
                     <?php } 
                 }
@@ -105,7 +106,7 @@ $data = date("Y");
 
                 </div>
                 <div class="detalhes">
-                    <button class="detalhe" id="detalheBtn" onclick="dados()">
+                    <button class="detalhe" id="detalheBtn">
                         <img class="img_detalhe" src="../imagens/menu-svgrepo-com.svg" alt="">
                     </button>
                 </div>
@@ -116,34 +117,46 @@ $data = date("Y");
                         } catch (PDOException $e) {
                             echo "Erro ao recuperar o usuId: " . $e->getMessage();
                         }?>
-            <dialog class="pupup" open>
-                <div class="painel-popup">
+
+                <div class="painel-popup" id="div-popup">
+                        <button class="close" id="close">
+                            <img  class="img-close" src="../imagens/closure-svgrepo-com.svg" alt="">
+                        </button>
                         <div class="profile">
-                            <img class="foto-perfil" src="../imagens/logo.png" alt="">
+                            <img class="foto-perfil" src="../imagens/group-svgrepo-com.svg" alt="">
                         </div>
-                        <div class="informaçao">
-                            <h2><?php echo $row_vag['vag_titulo']; ?></h2>
+                        <h2><?php echo $row_vag['vag_titulo']; ?></h2>
+                        <div class="informacao">
+                            
                             <p><span>Idade: </span><?php echo $row_vag['vag_descricao']; ?></p>
+                            <br>
                             <p><span>Sobre: </span><?php echo $row_vag['vag_modo']; ?></p>
+                            <br>
                             <p><span>Habilidade: </span><?php echo $row_vag['vag_requisitos']; ?></p>
-                            <select name="" id="">
-                                <option value="entrevista">Liberar contato</option>
-                                <option value="Rejeitar">Rejeitar Candidato</option>
-                            </select>
-                            <dialog class="info-aceito">
-                                <p>Ao selecionar está opção você ira librar o e-mail de contato do candidato e juntamente irá informar o candidato de sua escolha.</p>
-                            </dialog>
-                            <dialog class="info-rejeitado">
-                                <p>Ao selecionar está opção você irá reseitar o candidato, ele não receberá notificação</p>
-                            </dialog>
-                            <button type="button">Finalizar</button>
+
                         </div>
+                        <form class="form-final" action="valida_escolha.php">
+                            
+                            <div class="opcao">
+                                <input type="radio" class="radio" id="aceito" name="fav_language" value="CSS"><label>Liberar contato</label>
+                                <input type="radio" class="radio" id="rejeitado" name="fav_language" value="CSS"><label>Rejeitar Candidato</label>
+                            </div>
+                            <div class="info-aceito alerta" id="alert-aceito">
+                                <p>Ao selecionar está opção você ira librar o e-mail de contato do candidato e juntamente irá informar o candidato de sua escolha.</p>
+                            </div>
+                            <div class="info-rejeitado alerta" id="alert-rejeitado">
+                                <p>Ao selecionar está opção você irá reseitar o candidato, ele não receberá notificação</p>
+                            </div>
+                           <input class="finalizar" id="finaliza" type="button" value="Finalizar">
+                        </form>
+                       
+                        
                 </div>
-            </dialog>
 
 
         </div>
     </div>
 
 </body>
+<script src="../JS/popup.js"></script>
 </html>

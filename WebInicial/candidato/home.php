@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php");
     exit();
 }
-
+$data = date("Y/m/d");
 
 
 // Recuperar informações do usuário da sessão
@@ -66,83 +66,47 @@ try {
 
             // Inicie o loop para criar os cartões de emprego
             while ($row_produto= $stmt->fetch(PDO::FETCH_ASSOC)) {
+                // $idvaga = $row_produto['vag_id'];
+                // $idemp = "SELECT vag_emp_id FROM tbl_vagas WHERE vag_id = $idvaga";
+                // $nameemp = "SELECT emp_nome FROM tbl_empresa WHERE emp_id = $idemp";
+
+                
+                    $datapub = $row_produto['vag_dataPub'];
+                    $temp = $datapub - $data;
+                
             ?>
+            
             <a href="vagas.php?id=<?php echo $row_produto['vag_id']; ?>">
             <div class="postagem">
-            <h1><?php echo $row_produto['vag_titulo']; ?></h1>
+                <div class="nome-empresa">
+                    <img class="img-perfil" src="../imagens/logo.png" alt="">
+                    <h1>Empresa de empresa</h1>
+                </div>
+            <h2><?php echo $row_produto['vag_titulo']; ?></h2>
             <p><?php echo $row_produto['vag_descricao']; ?></p>
+            
             </div>
+            <p class="data"><?php  
+            if ($temp == 0) {
+                echo "Hoje";
+            }else if($temp > 0 && $temp < 7){
+                echo "Há " . $temp . " Dias atrás";
+            }else if($temp >= 7 && $temp < 14){
+                echo "Há 1 semana atrás";
+            }else if($temp >= 14 && $temp < 21){
+                echo "Há 2 semanas atrás";
+            }else if($temp >= 21 && $temp < 28){
+                echo "Há 3 semanas atrás";
+            }else if($temp >= 1 && $temp < 21){
+                echo "Há 2 semanas atrás";
+            }?></p>
         </a>
         <?php
         }
+        
         // Encerre o loop
         ?>
-            <!-- <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div>
-            <div class="postagem">
-                <h1>Emprego</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vitae laborum accusantium mollitia modi harum voluptate deleniti placeat asperiores delectus porro, dignissimos a sunt saepe qui voluptatem natus! Non, illo.</p>
-            </div> -->
         </div>
-        <!-- <input type="button" value="Recaregar pagina" onclick="recaregar()"> -->
     </main>
 
     <script src="../JS/jspadrao.js"></script>

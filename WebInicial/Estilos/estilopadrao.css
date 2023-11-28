@@ -82,6 +82,7 @@ nav>button {
 #config {
   position: fixed;
   top: 90%;
+  left: 15px;
 }
 
 button {
@@ -101,4 +102,11 @@ button {
   left: 13px;
   width: 55px;
   height: 50px;
+}
+.back{
+  position: fixed;
+  top: 5px;
+  left: 10px;
+  width: 50px;
+  height: 45px;
 }

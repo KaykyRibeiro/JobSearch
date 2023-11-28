@@ -45,6 +45,10 @@ $user_id = $_SESSION['user_id'];
             border-radius: 5px;
             margin-bottom: 20px;
         }
+        a{
+            text-decoration: none;
+            color: black;
+        }
     </style>
     
 </head>
@@ -62,7 +66,7 @@ $user_id = $_SESSION['user_id'];
         <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
     <main>
-    <h2>Vagas Existentes</h2>
+    <h2>Vagas Criadas</h2>
         <div class="lista">
             <?php
             $query = "SELECT * FROM tbl_vagas WHERE vag_emp_id = $user_id";
