@@ -22,9 +22,7 @@ try {
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erro ao recuperar informações do usuário: " . $e->getMessage());
-}
+
 
 ?>
 
@@ -114,8 +112,8 @@ try {
     <div class="edita-img" id="div-edit-img">
             <form class="form-upload" action="" enctype="multipart/form-data">
                 <div class="img-expo">
-                    <img class="img-previl" src="../imagens/group-svgrepo-com.svg" alt="">
-                    <input type="file" class="arquivo" id="arquivo" name="arquivo" accept=".png, .jpg, .jpeg">
+                    <img class="img-previl" id="image" src="../imagens/group-svgrepo-com.svg" alt="">
+                    <input type="file" class="arquivo" id="inImg" name="arquivo" accept=".png, .jpg, .jpeg">
                 </div>
                 <div class="buttons">
                     <button class="btn-salvar" id="btn-salvar">Salvar</button>
@@ -123,6 +121,18 @@ try {
                 </div>
             </form>
     </div>
+    <?php
+} catch (PDOException $e) {
+    die("Erro ao recuperar informações do usuário: " . $e->getMessage());
+}
+?>
+<script>
+        var file = document.getElementById("inImg")
+        var img = document.getElementById("image")
+        file.addEventListener("change", (e) => {
+            img.src = URL.createObjectURL(e.target.files[0])
+        })
+    </script>
 </body>
 <script src="../JS/jspadrao.js"></script>
 <script src="../JS/perfil.js"></script>
