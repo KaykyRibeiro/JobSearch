@@ -2,6 +2,7 @@
 // Iniciar a sessão (se ainda não estiver iniciada)
 session_start();
 include('../conexao.php');
+date_default_timezone_set('America/Sao_Paulo');
 
 // Verificar se o usuário está logado, redirecionar para a página de login se não estiver
 if (!isset($_SESSION['user_id'])) {
@@ -9,6 +10,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 $data = date("Y/m/d");
+$dataTeste = date('Y-m-d');
 
 
 // Recuperar informações do usuário da sessão
@@ -65,47 +67,66 @@ try {
             $stmt->execute();
 
             // Inicie o loop para criar os cartões de emprego
-            while ($row_produto= $stmt->fetch(PDO::FETCH_ASSOC)) {
-                // $idvaga = $row_produto['vag_id'];
-                // $idemp = "SELECT vag_emp_id FROM tbl_vagas WHERE vag_id = $idvaga";
-                // $nameemp = "SELECT emp_nome FROM tbl_empresa WHERE emp_id = $idemp";
+            while ($row_produto = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $datapub = $row_produto['vag_dataPub'];
+                $dataAtual = DateTime::createFromFormat('Y-m-d', $dataTeste);
+                $dataBanco = DateTime::createFromFormat('Y-m-d', $datapub);
+                $intervalo = $dataBanco->diff($dataAtual);
 
-                
-                    $datapub = $row_produto['vag_dataPub'];
-                    $temp = $datapub - $data;
-                
+                $idvaga = $row_produto['vag_id'];
+                $idemp = "SELECT vag_emp_id FROM tbl_vagas WHERE vag_id = $idvaga";
+                $sql = $conexao->prepare($idemp);
+                $sql->execute();
+                while ($row_emp = $sql->fetch(PDO::FETCH_ASSOC)) {
+                    $teste = $row_emp['vag_emp_id'];
+                    $nameemp = "SELECT emp_nome FROM tbl_empresa WHERE emp_id = $teste";
+                    $sqlEmp = $conexao->prepare($nameemp);
+                    $sqlEmp->execute();
+                    while ($row_name = $sqlEmp->fetch(PDO::FETCH_ASSOC)) {
+
+
+
+                        // 
+
+
+
+                        //$temp = $data - $datapub;
+
             ?>
-            
-            <a href="vagas.php?id=<?php echo $row_produto['vag_id']; ?>">
-            <div class="postagem">
-                <div class="nome-empresa">
-                    <img class="img-perfil" src="../imagens/logo.png" alt="">
-                    <h1>Empresa de empresa</h1>
-                </div>
-            <h2><?php echo $row_produto['vag_titulo']; ?></h2>
-            <p><?php echo $row_produto['vag_descricao']; ?></p>
-            
-            </div>
-            <p class="data"><?php  
-            if ($temp == 0) {
-                echo "Hoje";
-            }else if($temp > 0 && $temp < 7){
-                echo "Há " . $temp . " Dias atrás";
-            }else if($temp >= 7 && $temp < 14){
-                echo "Há 1 semana atrás";
-            }else if($temp >= 14 && $temp < 21){
-                echo "Há 2 semanas atrás";
-            }else if($temp >= 21 && $temp < 28){
-                echo "Há 3 semanas atrás";
-            }else if($temp >= 1 && $temp < 21){
-                echo "Há 2 semanas atrás";
-            }?></p>
-        </a>
-        <?php
-        }
-        
-        // Encerre o loop
-        ?>
+
+                        <a href="vagas.php?id=<?php echo $row_produto['vag_id']; ?>">
+                            <div class="postagem">
+                                <div class="nome-empresa">
+                                    <img class="img-perfil" src="../imagens/logo.png" alt="">
+                                    <h1> <?php echo $row_name['emp_nome'] ?></h1>
+                                </div>
+                                <h2><?php echo $row_produto['vag_titulo']; ?></h2>
+                                <p><?php echo $row_produto['vag_descricao']; ?></p>
+
+                            </div>
+                            <p class="data"><?php
+
+                                            if ($intervalo->format('%y') != 0) {
+                                                echo $intervalo->format('%y anos');
+                                            } else if ($intervalo->format('%m') != 0) {
+                                                echo $intervalo->format('%m meses');
+                                            } else if ($intervalo->format('%d') == 0) {
+                                                echo "Hoje";
+                                            } else if ($intervalo->format('%d') == 1) {
+                                                echo $intervalo->format('%d a dia');
+                                            } else {
+                                                echo $intervalo->format('%d a dias');
+                                            }
+                                        } ?>
+                            </p>
+                        </a>
+                <?php
+                }
+            }
+
+
+            // Encerre o loop
+                ?>
         </div>
     </main>
 

@@ -9,7 +9,7 @@
     <script src="./JS/script.js" defer></script>
     <script src="./JS/cep.js" defer></script>
     
-    <title>Registraion Form</title>
+    <title>Cadastro</title>
   </head>
   <body>
     <form action="validar_cadastro.php" method="post" class="form">

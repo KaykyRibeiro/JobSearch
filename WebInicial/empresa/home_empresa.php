@@ -46,18 +46,15 @@ try {
 <body>
     <nav>
         <a class="select" id="logo" href="home_empresa.php"><img class="logo" src="../imagens/logo.png" alt=""></a>
-        <a class="selecionado" id="home" href="home_empresa.php"><img class="imgHome"
-                src="../imagens/home-page-svgrepo-com.svg" alt=""></a>
-        <a class="select" href="area_empresa.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg"
-                alt="" /></a>
+        <a class="selecionado" id="home" href="home_empresa.php"><img class="imgHome" src="../imagens/home-page-svgrepo-com.svg" alt=""></a>
+        <a class="select" href="area_empresa.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg" alt="" /></a>
         <div class="alert">
             <button id="notificacao" class="select">
                 <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
             </button>
         </div>
         <a class="select" href="perfil_empresa.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
-        <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg"
-                alt=""></a>
+        <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
 
     <main>
@@ -74,7 +71,7 @@ try {
                 $datapub = $row_produto['vag_dataPub'];
                 $dataAtual = DateTime::createFromFormat('Y-m-d', $dataTeste);
                 $dataBanco = DateTime::createFromFormat('Y-m-d', $datapub);
-                $intervalo = $dataAtual->diff($dataBanco);
+                $intervalo = $dataBanco->diff($dataAtual);
 
                 $idvaga = $row_produto['vag_id'];
                 $idemp = "SELECT vag_emp_id FROM tbl_vagas WHERE vag_id = $idvaga";
@@ -90,12 +87,12 @@ try {
 
 
                         // 
-            
+
 
 
                         //$temp = $data - $datapub;
-            
-                        ?>
+
+            ?>
 
                         <a href="vagas.php?id=<?php echo $row_produto['vag_id']; ?>">
                             <div class="postagem">
@@ -114,29 +111,29 @@ try {
 
                             </div>
                             <p class="data">
-                                <?php
+                            <?php
 
-                                if ($intervalo->format('%y') != 0) {
-                                    echo $intervalo->format('%y anos');
-                                } else if ($intervalo->format('%m') != 0) {
-                                    echo $intervalo->format('%m meses');
-                                } else if ($intervalo->format('%d') == 0) {
-                                        echo "Hoje";
-                                    } else if ($intervalo->format('%R%a') == 1) {
-                                        echo $intervalo->format('%R%a dia');
-                                    } else {
-                                        echo $intervalo->format('%R%a dias');
-                                    }
-                                } ?>
+                            if ($intervalo->format('%y') != 0) {
+                                echo $intervalo->format('%y anos');
+                            } else if ($intervalo->format('%m') != 0) {
+                                echo $intervalo->format('%m meses');
+                            } else if ($intervalo->format('%d') == 0) {
+                                echo "Hoje";
+                            } else if ($intervalo->format('%d') == 1) {
+                                echo $intervalo->format('%d a dia');
+                            } else {
+                                echo $intervalo->format('%d a dias');
+                            }
+                        } ?>
                             </p>
                         </a>
-                        <?php
-                    }
+                <?php
                 }
-            
+            }
+
 
             // Encerre o loop
-            ?>
+                ?>
         </div>
     </main>
 

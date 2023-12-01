@@ -79,14 +79,14 @@ try {
                     <p><span>SEXO: </span></p>
                     <p><span>SOBRE: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt eum non nisi eaque veniam ipsam? Nam in illo, veniam sit, eos voluptatem, voluptas repellat placeat doloribus harum maiores accusamus reiciendis.</p>
                 </div>
-                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=perfil">Editar</a>
             </div>
             <div class="separa" id="div-2">
                 <div class="coluna-info" >
                     <p><span>E-MAIL: </span></p>
                     <p><span>Senha: </span></p>
                 </div>
-                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=conta">Editar</a>
             </div>
             <div class="separa" id="div-3">
                 <div class="coluna-info" >
@@ -99,13 +99,13 @@ try {
                     <p><span>ESTADO: </span></p>
                     
                 </div>
-                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=endereco">Editar</a>
             </div>
             <div class="separa" id="div-4">
                 <div class="coluna-info" >
                     <p><span>HABILIDADES: </span></p>
                 </div>
-                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=habilidade">Editar</a>
             </div>
         </div>
     </main>
