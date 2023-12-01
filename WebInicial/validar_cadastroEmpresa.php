@@ -46,23 +46,23 @@ if ($_POST) {
         exit; // Saia do script
     }
 
-    $consulta = "SELECT emp_cnpj FROM tbl_empresa";
+    $consulta = "SELECT * FROM tbl_empresa WHERE emp_cnpj = :cnpj";
     $stmtConsulta = $conexao->prepare($consulta);
+    $stmtConsulta->bindParam(':cnpj', $cnpj);
     $stmtConsulta->execute();
     $rowConsulta = $stmtConsulta->fetch(PDO::FETCH_ASSOC);
     if ($rowConsulta) {
         echo "CNPJ já cadastrado.";
-    }
-    else{
+    } else {
 
-    // Inserir dados na tabela tbl_usuario[]
-    try {
-        $sqlInserir = "INSERT INTO tbl_empresa (emp_nome, emp_email, emp_senha, emp_telefone, emp_cnpj, emp_logradouro, emp_num, emp_complemento, emp_bairro, emp_cidCodigo, emp_ufeCodigo, emp_cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmtInserir = $conexao->prepare($sqlInserir);
-        $stmtInserir->execute([$nomeEmp, $email, $senha, $telefone, $cnpj, $logradouro, $numero, $complemento, $bairro, $codigoCidade, $codigoEstado, $cep]);
-        header('Location: login.php');
-    } catch (PDOException $e) {
-        die("Erro ao Inserir os Dados Fornecidos: " . $e->getMessage());
+        // Inserir dados na tabela tbl_usuario[]
+        try {
+            $sqlInserir = "INSERT INTO tbl_empresa (emp_nome, emp_email, emp_senha, emp_telefone, emp_cnpj, emp_logradouro, emp_num, emp_complemento, emp_bairro, emp_cidCodigo, emp_ufeCodigo, emp_cep) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmtInserir = $conexao->prepare($sqlInserir);
+            $stmtInserir->execute([$nomeEmp, $email, $senha, $telefone, $cnpj, $logradouro, $numero, $complemento, $bairro, $codigoCidade, $codigoEstado, $cep]);
+            header('Location: login.php');
+        } catch (PDOException $e) {
+            die("Erro ao Inserir os Dados Fornecidos: " . $e->getMessage());
+        }
     }
-}
 }
