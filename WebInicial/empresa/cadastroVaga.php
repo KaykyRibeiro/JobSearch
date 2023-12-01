@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 // Recuperar informações do usuário da sessão
 $user_id = $_SESSION['user_id'];
+date_default_timezone_set('America/Sao_Paulo');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recuperar dados do formulário
