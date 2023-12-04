@@ -91,14 +91,14 @@ try {
                     </p>
                     <p><span>TELEFONE: </span><?php echo $user['emp_telefone']; ?></p>
                 </div>
-                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=perfil">Editar</a>
             </div>
             <div class="separa" id="div-2">
                 <div class="coluna-info">
                     <p><span>E-MAIL: </span><?php echo $user['emp_email']; ?></p>
                     <p><span>Senha: </span> ********</p>
                 </div>
-                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=conta">Editar</a>
             </div>
             <div class="separa" id="div-3">
                 <div class="coluna-info">
@@ -110,7 +110,7 @@ try {
                     <p><span>CIDADE: </span><?php echo $row_cid['cidNome']; ?></p>
                     <p><span>ESTADO: </span><?php echo $row_uf['ufeNome']; ?></p>
                 </div>
-                <a class="btn-editar" id="bnt-editar" href="perfil-config.php">Editar</a>
+                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=endereco">Editar</a>
             </div>
         </div>
     </main>

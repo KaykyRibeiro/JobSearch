@@ -5,7 +5,7 @@ include('../conexao.php');
 $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Verificar se o usuário está logado, redirecionar para a página de login se não estiver
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['emp_id'])) {
     header("Location: ../login.php");
     exit();
 }
@@ -13,17 +13,17 @@ if (!isset($_SESSION['user_id'])) {
 
 
 // Recuperar informações do usuário da sessão
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['emp_id'];
 
 // Consulta SQL para obter informações do usuário
-$query = "SELECT * FROM tbl_usuario WHERE usu_id = :user_id";
+$query = "SELECT * FROM tbl_empresa WHERE emp_id = :user_id";
 
 try {
     $stmt = $conexao->prepare($query);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    $id_user = $user['usu_id'];
+    $id_user = $user['emp_id'];
 } catch (PDOException $e) {
     die("Erro ao recuperar informações do usuário: " . $e->getMessage());
 }
@@ -47,7 +47,7 @@ try {
 </head>
 
 <body>
-    <a href="perfil.php"><img class="back" src="../imagens/arrow-white-left-svgrepo-com.svg" alt=""></a>
+    <a href="perfil_empresa.php"><img class="back" src="../imagens/arrow-white-left-svgrepo-com.svg" alt=""></a>
 
     <main>
         <div class="bloco " id="divPerfil">
@@ -61,65 +61,30 @@ try {
                             <label class="label">Nome</label>
                         </div>
                         <div class="caixa__login-input">
-                            <input type="text" name="txtsobrenome" required />
-                            <label>Sobrenome</label>
-                        </div>
-
-                        <div class="caixa__login-input">
                             <input type="tel" name="txttelefone" maxlength="15" onkeyup="handlePhone(event)" required />
                             <label>Telefone</label>
 
                         </div>
-                        <div class="caixa__login-input">
-                            <input type="date" name="datanas" required />
-
-                        </div>
-                        <div class="caixa__login-input">
-                            <label class="estado">Sexo</label>
-                            <select class="select" name="sexo" required>
-                                <option selected disabled>Informe seu sexo biológico</option>
-                                <option value="Feminino">Feminino</option>
-                                <option value="Masculino">Masculino</option>
-                            </select>
-                        </div>
-                        <div class="caixa__login-input">
-                            <textarea name="txtsobre" required></textarea>
-                            <label class="sobre">Fale um pouco sobre você</label>
-
-                        </div>
-
                         <input class="acessar" type="submit" value="Salvar"> 
                         
                     </div>
                     
                 </form>
                 <?php
-                if($_GET['config'] == 'perfil'){
                             if($_POST){
                             $nome = $_POST['txtnome'];
-                            $sobrenome = $_POST['txtsobrenome'];
                             $telefone = $_POST['txttelefone'];
-                            $datanas = $_POST['datanas'];
-                            $sexo = $_POST['sexo'];
-                            $sobre = $_POST['txtsobre'];
                             try{
-                                $editar = "UPDATE tbl_usuario
-                                SET usu_nome = '$nome',
-                                    usu_sobrenome = '$sobrenome',
-                                    usu_telefone = '$telefone',
-                                    usu_dataNasc = '$datanas', 
-                                    usu_sexo = '$sexo', 
-                                    usu_sobre = '$sobre'
-                                WHERE usu_id = '$id_user'";
+                                $editar = "UPDATE tbl_empresa
+                                SET emp_nome = '$nome',
+                                    emp_telefone = '$telefone'";
                             // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
                             $sqlEditar = $conexao->prepare($editar);
                             $sqlEditar->execute();
-                            header('Location: perfil.php');
                         }catch(PDOException $e){
                             echo 'Erro ao Atualizar Informações ' . $e->getMessage();
                         }
                     }
-                }
                         
                     ?>
                 
@@ -152,30 +117,6 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
-                <?php
-                if($_GET['config'] == 'conta'){
-                            if($_POST){
-                            $email = $_POST['txtemail'];
-                            $senha = $_POST['txtsenha'];
-                            $senha2 = $_POST['txtsenha2'];
-                            if($senha == $senha2){
-                            try{
-                                $editar = "UPDATE tbl_usuario
-                                SET usu_email = '$email',
-                                    usu_senha = '$senha'
-                                WHERE usu_id = '$id_user'";
-                            // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
-                            $sqlEditar = $conexao->prepare($editar);
-                            $sqlEditar->execute();
-                            header('Location: perfil.php');
-                        }catch(PDOException $e){
-                            echo 'Erro ao Atualizar Informações ' . $e->getMessage();
-                        }
-                    }
-                    }
-                }
-                        
-                    ?>
             </div>
         </div>
 
@@ -249,49 +190,6 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
-                <?php
-                if($_GET['config'] == 'endereco'){
-                            if($_POST){
-                            $cep = $_POST['txtcep'];
-                            $rua = $_POST['txtlogradouro'];
-                            $complemento = $_POST['txtcomplemento'];
-                            $cidade = $_POST['txtcidade'];
-                            $queryCid = "SELECT * FROM tblcidade WHERE cidNome = $cidade";
-                            $sqlCid = $conexao->prepare($queryCid);
-                            $sqlCid->execute();
-                            $row_cid = $sqlCid->fetch(PDO::FETCH_ASSOC);
-                            if($row_cid){
-                                $codigoCidade = $row_cid['cidCodigo'];
-                                $estado = $_POST['estado'];
-                                $queryUf = "SELECT * FROM tblufe WHERE ufeSigla = $estado";
-                                $sqlUf = $conexao->prepare($queryUf);
-                                $sqlUf->execute();
-                                $row_estado = $sqlUf->fetch(PDO::FETCH_ASSOC);
-                                if($row_estado){
-                                    $ufCodigo = $row_estado['ufeCodigo'];
-                                    try{
-                                        $editar = "UPDATE tbl_usuario
-                                        SET usu_cep = '$cep',
-                                            usu_rua = '$rua',
-                                            usu_complemento = '$complemento',
-                                            usu_cidCodigo = '$codigoCidade',
-                                            usu_ufeCodigo = '$ufCodigo'
-                                        WHERE usu_id = '$id_user'";
-                                    // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
-                                    $sqlEditar = $conexao->prepare($editar);
-                                    $sqlEditar->execute();
-                                    header('Location: perfil.php');
-                                }catch(PDOException $e){
-                                    echo 'Erro ao Atualizar Informações ' . $e->getMessage();
-                                }
-                                }
-                            }
-                            
-                    }
-                }
-                    
-                        
-                    ?>
             </div>
         </div>
 
@@ -348,24 +246,6 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
-                <?php
-                if($_GET['config'] == 'habilidade'){
-                if($_POST){
-                            $habilidade = $_POST['tags'];
-                            try{
-                                $editar = "UPDATE tbl_usuario
-                                SET usu_habilidade = '$habilidade'
-                                WHERE usu_id = '$id_user'";
-                            // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
-                            $sqlEditar = $conexao->prepare($editar);
-                            $sqlEditar->execute();
-                            header('Location: perfil.php');
-                        }catch(PDOException $e){
-                            echo 'Erro ao Atualizar Informações ' . $e->getMessage();
-                        }
-                    }
-                }
-                    ?>
             </div>
         </div>
     </main>
