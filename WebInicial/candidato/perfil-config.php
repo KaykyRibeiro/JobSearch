@@ -94,6 +94,7 @@ try {
                     
                 </form>
                 <?php
+                if($_GET['config'] == 'perfil'){
                             if($_POST){
                             $nome = $_POST['txtnome'];
                             $sobrenome = $_POST['txtsobrenome'];
@@ -113,10 +114,12 @@ try {
                             // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
                             $sqlEditar = $conexao->prepare($editar);
                             $sqlEditar->execute();
+                            header('Location: perfil.php');
                         }catch(PDOException $e){
                             echo 'Erro ao Atualizar Informações ' . $e->getMessage();
                         }
                     }
+                }
                         
                     ?>
                 
@@ -149,6 +152,30 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
+                <?php
+                if($_GET['config'] == 'conta'){
+                            if($_POST){
+                            $email = $_POST['txtemail'];
+                            $senha = $_POST['txtsenha'];
+                            $senha2 = $_POST['txtsenha2'];
+                            if($senha == $senha2){
+                            try{
+                                $editar = "UPDATE tbl_usuario
+                                SET usu_email = '$email',
+                                    usu_senha = '$senha'
+                                WHERE usu_id = '$id_user'";
+                            // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
+                            $sqlEditar = $conexao->prepare($editar);
+                            $sqlEditar->execute();
+                            header('Location: perfil.php');
+                        }catch(PDOException $e){
+                            echo 'Erro ao Atualizar Informações ' . $e->getMessage();
+                        }
+                    }
+                    }
+                }
+                        
+                    ?>
             </div>
         </div>
 
@@ -222,6 +249,49 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
+                <?php
+                if($_GET['config'] == 'endereco'){
+                            if($_POST){
+                            $cep = $_POST['txtcep'];
+                            $rua = $_POST['txtlogradouro'];
+                            $complemento = $_POST['txtcomplemento'];
+                            $cidade = $_POST['txtcidade'];
+                            $queryCid = "SELECT * FROM tblcidade WHERE cidNome = $cidade";
+                            $sqlCid = $conexao->prepare($queryCid);
+                            $sqlCid->execute();
+                            $row_cid = $sqlCid->fetch(PDO::FETCH_ASSOC);
+                            if($row_cid){
+                                $codigoCidade = $row_cid['cidCodigo'];
+                                $estado = $_POST['estado'];
+                                $queryUf = "SELECT * FROM tblufe WHERE ufeSigla = $estado";
+                                $sqlUf = $conexao->prepare($queryUf);
+                                $sqlUf->execute();
+                                $row_estado = $sqlUf->fetch(PDO::FETCH_ASSOC);
+                                if($row_estado){
+                                    $ufCodigo = $row_estado['ufeCodigo'];
+                                    try{
+                                        $editar = "UPDATE tbl_usuario
+                                        SET usu_cep = '$cep',
+                                            usu_rua = '$rua',
+                                            usu_complemento = '$complemento',
+                                            usu_cidCodigo = '$codigoCidade',
+                                            usu_ufeCodigo = '$ufCodigo'
+                                        WHERE usu_id = '$id_user'";
+                                    // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
+                                    $sqlEditar = $conexao->prepare($editar);
+                                    $sqlEditar->execute();
+                                    header('Location: perfil.php');
+                                }catch(PDOException $e){
+                                    echo 'Erro ao Atualizar Informações ' . $e->getMessage();
+                                }
+                                }
+                            }
+                            
+                    }
+                }
+                    
+                        
+                    ?>
             </div>
         </div>
 
@@ -278,6 +348,24 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
+                <?php
+                if($_GET['config'] == 'habilidade'){
+                if($_POST){
+                            $habilidade = $_POST['tags'];
+                            try{
+                                $editar = "UPDATE tbl_usuario
+                                SET usu_habilidade = '$habilidade'
+                                WHERE usu_id = '$id_user'";
+                            // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
+                            $sqlEditar = $conexao->prepare($editar);
+                            $sqlEditar->execute();
+                            header('Location: perfil.php');
+                        }catch(PDOException $e){
+                            echo 'Erro ao Atualizar Informações ' . $e->getMessage();
+                        }
+                    }
+                }
+                    ?>
             </div>
         </div>
     </main>

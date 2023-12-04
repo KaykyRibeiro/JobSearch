@@ -102,6 +102,7 @@ $data = date("Y");
                         <p class="txt">NOME: <span class="nome"><?php echo $row_produto['usu_nome'] . " " . $row_produto['usu_sobrenome']?></span></p>
                         <p class="txt">IDADE: <span class="idade"><?php echo $idade = $data - $nascimento;?></span></p>
                         
+                        
                     </div>
 
                 </div>
