@@ -21,7 +21,17 @@ try {
     $stmt = $conexao->prepare($query);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    while($user = $stmt->fetch(PDO::FETCH_ASSOC)){
+        $cidCodigo = $user['usu_cidCodigo'];
+        $cid = "SELECT * FROM tblcidade WHERE cidCodigo = $cidCodigo";
+        $sqlCid = $conexao->prepare($cid);
+        $sqlCid->execute();
+        while($row_cid = $sqlCid->fetch(PDO::FETCH_ASSOC)){
+            $ufCodigo = $row_cid['ufeCodigo'];
+            $uf = "SELECT * FROM tbluf WHERE ufeCodigo = $ufCodigo";
+            $sqluf = $conexao->prepare($uf);
+            $sqluf->execute();
+            while($row_uf = $sqluf->fetch(PDO::FETCH_ASSOC)){
 
 
 ?>
@@ -56,7 +66,7 @@ try {
     </nav>
     
     <main>
-    <h2>Perfil de <?php echo $_SESSION['login']; ?></h2>
+    <h2>Perfil de <?php echo $user['usu_nome']; ?></h2>
         <div class="bloco">
             <div class="coluna-img">
                 <div class="perfil">
@@ -72,38 +82,37 @@ try {
             </div>
             <div class="separa ativo" id="div-1">
                 <div class="coluna-info " >
-                    <p><span>NOME: </span><?php echo $_SESSION['login']; ?></p>
-                    <p><span>SOBRENOME: </span><?php echo $_SESSION['sobrenome']; ?></p>
-                    <p><span>TELEFONE: </span></p>
-                    <p><span>DATA DE NASCIMENTO: </span></p>
-                    <p><span>SEXO: </span></p>
-                    <p><span>SOBRE: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt eum non nisi eaque veniam ipsam? Nam in illo, veniam sit, eos voluptatem, voluptas repellat placeat doloribus harum maiores accusamus reiciendis.</p>
+                    <p><span>NOME: </span><?php echo $user['usu_nome']; ?></p>
+                    <p><span>SOBRENOME: </span><?php echo $user['usu_sobrenome']; ?></p>
+                    <p><span>TELEFONE: </span><?php echo $user['usu_telefone']; ?></p>
+                    <p><span>DATA DE NASCIMENTO: </span><?php echo $user['usu_dataNasc']; ?></p>
+                    <p><span>SEXO: </span><?php echo $user['usu_sexo']; ?></p>
+                    <p><span>SOBRE: </span><?php echo $user['usu_sobre']; ?></p>
                 </div>
                 <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=perfil">Editar</a>
-            </div>
             <div class="separa" id="div-2">
                 <div class="coluna-info" >
-                    <p><span>E-MAIL: </span></p>
+                    <p><span>E-MAIL: </span><?php echo $user['usu_email']; ?></p>
                     <p><span>Senha: </span></p>
                 </div>
                 <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=conta">Editar</a>
             </div>
             <div class="separa" id="div-3">
                 <div class="coluna-info" >
-                    <p><span>COMPLEMENTO: </span></p>
-                    <p><span>CEP: </span></p>
-                    <p><span>RUA: </span></p>
-                    <p><span>NÚMERO: </span></p>
-                    <p><span>BAIRRO: </span></p>
-                    <p><span>CIDADE: </span></p>
-                    <p><span>ESTADO: </span></p>
+                    <p><span>COMPLEMENTO: </span><?php echo $user['usu_complemento']; ?></p>
+                    <p><span>CEP: </span><?php echo $user['usu_cep']; ?></p>
+                    <p><span>RUA: </span><?php echo $user['usu_logradouro']; ?></p>
+                    <p><span>NÚMERO: </span><?php echo $user['usu_numRua']; ?></p>
+                    <p><span>BAIRRO: </span><?php echo $user['usu_bairro']; ?></p>
+                    <p><span>CIDADE: </span><?php echo $row_cid['cidNome']; ?></p>
+                    <p><span>ESTADO: </span><?php echo $row_uf['ufeNome'];?></p>
                     
                 </div>
                 <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=endereco">Editar</a>
             </div>
             <div class="separa" id="div-4">
                 <div class="coluna-info" >
-                    <p><span>HABILIDADES: </span></p>
+                    <p><span>HABILIDADES: </span><?php echo $user['usu_habilidade']; ?></p>
                 </div>
                 <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=habilidade">Editar</a>
             </div>
@@ -122,6 +131,9 @@ try {
             </form>
     </div>
     <?php
+            }
+        }
+    }
 } catch (PDOException $e) {
     die("Erro ao recuperar informações do usuário: " . $e->getMessage());
 }
@@ -137,4 +149,3 @@ try {
 <script src="../JS/jspadrao.js"></script>
 <script src="../JS/perfil.js"></script>
 </html>
-

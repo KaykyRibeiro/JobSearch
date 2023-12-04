@@ -2,6 +2,7 @@
 // Iniciar a sessão (se ainda não estiver iniciada)
 session_start();
 include('../conexao.php');
+$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Verificar se o usuário está logado, redirecionar para a página de login se não estiver
 if (!isset($_SESSION['user_id'])) {
@@ -22,6 +23,7 @@ try {
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $id_user = $user['usu_id'];
 } catch (PDOException $e) {
     die("Erro ao recuperar informações do usuário: " . $e->getMessage());
 }
@@ -86,11 +88,43 @@ try {
 
                         </div>
 
-                        <input class="acessar" type="submit" value="Salvar">
+                        <input class="acessar" type="submit" value="Salvar"> 
+                        
                     </div>
+                    
                 </form>
+                <?php
+                            if($_POST){
+                            $nome = $_POST['txtnome'];
+                            $sobrenome = $_POST['txtsobrenome'];
+                            $telefone = $_POST['txttelefone'];
+                            $datanas = $_POST['datanas'];
+                            $sexo = $_POST['sexo'];
+                            $sobre = $_POST['txtsobre'];
+                            try{
+                                $editar = "UPDATE tbl_usuario
+                                SET usu_nome = '$nome',
+                                    usu_sobrenome = '$sobrenome',
+                                    usu_telefone = '$telefone',
+                                    usu_dataNasc = '$datanas', 
+                                    usu_sexo = '$sexo', 
+                                    usu_sobre = '$sobre'
+                                WHERE usu_id = '$id_user'";
+                            // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
+                            $sqlEditar = $conexao->prepare($editar);
+                            $sqlEditar->execute();
+                        }catch(PDOException $e){
+                            echo 'Erro ao Atualizar Informações ' . $e->getMessage();
+                        }
+                    }
+                        
+                    ?>
+                
+               
             </div>
+            
         </div>
+        
 
         <div class="bloco " id="divConta">
             <div class="caixa__login">

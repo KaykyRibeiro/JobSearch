@@ -68,7 +68,7 @@ $user_id = $_SESSION['user_id'];
                         <p> <span>Modo de Trabalho: </span><?php echo $row['vag_modo']?></p>
                         <p><span>Descrição: </span> <?php echo $row['vag_descricao']?></p>
                         <p><span>Requisitos Básicos: </span><?php echo $row['vag_requisitos']?></p>
-                        <p><span>Requisitos Diferenciais: </span><?php echo $row['vag_reqDesejaveis']?></p>
+                        <p><span>Requisitos Diferenciais: </span><?php echo $row['vag_reqdesejaveis']?></p>
                         <p><span>Salário: </span><?php echo $row['vag_salario']?></p>
                         <p><span>Local: </span><?php echo $row['vag_local']?></p>
                         <p><span>Publicado em: </span><?php echo $row['vag_dataPub']?></p>

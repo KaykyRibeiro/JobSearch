@@ -4,7 +4,7 @@ session_start();
 include('../conexao.php');
 
 // Verificar se o usuário está logado, redirecionar para a página de login se não estiver
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['emp_id'])) {
     header("Location: ../login.php");
     exit();
 }
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 
 
 // Recuperar informações do usuário da sessão
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['emp_id'];
 
 // Consulta SQL para obter informações do usuário
 $query = "SELECT * FROM tbl_empresa WHERE emp_id = :user_id";

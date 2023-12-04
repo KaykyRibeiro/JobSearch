@@ -17,7 +17,7 @@ if ($elementos == 14) {
   $result = $stmtCandidato->fetch(PDO::FETCH_ASSOC);
   if ($result) {
     $_SESSION['user_id'] = $result['usu_id'];
-    $_SESSION['login'] = $result['usu_nome'];
+    $_SESSION['loginUsu'] = $result['usu_nome'];
     $_SESSION['sobrenome'] = $result['usu_sobrenome'];
     $_SESSION['categoria'] = "candidato";
     header("Location: ./candidato/home.php");
@@ -36,8 +36,8 @@ if ($elementos == 14) {
 
   $result = $stmtEmpresa->fetch(PDO::FETCH_ASSOC);
   if ($result) {
-    $_SESSION['user_id'] = $result['emp_id'];
-    $_SESSION['login'] = $result['emp_nome'];
+    $_SESSION['emp_id'] = $result['emp_id'];
+    $_SESSION['loginEmp'] = $result['emp_nome'];
     $_SESSION['categoria'] = "empresa";
     header("Location: ./empresa/home_empresa.php");
     exit;

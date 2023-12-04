@@ -1,12 +1,12 @@
 <?php
 session_start();
 include('../conexao.php');
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['emp_id'])) {
     header("Location: ../login.php");
     exit();
 }
 // Recuperar informações do usuário da sessão
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['emp_id'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
