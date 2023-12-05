@@ -56,6 +56,7 @@ CREATE TABLE `tbl_empresa` (
   `emp_cidCodigo` int(11) NOT NULL,
   `emp_ufeCodigo` int(11) NOT NULL,
   `emp_cep` varchar(9) NOT NULL,
+  `emp_imagem` varchar(50) DEFAULT '../imagens/group-svgrepo-com.svg',
   PRIMARY KEY (`emp_id`),
   KEY `emp_cidCodigo` (`emp_cidCodigo`),
   KEY `emp_ufeCodigo` (`emp_ufeCodigo`)
@@ -63,8 +64,8 @@ CREATE TABLE `tbl_empresa` (
 
 /*Data for the table `tbl_empresa` */
 
-insert  into `tbl_empresa`(`emp_id`,`emp_nome`,`emp_email`,`emp_senha`,`emp_cnpj`,`emp_telefone`,`emp_logradouro`,`emp_num`,`emp_complemento`,`emp_bairro`,`emp_cidCodigo`,`emp_ufeCodigo`,`emp_cep`) values 
-(1,'Tester','ramyreslopes2@hotmail.com','123456789','11.111.111/1111-11','(12) 98105-0623','Rua Luiz Gonçalo Miguel','123','casa','Cecap',5014,26,'12610390');
+insert  into `tbl_empresa`(`emp_id`,`emp_nome`,`emp_email`,`emp_senha`,`emp_cnpj`,`emp_telefone`,`emp_logradouro`,`emp_num`,`emp_complemento`,`emp_bairro`,`emp_cidCodigo`,`emp_ufeCodigo`,`emp_cep`,`emp_imagem`) values 
+(1,'Tester','ramyreslopes2@hotmail.com','123456789','11.111.111/1111-11','(12) 98105-0623','Rua Luiz Gonçalo Miguel','123','casa','Cecap',5014,26,'12610390','../imagens/group-svgrepo-com.svg');
 
 /*Table structure for table `tbl_habilidade` */
 
