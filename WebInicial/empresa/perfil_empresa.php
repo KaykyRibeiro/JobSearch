@@ -66,7 +66,7 @@ try {
                         <div class="bloco">
                             <div class="coluna-img">
                                 <div class="perfil">
-                                    <img class="foto" src="../imagens/group-svgrepo-com.svg" alt="">
+                                    <img class="foto" src="<?php echo $user['emp_imagem']; ?>" alt="">
                                     <button class="btn-editi" id="btn-editi-img">Alterar imagem</button>
                                 </div>
                                 <div class="option-config">
@@ -108,7 +108,7 @@ try {
                     <div class="edita-img" id="div-edit-img">
                         <form class="form-upload" action="" enctype="multipart/form-data">
                             <div class="img-expo">
-                                <img class="img-previl" id="image" src="../imagens/group-svgrepo-com.svg" alt="">
+                                <img class="img-previl" id="image" src="<?php echo $user['emp_imagem']; ?>" alt="">
                                 <input type="file" class="arquivo" id="inImg" name="arquivo" accept=".png, .jpg, .jpeg">
                             </div>
                             <div class="buttons">
@@ -123,6 +123,15 @@ try {
     }
 } catch (PDOException $e) {
     die("Erro ao recuperar informações do usuário: " . $e->getMessage());
+}
+if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
+    $imagem = "../img-perfil/" . $_FILES['arquivo']['name'];
+    move_uploaded_file($_FILES['arquivo']['tmp_name'], $imagem);
+    $queryImg = "UPDATE tbl_empresa
+                 SET emp_imagem = '$imagem'
+                 WHERE emp_id = $id_user";
+    $resultImg = $conexao->prepare($queryImg);
+    $resultImg->execute();
 }
     ?>
     <script>
