@@ -48,11 +48,6 @@ try {
         <a class="select" id="logo" href="home_empresa.php"><img class="logo" src="../imagens/logo.png" alt=""></a>
         <a class="selecionado" id="home" href="home_empresa.php"><img class="imgHome" src="../imagens/home-page-svgrepo-com.svg" alt=""></a>
         <a class="select" href="area_empresa.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg" alt="" /></a>
-        <div class="alert">
-            <button id="notificacao" class="select">
-                <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
-            </button>
-        </div>
         <a class="select" href="perfil_empresa.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
         <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>
@@ -98,34 +93,37 @@ try {
                             <div class="postagem">
                                 <div class="nome-empresa">
                                     <img class="img-perfil" src="../imagens/logo.png" alt="">
-                                    <h1>
-                                        <?php echo $row_name['emp_nome'] ?>
-                                    </h1>
+                                    <div class="greed">
+                                        <h1>
+                                            <?php echo $row_name['emp_nome'] ?>
+                                        </h1>
+                                        <p class="data">
+                                        <?php
+
+                                        if ($intervalo->format('%y') != 0) {
+                                            echo $intervalo->format('%y anos');
+                                        } else if ($intervalo->format('%m') != 0) {
+                                            echo $intervalo->format('%m meses');
+                                        } else if ($intervalo->format('%d') == 0) {
+                                            echo "Hoje";
+                                        } else if ($intervalo->format('%d') == 1) {
+                                            echo $intervalo->format('%d a dia');
+                                        } else {
+                                            echo $intervalo->format('%d a dias');
+                                        }
+                                    } ?>
+                                        </p>
+                                    </div>
                                 </div>
                                 <h2>
                                     <?php echo $row_produto['vag_titulo']; ?>
                                 </h2>
-                                <p>
+                                <p class="txt">
                                     <?php echo $row_produto['vag_descricao']; ?>
                                 </p>
 
                             </div>
-                            <p class="data">
-                            <?php
 
-                            if ($intervalo->format('%y') != 0) {
-                                echo $intervalo->format('%y anos');
-                            } else if ($intervalo->format('%m') != 0) {
-                                echo $intervalo->format('%m meses');
-                            } else if ($intervalo->format('%d') == 0) {
-                                echo "Hoje";
-                            } else if ($intervalo->format('%d') == 1) {
-                                echo $intervalo->format('%d a dia');
-                            } else {
-                                echo $intervalo->format('%d a dias');
-                            }
-                        } ?>
-                            </p>
                         </a>
                 <?php
                 }

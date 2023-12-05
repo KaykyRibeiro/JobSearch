@@ -47,7 +47,7 @@ main > .quadro{
   flex-direction: column;
   box-shadow: 1px 1px 3px 0px var(--cor4);
 }
-.postagem p{
+.txt{
   max-height: 70px;
   overflow-y: hidden;
   font-size: 18px;
@@ -67,15 +67,15 @@ main > .quadro{
   text-transform: uppercase;
 }
 .data{
-  position: relative;
-  top: -165px;
-  left: 63px;
   color: #616161;
   font-size: 14px;
 }
- 
+.notifica{
+  display: none;
+}
 
 .message{
+display: block;
 padding: 19px 60px; 
 position: absolute;
 height: 100%;
@@ -123,8 +123,12 @@ animation: time 3s forwards;
 }
 
 .img-perfil{
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
 
+.greed{
+  display: flex;
+  flex-direction: column;
+}

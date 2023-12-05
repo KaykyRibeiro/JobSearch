@@ -151,10 +151,10 @@ $data = date("Y");
                                 <input type="radio" class="radio" id="rejeitado" name="fav_languageR" value="CSS"><label>Rejeitar Candidato</label>
                             </div>
                             <div class="info-aceito alerta" id="alert-aceito">
-                                <p>Ao selecionar está opção você ira librar o e-mail de contato do candidato e juntamente irá informar o candidato de sua escolha.</p>
+                                <p>Ao selecionar está opção você ira librar o e-mail de contato do candidato com o intuito de empregalo ou intrevistalo, o e-mail será exibido na barra de candidatos(sua ação será informada para candidato).</p>
                             </div>
                             <div class="info-rejeitado alerta" id="alert-rejeitado">
-                                <p>Ao selecionar está opção você irá reseitar o candidato, ele não receberá notificação</p>
+                                <p>Ao selecionar está opção você irá reseitar o candidato, ele não receberá notificação mas será informado da sua escolha</p>
                             </div>
                            <input class="finalizar" id="finaliza" type="submit" value="Finalizar">
                         </form>

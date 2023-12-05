@@ -1,12 +1,26 @@
 <?php
 session_start();
 include('../conexao.php');
+
+// Verificar se o usuário está logado, redirecionar para a página de login se não estiver
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php");
     exit();
 }
+
+
 // Recuperar informações do usuário da sessão
 $user_id = $_SESSION['user_id'];
+
+// Consulta SQL para obter informações do usuário
+$query = "SELECT * FROM tbl_usuario WHERE usu_id = :user_id";
+try {
+    $stmt = $conexao->prepare($query);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -58,10 +72,40 @@ $user_id = $_SESSION['user_id'];
         <a class="select" id="home" href="home.php"><img class="imgHome" src="../imagens/home-page-svgrepo-com.svg" alt=""></a>
         <a class="selecionado" href="area_candidato.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg" alt="" /></a>
         <div class="alert">
-            <button id="notificacao" class="select">
-                <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
-            </button>
-        </div>
+                <button id="notificacao" class="select">
+                    <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
+                </button>
+                <div class="notifica" id="divNotif">
+                <?php
+                $id_user = $user['usu_id'];
+                $queryCan = "SELECT * FROM tbl_candidatura WHERE can_status = 'Aceito' AND can_usu_id = '$id_user'";
+                $stmtCan = $conexao->prepare($queryCan);
+                $stmtCan->execute();
+                while ($row_can = $stmtCan->fetch(PDO::FETCH_ASSOC)) {
+                    $idVag = $row_can['can_vagId'];
+                    $queryVag = "SELECT * FROM tbl_vagas WHERE vag_id = $idVag";
+                    $stmtVag = $conexao->prepare($queryVag);
+                    $stmtVag->execute();
+                    while ($rowVag = $stmtVag->fetch(PDO::FETCH_ASSOC)) {
+                        $emp_id = $rowVag['vag_emp_id'];
+                        $queryEmp = "SELECT * FROM tbl_empresa WHERE emp_id = $emp_id";
+                        $stmtEmp = $conexao->prepare($queryEmp);
+                        $stmtEmp->execute();
+                        while ($rowEmp = $stmtEmp->fetch(PDO::FETCH_ASSOC)) {
+                            echo $rowVag['vag_titulo'];
+                            echo '<br>';
+                            echo $rowEmp['emp_nome'];
+                            echo '<br>';
+                            echo $row_can['can_status'];
+                        }
+                    }
+                }
+            } catch (PDOException $e) {
+                die("Erro ao recuperar informações do usuário: " . $e->getMessage());
+            }
+                ?>
+                </div>
+            </div>
         <a class="select" href="perfil.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
         <a class="select" id="config" href="logof.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
     </nav>

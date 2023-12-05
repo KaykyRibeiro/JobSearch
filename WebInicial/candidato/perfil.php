@@ -62,11 +62,38 @@ try {
                                         alt=""></a>
                                 <a class="select" href="area_candidato.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg"
                                         alt="" /></a>
-                                <div class="alert">
-                                    <button id="notificacao" class="select">
-                                        <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
-                                    </button>
-                                </div>
+                                        <div class="alert">
+                <button id="notificacao" class="select">
+                    <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
+                </button>
+                <div class="notifica" id="divNotif">
+                <?php
+                $id_user = $user['usu_id'];
+                $queryCan = "SELECT * FROM tbl_candidatura WHERE can_status = 'Aceito' AND can_usu_id = '$id_user'";
+                $stmtCan = $conexao->prepare($queryCan);
+                $stmtCan->execute();
+                while ($row_can = $stmtCan->fetch(PDO::FETCH_ASSOC)) {
+                    $idVag = $row_can['can_vagId'];
+                    $queryVag = "SELECT * FROM tbl_vagas WHERE vag_id = $idVag";
+                    $stmtVag = $conexao->prepare($queryVag);
+                    $stmtVag->execute();
+                    while ($rowVag = $stmtVag->fetch(PDO::FETCH_ASSOC)) {
+                        $emp_id = $rowVag['vag_emp_id'];
+                        $queryEmp = "SELECT * FROM tbl_empresa WHERE emp_id = $emp_id";
+                        $stmtEmp = $conexao->prepare($queryEmp);
+                        $stmtEmp->execute();
+                        while ($rowEmp = $stmtEmp->fetch(PDO::FETCH_ASSOC)) {
+                            echo $rowVag['vag_titulo'];
+                            echo '<br>';
+                            echo $rowEmp['emp_nome'];
+                            echo '<br>';
+                            echo $row_can['can_status'];
+                        }
+                    }
+                }
+                ?>
+                </div>
+            </div>
                                 <a class="selecionado" href="perfil.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
                                 <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg"
                                         alt=""></a>
