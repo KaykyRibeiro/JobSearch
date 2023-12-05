@@ -237,7 +237,7 @@ try {
                                 $row_estado = $sqlUf->fetch(PDO::FETCH_ASSOC);
                                 if ($row_estado) {
                                     $ufCodigo = $row_estado['ufeCodigo'];
-                                    $editar = "UPDATE tbl_usuario
+                                    $editar = "UPDATE tbl_empresa
                                         SET emp_cep = '$cep',
                                             emp_logradouro = '$rua',
                                             emp_complemento = '$complemento',
@@ -245,7 +245,7 @@ try {
                                             emp_ufeCodigo = '$ufCodigo',
                                             emp_numRua = '$numRua',
                                             emp_bairro = '$bairro'
-                                        WHERE usu_id = '$id_user'";
+                                        WHERE emp_id = '$id_user'";
                                     $sqlEditar = $conexao->prepare($editar);
                                     $sqlEditar->execute();
                                 }
