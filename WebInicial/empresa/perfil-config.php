@@ -126,10 +126,10 @@ try {
                         $senha = $_POST['txtsenha'];
                         $senha2 = $_POST['txtsenha2'];
                         try {
-                            $editar = "UPDATE tbl_usuario
-                                SET usu_email = '$email',
-                                    usu_senha = '$senha'
-                                WHERE usu_id = '$id_user'";
+                            $editar = "UPDATE tbl_empresa
+                                SET emp_email = '$email',
+                                    emp_senha = '$senha'
+                                WHERE emp_id = '$id_user'";
                             $sqlEditar = $conexao->prepare($editar);
                             $sqlEditar->execute();
                             header('Location: perfil.php');
@@ -238,13 +238,13 @@ try {
                                 if ($row_estado) {
                                     $ufCodigo = $row_estado['ufeCodigo'];
                                     $editar = "UPDATE tbl_usuario
-                                        SET usu_cep = '$cep',
-                                            usu_logradouro = '$rua',
-                                            usu_complemento = '$complemento',
-                                            usu_cidCodigo = '$codigoCidade',
-                                            usu_ufeCodigo = '$ufCodigo',
-                                            usu_numRua = '$numRua',
-                                            usu_bairro = '$bairro'
+                                        SET emp_cep = '$cep',
+                                            emp_logradouro = '$rua',
+                                            emp_complemento = '$complemento',
+                                            emp_cidCodigo = '$codigoCidade',
+                                            emp_ufeCodigo = '$ufCodigo',
+                                            emp_numRua = '$numRua',
+                                            emp_bairro = '$bairro'
                                         WHERE usu_id = '$id_user'";
                                     $sqlEditar = $conexao->prepare($editar);
                                     $sqlEditar->execute();
