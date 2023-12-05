@@ -79,14 +79,21 @@ try {
                     
         </div>
         <div class="candidatos">
-            <h3>Situação</h3>
+            <h3>Situação da sua candidatura</h3>
             <?php
             $id_user = $user['usu_id'];
             $querySit = "SELECT can_status FROM tbl_candidatura WHERE can_usu_id = $id_user AND can_vagId = $vag_id";
             $stmtSit = $conexao->prepare($querySit);
             $stmtSit->execute();
             while($rowSit = $stmtSit->fetch(PDO::FETCH_ASSOC)){
-                echo $rowSit['can_status'];
+               ?> <p class="situacao"><?php echo $rowSit['can_status'];?></p><?php
+               if($rowSit['can_status'] == "Em Analise"){
+                echo "No momento a empresa está analisando sua candidatura, aguarde até a resposta";
+               }else if($rowSit['can_status'] == "Aceito"){
+                echo "Parábens a empresa em breve irá entrar em contato com você via E-mail para passar mais informações sobre entrevista ou processo seletivo, mas quem sabe a vaga já é sua!";
+               }else{
+                echo "Sinto muito, aparentemente você não cumpriu com os requisitos da empresa, mas não desista de outras vagas!";
+               }
             }
             }
     }

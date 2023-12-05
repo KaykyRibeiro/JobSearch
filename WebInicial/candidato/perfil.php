@@ -191,7 +191,7 @@ try {
                                 </div>
                             </main>
                             <div class="edita-img" id="div-edit-img">
-                                <form class="form-upload" action="#" method="post" enctype="multipart/form-data">
+                                <form class="form-upload" action="" method="post" enctype="multipart/form-data">
                                     <div class="img-expo">
                                         <img class="img-previl" id="image" src="<?php echo $user['usu_imagem'] ?>" alt="">
                                         <input type="file" class="arquivo" id="inImg" name="arquivo" accept=".png, .jpg, .jpeg">

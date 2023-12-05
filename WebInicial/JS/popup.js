@@ -7,7 +7,6 @@ const alertAceito = document.querySelector('#alert-aceito')
 const alertRejeitado = document.querySelector('#alert-rejeitado')
 const finalizar = document.querySelector('#finaliza')
 
-
 openButton.addEventListener("click" , () => {
     openDiv();
 });
@@ -36,3 +35,6 @@ function rejeitadoAlert(){
     alertRejeitado.classList.add("ativa-popup")
     alertAceito.classList.remove("ativa-popup")
 }
+finalizar.addEventListener("click" , ()=>{
+    location.reload();
+})

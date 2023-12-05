@@ -176,3 +176,9 @@ span{
 .ativa-popup{
     display: block;
 }
+.situacao{
+    font-size: 30px;
+    background-color: whitesmoke;
+    text-align: center;
+    color: #8b80f9;
+}

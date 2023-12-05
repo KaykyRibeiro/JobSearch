@@ -108,7 +108,7 @@ $data = date("Y");
                                 <p class="txt">Email: <span class="idade"><?php echo $row_produto['usu_email']; ?></span></p>
                            <?php }
                            else if($row['can_status'] == "Rejeitado"){?>
-                            <p class="txt">Situação <span class="idade"><?php echo $idade = $data - $nascimento;?></span></p>
+                            <p class="txt">Situação: <span class="idade"> Rejeitado</span></p>
                            <?php }
                            else{ ?>
                             <p class="txt"><span class=""></span></p>
@@ -144,7 +144,7 @@ $data = date("Y");
                             <p><span>Habilidade: </span><?php echo $row_produto['usu_habilidade']; ?></p>
 
                         </div>
-                        <form class="form-final" action="#" method="post">
+                        <form class="form-final" action="" method="post">
                             
                             <div class="opcao">
                                 <input type="radio" class="radio" id="aceito" name="fav_languageA" value="CSS"><label>Liberar contato</label>
