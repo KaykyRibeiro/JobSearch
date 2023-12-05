@@ -71,6 +71,7 @@ try {
                     
                 </form>
                 <?php
+                if ($_GET['config'] == 'perfil') {
                             if($_POST){
                             $nome = $_POST['txtnome'];
                             $telefone = $_POST['txttelefone'];
@@ -81,11 +82,12 @@ try {
                             // $editar = "UPDATE usu_nome, usu_sobrenome, usu_telefone, usu_dataNasc, usu_sexo, usu_sobre FROM tbl_usuario WHERE usu_id = $id_user";
                             $sqlEditar = $conexao->prepare($editar);
                             $sqlEditar->execute();
+                            header('Location: perfil-empresa.php');
                         }catch(PDOException $e){
                             echo 'Erro ao Atualizar Informações ' . $e->getMessage();
                         }
                     }
-                        
+                }  
                     ?>
                 
                
@@ -117,6 +119,26 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
+                <?php
+                if ($_GET['config'] == 'conta') {
+                    if ($_POST) {
+                        $email = $_POST['txtemail'];
+                        $senha = $_POST['txtsenha'];
+                        $senha2 = $_POST['txtsenha2'];
+                        try {
+                            $editar = "UPDATE tbl_usuario
+                                SET usu_email = '$email',
+                                    usu_senha = '$senha'
+                                WHERE usu_id = '$id_user'";
+                            $sqlEditar = $conexao->prepare($editar);
+                            $sqlEditar->execute();
+                            header('Location: perfil.php');
+                        } catch (PDOException $e) {
+                            echo 'Erro ao Atualizar Informações ' . $e->getMessage();
+                        }
+                    }
+                }
+                ?>
             </div>
         </div>
 
@@ -190,62 +212,53 @@ try {
                         <input class="acessar" type="submit" value="Salvar">
                     </div>
                 </form>
-            </div>
-        </div>
-
-        <div class="bloco " id="divHabilidade">
-            <div class="caixa__login">
-                <h2>Editar habilidades</h2>
-
-                <form action="#" method="post" id="formes">
-                    <div class="coluna">
-                        <div class="caixa__login-input">
-                            <label class="hab">Habilidades</label>
-                            <div class="container">
-                                <div class="custom-select">
-                                    <div class="select-box">
-                                        <input type="text" class="tags_input" name="tags" hidden>
-                                        <div class="selected-options">
-                                        </div>
-                                        <div class="arrow">
-                                            <i class="fa fa-angle-down"></i>
-                                        </div>
-                                    </div>
-                                    <div class="options">
-                                        <div class="option-search-tags">
-                                            <input type="text" class="search-tags" placeholder="Seleciona habilidades...">
-                                            <button type="button" class="clear"><i class="fa fa-close"></i></button>
-                                        </div>
-                                        <div class="option all-tags" data-value="All">
-                                            Select All
-                                        </div>
-                                        <div class="option" data-value="adaptabilidade">Adaptabilidade</div>
-                                        <div class="option" data-value="alinhamento cultural">Alinhamento cultural</div>
-                                        <div class="option" data-value="aprendizado contínuo">Aprendizado contínuo</div>
-                                        <div class="option" data-value="autonomia">Autonomia</div>
-                                        <div class="option" data-value="criatividade">Criatividade</div>
-                                        <div class="option" data-value="comunicação">Comunicação</div>
-
-                                        <div class="option" data-value="flexibilidade">Flexibilidade</div>
-                                        <div class="option" data-value="inteligência emocional">Inteligência emocional</div>
-                                        <div class="option" data-value="liderança">Liderança</div>
-                                        <div class="option" data-value="pensamento crítico">Pensamento crítico</div>
-                                        <div class="option" data-value="perfil analítico">Perfil analítico</div>
-
-                                        <div class="option" data-value="relacionamento interpessoal">Relacionamento interpessoal</div>
-                                        <div class="option" data-value="resiliência">Resiliência</div>
-                                        <div class="option" data-value="liderança">Liderança</div>
-                                        <div class="option" data-value="visão estratégica">Visão estratégica</div>
-                                        <div class="option" data-value="visão do negócio">Visão do negócio</div>
-                                        <div class="no-result-message" style="display: none;" data-value="0">Não encontrado</div>
-                                    </div>
-                                    <span class="tag_error_msg error"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <input class="acessar" type="submit" value="Salvar">
-                    </div>
-                </form>
+                <?php
+                    if ($_GET['config'] == 'endereco') {
+                        if ($_POST) {
+                            $cep = $_POST['txtcep'];
+                            $rua = $_POST['txtlogradouro'];
+                            $complemento = $_POST['txtcomplemento'];
+                            $numRua = $_POST['numero'];
+                            $bairro = $_POST['txtbairro'];
+                            $estado = $_POST['estado'];
+                            $cidade = $_POST['txtcidade'];
+                            try {
+                            $queryCid = "SELECT * FROM tblcidade WHERE cidNome = :cidade";
+                            $sqlCid = $conexao->prepare($queryCid);
+                            $sqlCid->bindParam(':cidade', $cidade, PDO::PARAM_STR);
+                            $sqlCid->execute();
+                            $row_cid = $sqlCid->fetch(PDO::FETCH_ASSOC);
+                            if ($row_cid) {
+                                $codigoCidade = $row_cid['cidCodigo'];
+                                $queryUf = "SELECT * FROM tbluf WHERE sigla = :estado";
+                                $sqlUf = $conexao->prepare($queryUf);
+                                $sqlUf->bindParam(':estado', $estado, PDO::PARAM_STR);
+                                $sqlUf->execute();
+                                $row_estado = $sqlUf->fetch(PDO::FETCH_ASSOC);
+                                if ($row_estado) {
+                                    $ufCodigo = $row_estado['ufeCodigo'];
+                                    $editar = "UPDATE tbl_usuario
+                                        SET usu_cep = '$cep',
+                                            usu_logradouro = '$rua',
+                                            usu_complemento = '$complemento',
+                                            usu_cidCodigo = '$codigoCidade',
+                                            usu_ufeCodigo = '$ufCodigo',
+                                            usu_numRua = '$numRua',
+                                            usu_bairro = '$bairro'
+                                        WHERE usu_id = '$id_user'";
+                                    $sqlEditar = $conexao->prepare($editar);
+                                    $sqlEditar->execute();
+                                }
+                            } 
+                        } catch (PDOException $e) {
+                            echo 'Erro ao Atualizar Informações ' . $e->getMessage();
+                        }
+                        header('Location: perfil.php');
+                        }
+                    }
+                    
+                
+                ?>
             </div>
         </div>
     </main>

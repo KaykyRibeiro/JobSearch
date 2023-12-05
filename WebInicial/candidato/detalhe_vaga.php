@@ -7,6 +7,18 @@ if (!isset($_SESSION['user_id'])) {
 }
 $data = date("Y");
 
+$user_id = $_SESSION['user_id'];
+
+// Consulta SQL para obter informações do usuário
+$query = "SELECT * FROM tbl_usuario WHERE usu_id = :user_id";
+
+
+try {
+    $stmt = $conexao->prepare($query);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    while ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-bt">
@@ -48,7 +60,7 @@ $data = date("Y");
     <div class="main">
         <div class="vaga">
            <?php
-                try{
+                
                     $vag_id = $_GET['id'];
                     $vaga = "SELECT * FROM tbl_vagas WHERE vag_id = $vag_id";
                     $sqlVag = $conexao->prepare($vaga);
@@ -64,16 +76,25 @@ $data = date("Y");
                             <p><span>Salário: </span><?php echo "R$ " . $row_vag['vag_salario']; ?></p>
                             <p><span>Data de publicação: </span><?php echo $row_vag['vag_dataPub']; ?></p>
                         </div>
-                    <?php } 
-                }
-                catch(PDOException $e){
-                    echo 'Erro ao exibir as informações' . $e->getMessage();
-                }
-
-           ?>
+                    
         </div>
         <div class="candidatos">
             <h3>Situação</h3>
+            <?php
+            $id_user = $user['usu_id'];
+            $querySit = "SELECT can_status FROM tbl_candidatura WHERE can_usu_id = $id_user AND can_vagId = $vag_id";
+            $stmtSit = $conexao->prepare($querySit);
+            $stmtSit->execute();
+            while($rowSit = $stmtSit->fetch(PDO::FETCH_ASSOC)){
+                echo $rowSit['can_status'];
+            }
+            }
+    }
+    }
+catch (PDOException $e) {
+die("Erro ao recuperar informações do usuário: " . $e->getMessage());
+}
+            ?>
         </div>
     </div>
 

@@ -1,4 +1,4 @@
-﻿/*
+/*
 SQLyog Community v13.2.0 (64 bit)
 MySQL - 10.4.24-MariaDB : Database - jobsearch
 *********************************************************************
@@ -29,9 +29,14 @@ CREATE TABLE `tbl_candidatura` (
   PRIMARY KEY (`can_id`),
   KEY `can_vagId` (`can_vagId`),
   KEY `can_usu_id` (`can_usu_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_candidatura` */
+
+insert  into `tbl_candidatura`(`can_id`,`can_dataEnvio`,`can_status`,`can_vagId`,`can_usu_id`) values 
+(1,'2023-12-04 00:00:00','Em Analise',1,2),
+(2,'2023-12-04 00:00:00','Em Analise',7,2),
+(3,'2023-12-05 00:00:00','Aceito',8,2);
 
 /*Table structure for table `tbl_empresa` */
 
@@ -54,9 +59,12 @@ CREATE TABLE `tbl_empresa` (
   PRIMARY KEY (`emp_id`),
   KEY `emp_cidCodigo` (`emp_cidCodigo`),
   KEY `emp_ufeCodigo` (`emp_ufeCodigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_empresa` */
+
+insert  into `tbl_empresa`(`emp_id`,`emp_nome`,`emp_email`,`emp_senha`,`emp_cnpj`,`emp_telefone`,`emp_logradouro`,`emp_num`,`emp_complemento`,`emp_bairro`,`emp_cidCodigo`,`emp_ufeCodigo`,`emp_cep`) values 
+(1,'Tester','ramyreslopes2@hotmail.com','123456789','11.111.111/1111-11','(12) 98105-0623','Rua Luiz Gonçalo Miguel','123','casa','Cecap',5014,26,'12610390');
 
 /*Table structure for table `tbl_habilidade` */
 
@@ -104,16 +112,22 @@ CREATE TABLE `tbl_usuario` (
   `usu_complemento` varchar(10) NOT NULL,
   `usu_bairro` varchar(50) NOT NULL,
   `usu_cep` char(9) NOT NULL,
-  `usu_sobre` VARCHAR(500) NOT NULL ,
-  `usu_habilidade` VARCHAR(500) NOT NULL,
+  `usu_sobre` varchar(500) NOT NULL,
+  `usu_habilidade` varchar(500) NOT NULL,
   `usu_cidCodigo` int(11) NOT NULL,
   `usu_ufeCodigo` int(11) NOT NULL,
+  `usu_imagem` varchar(50) DEFAULT '../imagens/group-svgrepo-com.svg',
   PRIMARY KEY (`usu_id`),
   KEY `usu_cidCodigo` (`usu_cidCodigo`),
   KEY `usu_ufeCodigo` (`usu_ufeCodigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_usuario` */
+
+insert  into `tbl_usuario`(`usu_id`,`usu_nome`,`usu_sobrenome`,`usu_sexo`,`usu_email`,`usu_senha`,`usu_telefone`,`usu_cpf`,`usu_dataNasc`,`usu_logradouro`,`usu_numRua`,`usu_complemento`,`usu_bairro`,`usu_cep`,`usu_sobre`,`usu_habilidade`,`usu_cidCodigo`,`usu_ufeCodigo`,`usu_imagem`) values 
+(1,'Ramyres','da Silva','M','ramyreslopes2@hotmail.com','123456789','(12) 98105-0623','111.111.111-11','2006-01-18','Rua Luiz Gonçalo Miguel',123,'casa','Cecap','12610390','Sou Bom Jogador de Lol','adaptabilidade, alinhamento cultural, aprendizado contínuo, autonomia, criatividade, comunicação, flexibilidade, inteligência emocional, liderança, pensamento crítico, perfil analítico, relacionamento interpessoal, resiliência, liderança, visão estratégica, visão do negócio',5014,26,'../imagens/group-svgrepo-com.svg'),
+(2,'Deivid','Santos','M','deivid123@gmail.com','123456789','(12) 98105-0623','187.249.065-23','2006-06-13','Rua Ivone Rodrigues',123,'casa','Jardim Cidade Nova','12525264','Jogador de Lol','adaptabilidade, alinhamento cultural, aprendizado contínuo, autonomia, criatividade, comunicação, flexibilidade, inteligência emocional, liderança, pensamento crítico, perfil analítico, relacionamento interpessoal, resiliência, liderança, visão estratégica, visão do negócio',5163,26,'../img-perfil/image.png'),
+(3,'','','','','','','','0000-00-00','',0,'','','','','',0,0,'../img-perfil/image.png');
 
 /*Table structure for table `tbl_vagas` */
 
@@ -126,13 +140,24 @@ CREATE TABLE `tbl_vagas` (
   `vag_local` varchar(30) NOT NULL,
   `vag_salario` decimal(7,2) NOT NULL,
   `vag_requisitos` varchar(50) NOT NULL,
-  `vag_dataPub` datetime NOT NULL,
-  `vag_dataExp` datetime NOT NULL,
+  `vag_dataPub` date NOT NULL,
   `vag_emp_id` int(11) NOT NULL,
+  `vag_modo` varchar(45) NOT NULL,
+  `vag_reqdesejaveis` varchar(45) NOT NULL,
   PRIMARY KEY (`vag_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tbl_vagas` */
+
+insert  into `tbl_vagas`(`vag_id`,`vag_titulo`,`vag_descricao`,`vag_local`,`vag_salario`,`vag_requisitos`,`vag_dataPub`,`vag_emp_id`,`vag_modo`,`vag_reqdesejaveis`) values 
+(1,'Lol','Jogador de Lol','Lorena - SP',1500.00,'Saber Jogar','2023-11-29',1,'Remoto','Ser Bom'),
+(2,'Lol','sla','Lorena - SP',1500.00,'sla','2023-12-01',1,'Remoto','sla'),
+(3,'sla','sla','Lorena - SP',1500.00,'sla','2023-12-01',1,'Remoto','sla'),
+(4,'Mine','Mine','Lorena - SP',1500.00,'Mione','2023-12-01',1,'Presencial','Mine'),
+(5,'Teste','teste','Lorena - SP',1500.00,'teste','2023-12-01',1,'Presencial','teste'),
+(6,'Teste','teste','Lorena - SP',1500.00,'teste','2023-11-30',1,'Presencial','teste'),
+(7,'Levantador','Levanta muro','Lorena - SP',2.00,'Saber levantar muro','2023-12-04',1,'Remoto','Saber levantar muro de ponta cabeça'),
+(8,'Punhetador profissional','Realizar Punhetinha Caprichada','Lorena - SP',1500.00,'Tem que ser o Melhor do Mundo','2023-12-05',1,'Presencial','Nenhu,');
 
 /*Table structure for table `tblcidade` */
 
