@@ -22,6 +22,7 @@ try {
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     while ($user = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $id_user = $user['emp_id'];
         $cidCodigo = $user['emp_cidCodigo'];
         $cid = "SELECT * FROM tblcidade WHERE cidCodigo = $cidCodigo";
         $sqlCid = $conexao->prepare($cid);
@@ -106,7 +107,7 @@ try {
                         </div>
                     </main>
                     <div class="edita-img" id="div-edit-img">
-                        <form class="form-upload" action="" enctype="multipart/form-data">
+                        <form class="form-upload" action="" method="post" enctype="multipart/form-data">
                             <div class="img-expo">
                                 <img class="img-previl" id="image" src="<?php echo $user['emp_imagem']; ?>" alt="">
                                 <input type="file" class="arquivo" id="inImg" name="arquivo" accept=".png, .jpg, .jpeg">
@@ -141,8 +142,7 @@ if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
             img.src = URL.createObjectURL(e.target.files[0])
         })
     </script>
-                </body>
-                <script src="../JS/jspadrao.js"></script>
-                <script src="../JS/perfil-empresa.js"></script>
+</body>
+<script src="../JS/perfil-empresa.js"></script>
 
-                </html>
+</html>

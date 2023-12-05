@@ -17,7 +17,6 @@ $user_id = $_SESSION['user_id'];
 // Consulta SQL para obter informações do usuário
 $query = "SELECT * FROM tbl_usuario WHERE usu_id = :user_id";
 
-
 try {
     $stmt = $conexao->prepare($query);
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
@@ -34,181 +33,176 @@ try {
             $sqluf = $conexao->prepare($uf);
             $sqluf->execute();
             while ($row_uf = $sqluf->fetch(PDO::FETCH_ASSOC)) {
-                
 
 
 
-                        ?>
 
-                        <!DOCTYPE html>
-                        <html lang="pt-bt">
+?>
 
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <link rel="stylesheet" href="../Estilos/perfil.css">
-                            <link rel="stylesheet" href="../Estilos/estilo3_h.css">
-                            <link rel="stylesheet" href="../Estilos/estilopadrao.css">
+                <!DOCTYPE html>
+                <html lang="pt-bt">
 
-                            <title>JobSearch</title>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="../Estilos/perfil.css">
+                    <link rel="stylesheet" href="../Estilos/estilo3_h.css">
+                    <link rel="stylesheet" href="../Estilos/estilopadrao.css">
 
-                        </head>
+                    <title>JobSearch</title>
 
-                        <body>
-                            <nav>
-                                <a class="select" id="logo" href="home.php"><img class="logo" src="../imagens/logo.png" alt=""></a>
-                                <a class="select" id="home" href="home.php"><img class="imgHome" src="../imagens/home-page-svgrepo-com.svg"
-                                        alt=""></a>
-                                <a class="select" href="area_candidato.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg"
-                                        alt="" /></a>
-                                        <div class="alert">
-                <button id="notificacao" class="select">
-                    <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
-                </button>
-                <div class="notifica" id="divNotif">
-                <?php
-                $id_user = $user['usu_id'];
-                $queryCan = "SELECT * FROM tbl_candidatura WHERE can_status = 'Aceito' AND can_usu_id = '$id_user'";
-                $stmtCan = $conexao->prepare($queryCan);
-                $stmtCan->execute();
-                while ($row_can = $stmtCan->fetch(PDO::FETCH_ASSOC)) {
-                    $idVag = $row_can['can_vagId'];
-                    $queryVag = "SELECT * FROM tbl_vagas WHERE vag_id = $idVag";
-                    $stmtVag = $conexao->prepare($queryVag);
-                    $stmtVag->execute();
-                    while ($rowVag = $stmtVag->fetch(PDO::FETCH_ASSOC)) {
-                        $emp_id = $rowVag['vag_emp_id'];
-                        $queryEmp = "SELECT * FROM tbl_empresa WHERE emp_id = $emp_id";
-                        $stmtEmp = $conexao->prepare($queryEmp);
-                        $stmtEmp->execute();
-                        while ($rowEmp = $stmtEmp->fetch(PDO::FETCH_ASSOC)) {
-                            ?>
-                                <div class="notif-bloco">
-                                    <p>Você foi <span class="status"><?php echo $row_can['can_status']; ?></span> na vaga <span class="title"><?php echo $rowVag['vag_titulo']; ?></span> da empresa <span class="emp"><?php echo $rowEmp['emp_nome']; ?></span></p>
-                                </div>
-                <?php
-                        }
-                    }
-                }
-                ?>
-                </div>
-            </div>
-                                <a class="selecionado" href="perfil.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
-                                <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg"
-                                        alt=""></a>
-                            </nav>
+                </head>
 
-                            <main>
-                                <h2>Perfil de
-                                    <?php echo $user['usu_nome']; ?>
-                                </h2>
-                                <div class="bloco">
-                                    <div class="coluna-img">
-                                        <div class="perfil">
-                                            <img class="foto" src="<?php echo $user['usu_imagem']; ?>" alt="">
-                                            <button class="btn-editi" id="btn-editi-img">Alterar imagem</button>
-                                        </div>
-                                        <div class="option-config">
-                                            <button class="btn-option btn-ativo" id="btn-1">Perfil</button>
-                                            <button class="btn-option" id="btn-2">Conta</button>
-                                            <button class="btn-option" id="btn-3">Endereço</button>
-                                            <button class="btn-option" id="btn-4">Habilidades</button>
-                                        </div>
-                                    </div>
-                                    <div class="separa ativo" id="div-1">
-                                        <div class="coluna-info ">
-                                            <p><span>NOME: </span>
-                                                <?php echo $user['usu_nome']; ?>
-                                            </p>
-                                            <p><span>SOBRENOME: </span>
-                                                <?php echo $user['usu_sobrenome']; ?>
-                                            </p>
-                                            <p><span>TELEFONE: </span>
-                                                <?php echo $user['usu_telefone']; ?>
-                                            </p>
-                                            <p><span>DATA DE NASCIMENTO: </span>
-                                                <?php echo $user['usu_dataNasc']; ?>
-                                            </p>
-                                            <p><span>SEXO: </span>
-                                                <?php if ($user['usu_sexo'] == 'F') {
-                                                    echo 'Feminino';
-                                                } else {
-                                                    echo 'Masculino';
-                                                }
-                                                ?>
-                                            </p>
-                                            <p><span>SOBRE: </span>
-                                                <?php echo $user['usu_sobre']; ?>
-                                            </p>
-                                        </div>
-                                        <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=perfil">Editar</a>
-                                    </div>
-                                    <div class="separa" id="div-2">
-                                        <div class="coluna-info">
-                                            <p><span>E-MAIL: </span>
-                                                <?php echo $user['usu_email']; ?>
-                                            </p>
-                                            <p><span>Senha: </span></p>
-                                        </div>
-                                        <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=conta">Editar</a>
-                                    </div>
-                                    <div class="separa" id="div-3">
-                                        <div class="coluna-info">
-                                            <p><span>COMPLEMENTO: </span>
-                                                <?php echo $user['usu_complemento']; ?>
-                                            </p>
-                                            <p><span>CEP: </span>
-                                                <?php echo $user['usu_cep']; ?>
-                                            </p>
-                                            <p><span>RUA: </span>
-                                                <?php echo $user['usu_logradouro']; ?>
-                                            </p>
-                                            <p><span>NÚMERO: </span>
-                                                <?php echo $user['usu_numRua']; ?>
-                                            </p>
-                                            <p><span>BAIRRO: </span>
-                                                <?php echo $user['usu_bairro']; ?>
-                                            </p>
-                                            <p><span>CIDADE: </span>
-                                                <?php echo $row_cid['cidNome']; ?>
-                                            </p>
-                                            <p><span>ESTADO: </span>
-                                                <?php echo $row_uf['ufeNome']; ?>
-                                            </p>
-
-                                        </div>
-                                        <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=endereco">Editar</a>
-                                    </div>
-                                    <div class="separa" id="div-4">
-                                        <div class="coluna-info">
-                                            <p><span>HABILIDADES: </span>
-                                                <?php echo $user['usu_habilidade']; ?>
-                                            </p>
-                                        </div>
-                                        <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=habilidade">Editar</a>
-                                    </div>
-                                </div>
-                            </main>
-                            <div class="edita-img" id="div-edit-img">
-                                <form class="form-upload" action="" method="post" enctype="multipart/form-data">
-                                    <div class="img-expo">
-                                        <img class="img-previl" id="image" src="<?php echo $user['usu_imagem'] ?>" alt="">
-                                        <input type="file" class="arquivo" id="inImg" name="arquivo" accept=".png, .jpg, .jpeg">
-                                    </div>
-                                    <div class="buttons">
-                                        <button class="btn-salvar" id="btn-salvar">Salvar</button>
-                                        <a class="btn-cancelar" id="btn-cancelar">Cancelar</a>
-                                    </div>
-                                </form>
+                <body>
+                    <nav>
+                        <a class="select" id="logo" href="home.php"><img class="logo" src="../imagens/logo.png" alt=""></a>
+                        <a class="select" id="home" href="home.php"><img class="imgHome" src="../imagens/home-page-svgrepo-com.svg" alt=""></a>
+                        <a class="select" href="area_candidato.php"><img class="icon" src="../imagens/notebook-svgrepo-com.svg" alt="" /></a>
+                        <div class="alert">
+                            <button id="notificacao" class="select">
+                                <img class="icon-notif" src="../imagens/remind-svgrepo-com.svg" alt="">
+                            </button>
+                            <div class="notifica" id="divNotif">
+                                <?php
+                                $id_user = $user['usu_id'];
+                                $queryCan = "SELECT * FROM tbl_candidatura WHERE can_status = 'Aceito' AND can_usu_id = '$id_user'";
+                                $stmtCan = $conexao->prepare($queryCan);
+                                $stmtCan->execute();
+                                while ($row_can = $stmtCan->fetch(PDO::FETCH_ASSOC)) {
+                                    $idVag = $row_can['can_vagId'];
+                                    $queryVag = "SELECT * FROM tbl_vagas WHERE vag_id = $idVag";
+                                    $stmtVag = $conexao->prepare($queryVag);
+                                    $stmtVag->execute();
+                                    while ($rowVag = $stmtVag->fetch(PDO::FETCH_ASSOC)) {
+                                        $emp_id = $rowVag['vag_emp_id'];
+                                        $queryEmp = "SELECT * FROM tbl_empresa WHERE emp_id = $emp_id";
+                                        $stmtEmp = $conexao->prepare($queryEmp);
+                                        $stmtEmp->execute();
+                                        while ($rowEmp = $stmtEmp->fetch(PDO::FETCH_ASSOC)) {
+                                ?>
+                                            <div class="notif-bloco">
+                                                <p>Você foi <span class="status"><?php echo $row_can['can_status']; ?></span> na vaga <span class="title"><?php echo $rowVag['vag_titulo']; ?></span> da empresa <span class="emp"><?php echo $rowEmp['emp_nome']; ?></span></p>
+                                            </div>
+                                <?php
+                                        }
+                                    }
+                                }
+                                ?>
                             </div>
-                            <?php
-                    }
-                }
+                        </div>
+                        <a class="selecionado" href="perfil.php"><img class="icon" src="../imagens/group-svgrepo-com.svg" alt=""></a>
+                        <a class="select" id="config" href="logout.php"><img class="icon" src="../imagens/quit-svgrepo-com.svg" alt=""></a>
+                    </nav>
+
+                    <main>
+                        <h2>Perfil de
+                            <?php echo $user['usu_nome']; ?>
+                        </h2>
+                        <div class="bloco">
+                            <div class="coluna-img">
+                                <div class="perfil">
+                                    <img class="foto" src="<?php echo $user['usu_imagem']; ?>" alt="">
+                                    <button class="btn-editi" id="btn-editi-img">Alterar imagem</button>
+                                </div>
+                                <div class="option-config">
+                                    <button class="btn-option btn-ativo" id="btn-1">Perfil</button>
+                                    <button class="btn-option" id="btn-2">Conta</button>
+                                    <button class="btn-option" id="btn-3">Endereço</button>
+                                    <button class="btn-option" id="btn-4">Habilidades</button>
+                                </div>
+                            </div>
+                            <div class="separa ativo" id="div-1">
+                                <div class="coluna-info ">
+                                    <p><span>NOME: </span>
+                                        <?php echo $user['usu_nome']; ?>
+                                    </p>
+                                    <p><span>SOBRENOME: </span>
+                                        <?php echo $user['usu_sobrenome']; ?>
+                                    </p>
+                                    <p><span>TELEFONE: </span>
+                                        <?php echo $user['usu_telefone']; ?>
+                                    </p>
+                                    <p><span>DATA DE NASCIMENTO: </span>
+                                        <?php echo $user['usu_dataNasc']; ?>
+                                    </p>
+                                    <p><span>SEXO: </span>
+                                        <?php if ($user['usu_sexo'] == 'F') {
+                                            echo 'Feminino';
+                                        } else {
+                                            echo 'Masculino';
+                                        }
+                                        ?>
+                                    </p>
+                                    <p><span>SOBRE: </span>
+                                        <?php echo $user['usu_sobre']; ?>
+                                    </p>
+                                </div>
+                                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=perfil">Editar</a>
+                            </div>
+                            <div class="separa" id="div-2">
+                                <div class="coluna-info">
+                                    <p><span>E-MAIL: </span>
+                                        <?php echo $user['usu_email']; ?>
+                                    </p>
+                                    <p><span>Senha: </span></p>
+                                </div>
+                                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=conta">Editar</a>
+                            </div>
+                            <div class="separa" id="div-3">
+                                <div class="coluna-info">
+                                    <p><span>COMPLEMENTO: </span>
+                                        <?php echo $user['usu_complemento']; ?>
+                                    </p>
+                                    <p><span>CEP: </span>
+                                        <?php echo $user['usu_cep']; ?>
+                                    </p>
+                                    <p><span>RUA: </span>
+                                        <?php echo $user['usu_logradouro']; ?>
+                                    </p>
+                                    <p><span>NÚMERO: </span>
+                                        <?php echo $user['usu_numRua']; ?>
+                                    </p>
+                                    <p><span>BAIRRO: </span>
+                                        <?php echo $user['usu_bairro']; ?>
+                                    </p>
+                                    <p><span>CIDADE: </span>
+                                        <?php echo $row_cid['cidNome']; ?>
+                                    </p>
+                                    <p><span>ESTADO: </span>
+                                        <?php echo $row_uf['ufeNome']; ?>
+                                    </p>
+
+                                </div>
+                                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=endereco">Editar</a>
+                            </div>
+                            <div class="separa" id="div-4">
+                                <div class="coluna-info">
+                                    <p><span>HABILIDADES: </span>
+                                        <?php echo $user['usu_habilidade']; ?>
+                                    </p>
+                                </div>
+                                <a class="btn-editar" id="bnt-editar" href="perfil-config.php?config=habilidade">Editar</a>
+                            </div>
+                        </div>
+                    </main>
+                    <div class="edita-img" id="div-edit-img">
+                        <form class="form-upload" action="" method="post" enctype="multipart/form-data">
+                            <div class="img-expo">
+                                <img class="img-previl" id="image" src="<?php echo $user['usu_imagem'] ?>" alt="">
+                                <input type="file" class="arquivo" id="inImg" name="arquivo" accept=".png, .jpg, .jpeg">
+                            </div>
+                            <div class="buttons">
+                                <button class="btn-salvar" id="btn-salvar">Salvar</button>
+                                <a class="btn-cancelar" id="btn-cancelar">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+    <?php
             }
         }
-    
- catch (PDOException $e) {
+    }
+} catch (PDOException $e) {
     die("Erro ao recuperar informações do usuário: " . $e->getMessage());
 }
 // if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
@@ -223,7 +217,7 @@ if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
     $resultImg = $conexao->prepare($queryImg);
     $resultImg->execute();
 }
-?>
+    ?>
     <script>
         var file = document.getElementById("inImg")
         var img = document.getElementById("image")
@@ -231,8 +225,8 @@ if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo'])) {
             img.src = URL.createObjectURL(e.target.files[0])
         })
     </script>
-</body>
-<script src="../JS/jspadrao.js"></script>
-<script src="../JS/perfil.js"></script>
+                </body>
+                <script src="../JS/jspadrao.js"></script>
+                <script src="../JS/perfil.js"></script>
 
-</html>
+                </html>
