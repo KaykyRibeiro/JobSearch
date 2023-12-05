@@ -77,12 +77,12 @@ $data = date("Y");
             <?php
                     try {
                         $vag_id = $_GET['id'];
-                        $vag = "SELECT can_usu_id FROM tbl_candidatura WHERE can_vagId = $vag_id";
+                        $vag = "SELECT * FROM tbl_candidatura WHERE can_vagId = $vag_id";
                         $sql = $conexao->prepare($vag);
                         $sql->execute();
                         if($row = $sql->fetch(PDO::FETCH_ASSOC)){
                             $usuario = $row['can_usu_id'];
-                            $query = "SELECT usu_nome, YEAR(usu_dataNasc),usu_cpf, usu_sobrenome FROM tbl_usuario WHERE usu_id = $usuario";
+                            $query = "SELECT usu_id ,usu_nome, YEAR(usu_dataNasc),usu_cpf, usu_sobrenome, usu_email,usu_imagem , usu_sobre,usu_habilidade FROM tbl_usuario WHERE usu_id = $usuario";
                             $stmt = $conexao->prepare($query);
                             // Execute a consulta com a condição apropriada
                             $stmt->execute();
@@ -91,17 +91,29 @@ $data = date("Y");
                            
                             if( $row_produto = $stmt->fetch(PDO::FETCH_ASSOC)){
                                $nascimento = $row_produto["YEAR(usu_dataNasc)"];
+                               $id_user = $row_produto['usu_id'];
                             ?>
 
             <div class="bloco">
                 <div class="candidato" id="candidato">
                     <div>
-                        <img src="../imagens/logo.png" alt="" class="foto_perfil">
+                        <img src="<?php echo $row_produto['usu_imagem']; ?>" alt="" class="foto_perfil">
                     </div>
                     <div class="a">
                         <p class="txt">NOME: <span class="nome"><?php echo $row_produto['usu_nome'] . " " . $row_produto['usu_sobrenome']?></span></p>
                         <p class="txt">IDADE: <span class="idade"><?php echo $idade = $data - $nascimento;?></span></p>
-                        
+                        <?php
+                            if($row['can_status'] == "Aceito"){
+                                ?>
+                                <p class="txt">Email: <span class="idade"><?php echo $row_produto['usu_email']; ?></span></p>
+                           <?php }
+                           else if($row['can_status'] == "Rejeitado"){?>
+                            <p class="txt">Situação <span class="idade"><?php echo $idade = $data - $nascimento;?></span></p>
+                           <?php }
+                           else{ ?>
+                            <p class="txt"><span class=""></span></p>
+                           <?php }
+                        ?>
                         
                     </div>
 
@@ -113,34 +125,30 @@ $data = date("Y");
                 </div>
             </div>
             <?php
-                        }
-                    }
-                        } catch (PDOException $e) {
-                            echo "Erro ao recuperar o usuId: " . $e->getMessage();
-                        }?>
+                       ?>
 
                 <div class="painel-popup" id="div-popup">
                         <button class="close" id="close">
                             <img  class="img-close" src="../imagens/closure-svgrepo-com.svg" alt="">
                         </button>
                         <div class="profile">
-                            <img class="foto-perfil" src="../imagens/group-svgrepo-com.svg" alt="">
+                            <img class="foto-perfil" src="<?php echo $row_produto['usu_imagem']; ?>" alt="">
                         </div>
-                        <h2><?php echo $row_vag['vag_titulo']; ?></h2>
+                        <h2><?php echo $row_produto['usu_nome'] ?></h2>
                         <div class="informacao">
                             
-                            <p><span>Idade: </span><?php echo $row_vag['vag_descricao']; ?></p>
+                            <p><span>Idade: </span><?php echo $idade = $data - $nascimento; ?></p>
                             <br>
-                            <p><span>Sobre: </span><?php echo $row_vag['vag_modo']; ?></p>
+                            <p><span>Sobre: </span><?php echo $row_produto['usu_sobre']; ?></p>
                             <br>
-                            <p><span>Habilidade: </span><?php echo $row_vag['vag_requisitos']; ?></p>
+                            <p><span>Habilidade: </span><?php echo $row_produto['usu_habilidade']; ?></p>
 
                         </div>
-                        <form class="form-final" action="valida_escolha.php">
+                        <form class="form-final" action="#" method="post">
                             
                             <div class="opcao">
-                                <input type="radio" class="radio" id="aceito" name="fav_language" value="CSS"><label>Liberar contato</label>
-                                <input type="radio" class="radio" id="rejeitado" name="fav_language" value="CSS"><label>Rejeitar Candidato</label>
+                                <input type="radio" class="radio" id="aceito" name="fav_languageA" value="CSS"><label>Liberar contato</label>
+                                <input type="radio" class="radio" id="rejeitado" name="fav_languageR" value="CSS"><label>Rejeitar Candidato</label>
                             </div>
                             <div class="info-aceito alerta" id="alert-aceito">
                                 <p>Ao selecionar está opção você ira librar o e-mail de contato do candidato e juntamente irá informar o candidato de sua escolha.</p>
@@ -148,8 +156,46 @@ $data = date("Y");
                             <div class="info-rejeitado alerta" id="alert-rejeitado">
                                 <p>Ao selecionar está opção você irá reseitar o candidato, ele não receberá notificação</p>
                             </div>
-                           <input class="finalizar" id="finaliza" type="button" value="Finalizar">
+                           <input class="finalizar" id="finaliza" type="submit" value="Finalizar">
                         </form>
+                       <?php
+                       if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        if(isset($_POST['fav_languageA'])){
+                            $update = "UPDATE tbl_candidatura
+                                       SET can_status = 'Aceito'
+                                       WHERE can_usu_id = $id_user AND can_vagId = $vag_id";
+                            $stmtUpdate = $conexao->prepare($update);
+                            $stmtUpdate->execute();
+                        }
+                        else {
+                            $update = "UPDATE tbl_candidatura
+                                       SET can_status = 'Rejeitado'
+                                       WHERE can_usu_id = $id_user AND can_vagId = $vag_id";
+                            $stmtUpdate = $conexao->prepare($update);
+                            $stmtUpdate->execute();
+                        }
+                    }
+                    //    $id_user = $row_produto['usu_id'];
+                    //     if($_POST['fav_language'] == 'aceito'){
+                    //         $update = "UPDATE tbl_candidatura
+                    //                    SET can_status = 'Aceito'
+                    //                    WHERE can_usu_id = '$id_user'";
+                    //         $stmtUpdate = $conexao->prepare($update);
+                    //         $stmtUpdate->execute();
+                    //     }
+                    //     else {
+                    //         $update = "UPDATE tbl_candidatura
+                    //                    SET can_status = 'Rejeitado'
+                    //                    WHERE can_usu_id = '$id_user'";
+                    //                    $stmtUpdate = $conexao->prepare($update);
+                    //                    $stmtUpdate->execute();
+                    //     }
+                    // }
+                }
+                    }
+                } catch (PDOException $e) {
+                        echo "Erro ao recuperar o usuId: " . $e->getMessage();
+                    }?>
                        
                         
                 </div>
