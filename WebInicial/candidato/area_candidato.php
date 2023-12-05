@@ -92,11 +92,11 @@ try {
                         $stmtEmp = $conexao->prepare($queryEmp);
                         $stmtEmp->execute();
                         while ($rowEmp = $stmtEmp->fetch(PDO::FETCH_ASSOC)) {
-                            echo $rowVag['vag_titulo'];
-                            echo '<br>';
-                            echo $rowEmp['emp_nome'];
-                            echo '<br>';
-                            echo $row_can['can_status'];
+                            ?>
+                                <div class="notif-bloco">
+                                    <p>Você foi <span class="status"><?php echo $row_can['can_status']; ?></span> na vaga <span class="title"><?php echo $rowVag['vag_titulo']; ?></span> da empresa <span class="emp"><?php echo $rowEmp['emp_nome']; ?></span></p>
+                                </div>
+                <?php
                         }
                     }
                 }
